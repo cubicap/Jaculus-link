@@ -10,6 +10,8 @@ class InputStream {
 public:
     virtual int get() = 0;
     virtual size_t read(std::span<uint8_t> data) = 0;
+
+    virtual ~InputStream() = default;
 };
 
 class OutputStream {
@@ -18,6 +20,8 @@ public:
     virtual size_t write(std::span<const uint8_t> data) = 0;
 
     virtual bool flush() = 0;
+
+    virtual ~OutputStream() = default;
 };
 
 class Duplex : public InputStream, public OutputStream {};
