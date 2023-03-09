@@ -10,9 +10,7 @@
 
 
 TEST_CASE("Serialize", "[cobs]") {
-    auto serializer = CobsSerializer();
-
-    const auto capacity = serializer.capacity();
+    const auto capacity = CobsSerializer::capacity();
 
     using sgn = typename std::tuple<std::string, uint8_t, std::vector<uint8_t>, int, std::vector<uint8_t>>;
     auto [comment, channel, original, numTrue, encoded] = GENERATE_COPY(
@@ -28,28 +26,27 @@ TEST_CASE("Serialize", "[cobs]") {
     );
 
     DYNAMIC_SECTION(comment) {
-        serializer.reset();
-        REQUIRE(serializer.is_empty());
+        auto frame = CobsSerializer::buildDataFrame();
+
         size_t i = 0;
         for (; i < original.size() - numTrue; i++) {
-            REQUIRE_FALSE(serializer.put(original[i]));
+            REQUIRE_FALSE(frame.put(original[i]));
         }
         for (; i < original.size(); i++) {
-            REQUIRE(serializer.put(original[i]));
+            REQUIRE(frame.put(original[i]));
         }
 
-        REQUIRE(serializer.size() == std::min(original.size(), serializer.capacity()));
-        auto packet = serializer.finalize(channel);
+        REQUIRE(frame.size() == std::min(original.size(), CobsSerializer::capacity()));
+        auto packet = frame.finalize(channel);
         CAPTURE(packet);
         EQUAL_ITERABLE(packet, encoded);
-        REQUIRE(serializer.is_empty());
     }
 }
 
 TEST_CASE("Packetizer", "[cobs]") {
     auto packetizer = CobsPacketizer();
 
-    const auto capacity = CobsSerializer().capacity();
+    const auto capacity = CobsSerializer::capacity();
 
     using sgn = typename std::tuple<std::string, uint8_t, std::vector<uint8_t>, std::vector<uint8_t>>;
     auto [comment, channel, original, encoded] = GENERATE_COPY(
@@ -85,10 +82,9 @@ TEST_CASE("Packetizer", "[cobs]") {
 
 TEST_CASE("Serialize-packetize", "[cobs]") {
 
-    auto serializer = CobsSerializer();
     auto packetizer = CobsPacketizer();
 
-    const auto capacity = serializer.capacity();
+    const auto capacity = CobsSerializer::capacity();
 
     using sgn = typename std::tuple<std::string, uint8_t, std::vector<uint8_t>>;
     auto [comment, channel, original] = GENERATE_COPY(
@@ -104,8 +100,9 @@ TEST_CASE("Serialize-packetize", "[cobs]") {
 
     DYNAMIC_SECTION(comment) {
         auto origSpan = std::span<const uint8_t>(original.begin(), original.end());
-        REQUIRE(serializer.put(origSpan) == origSpan.end());
-        auto data = serializer.finalize(channel);
+        auto frame = CobsSerializer::buildDataFrame();
+        REQUIRE(frame.put(origSpan) == origSpan.end());
+        auto data = frame.finalize(channel);
         // REQUIRE(packetizer.put(data) == data.end());
         for (size_t i = 0; (i + 1) < data.size(); i++) {
             REQUIRE(packetizer.put(data[i]) == 0);
@@ -124,18 +121,19 @@ TEST_CASE("Serialize-packetize", "[cobs]") {
 }
 
 TEST_CASE("Overflow serializer", "[cobs]") {
-    auto serializer = CobsSerializer();
     auto packetizer = CobsPacketizer();
 
-    const auto capacity = serializer.capacity();
+    const auto capacity = CobsSerializer::capacity();
     const uint8_t channel = 0;
+
+    auto frame = CobsSerializer::buildDataFrame();
 
     auto original = rangeVector<uint8_t>(0, capacity + 1);
 
     auto origSpan = std::span<const uint8_t>(original.begin(), original.end());
-    auto putEnd = serializer.put(origSpan);
+    auto putEnd = frame.put(origSpan);
     REQUIRE(putEnd == origSpan.begin() + capacity);
-    auto data = serializer.finalize(channel);
+    auto data = frame.finalize(channel);
     // REQUIRE(packetizer.put(data) == data.end());
     for (size_t i = 0; (i + 1) < data.size(); i++) {
         REQUIRE(packetizer.put(data[i]) == 0);

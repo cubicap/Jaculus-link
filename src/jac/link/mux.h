@@ -22,11 +22,10 @@ public:
         PACKETIZER = 2
     };
 private:
-    ChannelReceiver *_receiver = nullptr;
+    ChannelReceiver* _receiver = nullptr;
     std::unique_ptr<Stream> _stream;
 
     Packetizer _packetizer;
-    Serializer _serializer;
 
     std::mutex _writeMutex;
 
@@ -35,36 +34,40 @@ public:
     class MuxPacket : public Packet {
         Mux& _mux;
         uint8_t _channel;
-        std::unique_lock<std::mutex> _lock;
+        Serializer::DataFrame _frame;
+        bool sent = false;
     public:
-        MuxPacket(Mux& mux, uint8_t channel) : _mux(mux), _channel(channel), _lock(mux._writeMutex) {}
+        MuxPacket(Mux& mux, uint8_t channel) : _mux(mux), _channel(channel), _frame(Serializer::buildDataFrame()) {}
 
         bool put(uint8_t c) override {
-            if (!_lock.owns_lock()) {
+            if (sent) {
                 throw std::runtime_error("Packet already sent");
             }
 
-            return _mux._serializer.put(c);
+            return _frame.put(c);
         }
 
         size_t put(std::span<const uint8_t> data) override {
-            if (!_lock.owns_lock()) {
+            if (sent) {
                 throw std::runtime_error("Packet already sent");
             }
 
-            auto it = _mux._serializer.put(data);
+            auto it = _frame.put(data);
             return it - data.begin();
         }
 
         size_t space() const override {
-            return _mux._serializer.capacity() - _mux._serializer.size();
+            return Serializer::capacity() - _frame.size();
         }
 
         bool send() override {
-            auto data = _mux._serializer.finalize(_channel);
-            bool success = _mux._stream->write(data) == data.size();
-            _lock.unlock();
-            return success;
+            if (sent) {
+                throw std::runtime_error("Packet already sent");
+            }
+            auto data = _frame.finalize(_channel);
+
+            std::lock_guard<std::mutex> lock(_mux._writeMutex);
+            return _mux._stream->write(data) == data.size();
         }
     };
 
@@ -89,14 +92,14 @@ public:
                     }
                 }
                 else {
-                    // XXX: handle invalid packet
+                    // handle invalid packet
                     if (_errorHandler) {
                         _errorHandler(Error::INVALID_RECEIVE, { putRes, result.channel });
                     }
                 }
             }
             else if (putRes < 0) {
-                // XXX: handle cleared buffer
+                // handle cleared buffer
                 if (_errorHandler) {
                     _errorHandler(Error::PACKETIZER, { putRes });
                 }
@@ -109,7 +112,7 @@ public:
     }
 
     size_t maxPacketSize() const override {
-        return _serializer.capacity();
+        return Serializer::capacity();
     }
 
     void setErrorHandler(std::function<void(Error, std::vector<int>)> handler) {
