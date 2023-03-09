@@ -9,12 +9,32 @@
 
 #include "util.h"
 
-class BufferRx : public ChannelReceiver {
+class BufferRx {
+    class Handle : public ChannelReceiver {
+        BufferRx* _rx;
+    public:
+        Handle(BufferRx* rx) : _rx(rx) {}
+        Handle& operator=(const Handle&) = delete;
+        Handle(const Handle&) = delete;
+
+        Handle& operator=(Handle&& other) {
+            _rx = other._rx;
+            other._rx = nullptr;
+            return *this;
+        }
+        Handle(Handle&& other) {
+            *this = std::move(other);
+        }
+
+        void processPacket(uint8_t channel, std::span<const uint8_t> data) override {
+            _rx->packets.push_back({channel, std::vector<uint8_t>(data.begin(), data.end())});
+        }
+    };
 public:
     std::deque<std::pair<uint8_t, std::vector<uint8_t>>> packets;
 
-    void processPacket(uint8_t channel, std::span<const uint8_t> data) override {
-        packets.push_back({channel, std::vector<uint8_t>(data.begin(), data.end())});
+    Handle getHandle() {
+        return Handle(this);
     }
 };
 
@@ -43,7 +63,7 @@ TEST_CASE("Send-receive packet", "[mux]") {
     });
 
     auto rx = BufferRx();
-    mux2.bindRx(rx);
+    mux2.bindRx(std::make_unique<decltype(rx.getHandle())>(rx.getHandle()));
 
     const auto capacity = mux1.maxPacketSize();
     using sgn = typename std::tuple<std::string, uint8_t, std::vector<uint8_t>>;
@@ -108,7 +128,7 @@ TEST_CASE("Overflow packet", "[mux]") {
     });
 
     auto rx = BufferRx();
-    mux2.bindRx(rx);
+    mux2.bindRx(std::make_unique<decltype(rx.getHandle())>(rx.getHandle()));
 
     const auto capacity = mux1.maxPacketSize();
     using sgn = typename std::tuple<std::string, uint8_t, std::vector<uint8_t>>;
@@ -168,7 +188,7 @@ TEST_CASE("Packets in succession", "[mux]") {
     });
 
     auto rx = BufferRx();
-    mux2.bindRx(rx);
+    mux2.bindRx(std::make_unique<decltype(rx.getHandle())>(rx.getHandle()));
 
     const auto capacity = mux1.maxPacketSize();
     using sgn = typename std::tuple<std::string, uint8_t, std::vector<uint8_t>>;

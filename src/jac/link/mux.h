@@ -22,7 +22,7 @@ public:
         PACKETIZER = 2
     };
 private:
-    ChannelReceiver* _receiver = nullptr;
+    std::unique_ptr<ChannelReceiver> _receiver;
     std::unique_ptr<Stream> _stream;
 
     Packetizer _packetizer;
@@ -76,8 +76,8 @@ public:
     Mux(Mux&&) = delete;
 
     // TODO: rewrite rx binding
-    void bindRx(ChannelReceiver& receiver) {
-        _receiver = &receiver;
+    void bindRx(std::unique_ptr<ChannelReceiver> receiver) {
+        _receiver = std::move(receiver);
     }
 
     void receive() {
