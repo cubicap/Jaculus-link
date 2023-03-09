@@ -4,6 +4,7 @@
 #include <jac/link/routerCommunicator.h>
 #include <cstddef>
 #include <cmath>
+#include <thread>
 
 #include "util.h"
 
@@ -312,4 +313,183 @@ TEST_CASE("UnboundedBufferedInputPacketCommunicator", "[routerCommunicator]") {
 
         REQUIRE(communicator.available() == 0);
     }
+}
+
+
+TEST_CASE("AsyncBufferedInputStreamCommunicator", "[routerCommunicator]") {
+    const size_t PACKET_SIZE = 256;
+    const uint8_t CHANNEL = 0;
+
+    Router router;
+    BufferTransmitter transmitter(PACKET_SIZE);
+
+    auto handle = router.subscribeTx(0, transmitter);
+
+    UnboundedBufferedInputStreamCommunicator communicator({});
+    router.subscribeChannel(CHANNEL, communicator);
+
+    using sgn = typename std::tuple<std::string, std::vector<uint8_t>, std::set<int>>;
+    auto [comment, data, filter] = GENERATE_COPY(
+        sgn{ "single", rangeVector<uint8_t>(0x00, PACKET_SIZE), { 0 } },
+        sgn{ "two", rangeVector<uint8_t>(0x00, PACKET_SIZE), { 0, 1 } },
+        sgn{ "two 2", rangeVector<uint8_t>(0x00, PACKET_SIZE), { 1, 2 } },
+        sgn{ "two - out of order", rangeVector<uint8_t>(0x00, PACKET_SIZE), { 1, 0 } },
+        sgn{ "three", rangeVector<uint8_t>(0x00, PACKET_SIZE), { 0, 1, 2 } },
+        sgn{ "broadcast", rangeVector<uint8_t>(0x00, PACKET_SIZE), {} }
+    );
+
+    DYNAMIC_SECTION(comment) {
+        communicator.filter(filter);
+
+        auto it = data.begin();
+        while (it < data.end()) {
+            handle.processPacket(0, std::span<const uint8_t>(it, std::min(it + PACKET_SIZE, data.end())));
+            it += PACKET_SIZE;
+        }
+
+        if (filter.empty() || std::find(filter.begin(), filter.end(), 0) != filter.end()) {
+            REQUIRE(communicator.available() == data.size());
+
+            std::vector<uint8_t> received;
+
+            while (communicator.available() > 0) {
+                auto oldSize = received.size();
+                received.resize(received.size() + communicator.available());
+
+                communicator.read(std::span(received.begin() + oldSize, received.end()));
+            }
+
+            REQUIRE(received == data);
+        } else {
+            REQUIRE(communicator.available() == 0);
+        }
+    }
+}
+
+
+TEST_CASE("AsyncBufferedInputStreamCommunicator - multiple", "[routerCommunicator]") {
+    const size_t PACKET_SIZE = 256;
+    const uint8_t CHANNEL = 0;
+
+    Router router;
+    BufferTransmitter transmitter(PACKET_SIZE);
+
+    auto handle = router.subscribeTx(0, transmitter);
+
+    UnboundedBufferedInputStreamCommunicator communicator({});
+    router.subscribeChannel(CHANNEL, communicator);
+
+    std::vector<std::vector<uint8_t>> packets;
+    for (size_t i = 0; i < 100; i++) {
+        packets.push_back(rangeVector<uint8_t>('a', PACKET_SIZE));
+    }
+
+    std::vector<uint8_t> expected;
+    for (auto& packet : packets) {
+        expected.insert(expected.end(), packet.begin(), packet.end());
+    }
+    std::vector<uint8_t> received;
+
+    std::thread rxThread([&] {
+        while (received.size() < expected.size()) {
+            std::array<uint8_t, 512> buffer;
+            auto read = communicator.read(buffer);
+            received.insert(received.end(), buffer.begin(), buffer.begin() + read);
+        }
+    });
+
+    for (auto& packet : packets) {
+        handle.processPacket(0, std::span<const uint8_t>(packet.data(), packet.size()));
+    }
+
+    rxThread.join();
+
+    REQUIRE(received == expected);
+}
+
+
+TEST_CASE("AsyncBufferedInputPacketCommunicator", "[routerCommunicator]") {
+    const size_t PACKET_SIZE = 256;
+    const uint8_t CHANNEL = 0;
+
+    Router router;
+    BufferTransmitter transmitter(PACKET_SIZE);
+
+    auto handle = router.subscribeTx(0, transmitter);
+
+    AsyncBufferedInputPacketCommunicator communicator;
+    router.subscribeChannel(CHANNEL, communicator);
+
+    using sgn = typename std::tuple<std::string, std::vector<uint8_t>>;
+    auto [comment, data] = GENERATE_COPY(
+        sgn{ "empty", {} },
+        sgn{ "one byte", { 0x01 } },
+        sgn{ "two bytes", { 0x01, 0x02 } },
+        sgn{ "one to full", rangeVector<uint8_t>(0x00, PACKET_SIZE - 1) },
+        sgn{ "full", rangeVector<uint8_t>(0x00, PACKET_SIZE) },
+        sgn{ "two packets", rangeVector<uint8_t>(0x00, PACKET_SIZE * 2) },
+        sgn{ "three packets", rangeVector<uint8_t>(0x00, PACKET_SIZE * 3) }
+    );
+
+    DYNAMIC_SECTION(comment) {
+        std::vector<std::span<const uint8_t>> packets;
+
+        auto it = data.begin();
+        while (it < data.end()) {
+            auto packetData = std::span<const uint8_t>(it, std::min(it + PACKET_SIZE, data.end()));
+            packets.push_back(packetData);
+            handle.processPacket(0, packetData);
+            it += PACKET_SIZE;
+        }
+
+        REQUIRE(communicator.available() == packets.size());
+
+        for (auto& packet : packets) {
+            auto [sender, received] = communicator.get();
+            REQUIRE(sender == 0);
+            EQUAL_ITERABLE(received, packet);
+        }
+
+        REQUIRE(communicator.available() == 0);
+    }
+}
+
+
+TEST_CASE("AsyncBufferedInputPacketCommunicator - multiple", "[routerCommunicator]") {
+    const size_t PACKET_SIZE = 256;
+    const uint8_t CHANNEL = 0;
+
+    Router router;
+    BufferTransmitter transmitter(PACKET_SIZE);
+
+    auto handle = router.subscribeTx(0, transmitter);
+
+    AsyncBufferedInputPacketCommunicator communicator;
+    router.subscribeChannel(CHANNEL, communicator);
+
+    std::vector<std::vector<uint8_t>> packets;
+    for (size_t i = 0; i < 100; i++) {
+        packets.push_back(rangeVector<uint8_t>(i, PACKET_SIZE));
+    }
+
+    std::vector<std::vector<uint8_t>> received;
+
+    std::thread rxThread([&] {
+        uint8_t count = 0;
+        while (received.size() < packets.size()) {
+            auto [sender, packet] = communicator.get();
+            REQUIRE(sender == 0);
+            REQUIRE(packet[0] == count);
+            count++;
+            received.push_back(std::vector<uint8_t>(packet.begin(), packet.end()));
+        }
+    });
+
+    for (size_t i = 0; i < packets.size(); i++) {
+        handle.processPacket(0, std::span<const uint8_t>(packets[i].data(), packets[i].size()));
+    }
+
+    rxThread.join();
+
+    REQUIRE(received == packets);
 }

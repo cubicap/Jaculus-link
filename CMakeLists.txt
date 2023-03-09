@@ -7,7 +7,7 @@ set(CMAKE_CXX_EXTENSIONS ON)
 set(CMAGE_C_STANDARD 17)
 set(CMAGE_C_EXTENSIONS ON)
 
-set(CMAKE_CXX_FLAGS "-Wall -Wold-style-cast -Wshadow -fdiagnostics-color")
+set(CMAKE_CXX_FLAGS "-Wall -Wold-style-cast -Wshadow -fdiagnostics-color -pthread")
 
 add_subdirectory(src)
 

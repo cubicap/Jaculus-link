@@ -5,6 +5,8 @@
 #include <memory>
 #include <span>
 #include <vector>
+#include <mutex>
+#include <condition_variable>
 
 #include "communicator.h"
 #include "router.h"
@@ -137,5 +139,76 @@ public:
 
     size_t available() override {
         return _buffer.size();
+    }
+};
+
+
+class AsyncBufferedInputStreamCommunicator : public BufferedInputStreamCommunicator, public Consumer {
+    UnboundedBufferedInputStreamCommunicator _communicator;
+
+    std::mutex _mutex;
+    std::condition_variable _condition;
+public:
+    AsyncBufferedInputStreamCommunicator(std::set<int> recipients) : _communicator(std::move(recipients)) {}
+
+    void processPacket(int sender, std::span<const uint8_t> data) override {
+        std::unique_lock<std::mutex> lock(_mutex);
+        _communicator.processPacket(sender, data);
+        _condition.notify_one();
+    }
+
+    int get() override {
+        std::unique_lock<std::mutex> lock(_mutex);
+        while (_communicator.available() == 0) {
+            _condition.wait(lock);
+        }
+        return _communicator.get();
+    }
+
+    size_t read(std::span<uint8_t> buffer) override {
+        std::unique_lock<std::mutex> lock(_mutex);
+        while (_communicator.available() == 0) {
+            _condition.wait(lock);
+        }
+        return _communicator.read(buffer);
+    }
+
+    size_t available() override {
+        std::unique_lock<std::mutex> lock(_mutex);
+        return _communicator.available();
+    }
+
+    void filter(std::set<int> recipients) override {
+        std::unique_lock<std::mutex> lock(_mutex);
+        _communicator.filter(std::move(recipients));
+    }
+};
+
+
+class AsyncBufferedInputPacketCommunicator : public BufferedInputPacketCommunicator, public Consumer {
+    UnboundedBufferedInputPacketCommunicator _communicator;
+
+    std::mutex _mutex;
+    std::condition_variable _condition;
+public:
+    AsyncBufferedInputPacketCommunicator() {}
+
+    void processPacket(int sender, std::span<const uint8_t> data) override {
+        std::unique_lock<std::mutex> lock(_mutex);
+        _communicator.processPacket(sender, data);
+        _condition.notify_one();
+    }
+
+    std::pair<int, std::vector<uint8_t>> get() override {
+        std::unique_lock<std::mutex> lock(_mutex);
+        while (_communicator.available() == 0) {
+            _condition.wait(lock);
+        }
+        return _communicator.get();
+    }
+
+    size_t available() override {
+        std::unique_lock<std::mutex> lock(_mutex);
+        return _communicator.available();
     }
 };
