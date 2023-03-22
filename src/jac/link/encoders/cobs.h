@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <array>
 #include <span>
+#include "../util/crc.h"
 
 
 struct DecodeResult {
@@ -62,17 +63,17 @@ public:
             buffer[OFFSET_COBS] = DELIMITER;
             buffer[OFFSET_CHANNEL] = channel;
 
-            uint16_t crc = 0;
+            Crc16 crc16;
             size_t prevDelim = 2;
 
             for (size_t i = 3; i < length; i++) {
                 // crc
                 if (i >= OFFSET_CHANNEL && i < crcOffset) {
-                    // TODO: update crc
+                    crc16.update(buffer[i]);
                 }
                 else if (i == crcOffset) {
-                    buffer[crcOffset] = crc & 0xFF;
-                    buffer[crcOffset + 1] = crc >> 8;
+                    buffer[crcOffset] = crc16.value() & 0xFF;
+                    buffer[crcOffset + 1] = crc16.value() >> 8;
                 }
 
                 // cobs
@@ -142,7 +143,7 @@ public:
             return { false, 0, {} };
         }
 
-        uint16_t crc = 0;
+        Crc16 crc;
         size_t crcOffset = OFFSET_COBS + buffer[OFFSET_LENGTH] - SIZE_CHECKSUM;
         size_t nextDelimOff = 0;
 
@@ -154,7 +155,7 @@ public:
             nextDelimOff--;
 
             if (i >= OFFSET_CHANNEL && i < crcOffset) {
-                // TODO: update crc
+                crc.update(buffer[i]);
             }
         }
 
@@ -162,7 +163,7 @@ public:
 
         reset();
 
-        if (nextDelimOff != 0 || crc != crcReceived) {
+        if (nextDelimOff != 0 || crc.value() != crcReceived) {
             return { false, 1, {} };
         }
 
