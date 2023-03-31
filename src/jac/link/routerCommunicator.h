@@ -13,11 +13,11 @@
 
 
 class TransparentOutputStreamCommunicator : public OutputStreamCommunicator {
-    Router &_router;
+    Router& _router;
     uint8_t _channel;
     std::vector<int> _recipients;
 public:
-    TransparentOutputStreamCommunicator(Router &router, uint8_t channel, std::vector<int> recipients)
+    TransparentOutputStreamCommunicator(Router& router, uint8_t channel, std::vector<int> recipients)
             : _router(router), _channel(channel), _recipients(std::move(recipients)) {}
     bool put(uint8_t c) override {
         return write(std::span<const uint8_t>(&c, 1)) == 1;
@@ -48,6 +48,10 @@ class UnboundedBufferedInputStreamCommunicator : public BufferedInputStreamCommu
     std::vector<uint8_t>::iterator _pos;
     std::set<int> _recipients;
 
+    std::mutex _mutex;
+    std::condition_variable _condition;
+    bool cancel = false;
+
     void next() {
         _pos++;
         if (_pos == _buffer.front().end()) {
@@ -57,10 +61,24 @@ class UnboundedBufferedInputStreamCommunicator : public BufferedInputStreamCommu
             }
         }
     }
+
+    size_t availableNoLock() {
+        size_t size = 0;
+        for (auto& v : _buffer) {
+            size += v.size();
+        }
+        return size;
+    }
 public:
     UnboundedBufferedInputStreamCommunicator(std::set<int> recipients) : _recipients(std::move(recipients)) {}
 
     void processPacket(int sender, std::span<const uint8_t> data) override {
+        if (data.size() == 0) {
+            return;
+        }
+
+        std::unique_lock<std::mutex> lock(_mutex);
+
         if (!_recipients.empty() && _recipients.find(sender) == _recipients.end()) {
             return;
         }
@@ -70,9 +88,17 @@ public:
         if (_buffer.size() == 1) {
             _pos = _buffer.front().begin();
         }
+
+        _condition.notify_one();
     }
 
     int get() override {
+        std::unique_lock<std::mutex> lock(_mutex);
+        cancel = false;
+        while (availableNoLock() == 0 && !cancel) {
+            _condition.wait(lock);
+        }
+
         if (_buffer.empty()) {
             return -1;
         }
@@ -82,6 +108,12 @@ public:
     }
 
     size_t read(std::span<uint8_t> buffer) override {
+        std::unique_lock<std::mutex> lock(_mutex);
+        cancel = false;
+        while (availableNoLock() == 0 && !cancel) {
+            _condition.wait(lock);
+        }
+
         size_t i;
         for (i = 0; i < buffer.size() && !_buffer.empty(); i++) {
             buffer[i] = *_pos;
@@ -91,24 +123,33 @@ public:
     }
 
     size_t available() override {
-        size_t size = 0;
-        for (auto &v : _buffer) {
-            size += v.size();
-        }
-        return size;
+        std::unique_lock<std::mutex> lock(_mutex);
+        return availableNoLock();
     }
 
     void filter(std::set<int> recipients) override {
+        std::unique_lock<std::mutex> lock(_mutex);
         _recipients = std::move(recipients);
+    }
+
+    void clear() override {
+        std::unique_lock<std::mutex> lock(_mutex);
+        _buffer.clear();
+    }
+
+    void cancelRead() override {
+        std::unique_lock<std::mutex> lock(_mutex);
+        cancel = true;
+        _condition.notify_one();
     }
 };
 
 
 class TransparentOutputPacketCommunicator : public OutputPacketCommunicator {
-    Router &_router;
+    Router& _router;
     uint8_t _channel;
 public:
-    TransparentOutputPacketCommunicator(Router &router, uint8_t channel) : _router(router), _channel(channel) {}
+    TransparentOutputPacketCommunicator(Router& router, uint8_t channel) : _router(router), _channel(channel) {}
     std::unique_ptr<Packet> buildPacket(std::vector<int> recipients) override {
         return _router.buildPacket(_channel, recipients);
     }
@@ -121,14 +162,31 @@ public:
 
 class UnboundedBufferedInputPacketCommunicator : public BufferedInputPacketCommunicator, public Consumer {
     std::deque<std::pair<int, std::vector<uint8_t>>> _buffer;
+
+    std::mutex _mutex;
+    std::condition_variable _condition;
+    bool cancel = false;
+
+    size_t availableNoLock() {
+        return _buffer.size();
+    }
 public:
     UnboundedBufferedInputPacketCommunicator() {}
 
     void processPacket(int sender, std::span<const uint8_t> data) override {
+        std::unique_lock<std::mutex> lock(_mutex);
         _buffer.push_back(std::make_pair(sender, std::vector<uint8_t>(data.begin(), data.end())));
+
+        _condition.notify_one();
     }
 
     std::pair<int, std::vector<uint8_t>> get() override {
+        std::unique_lock<std::mutex> lock(_mutex);
+        cancel = false;
+        while (availableNoLock() == 0 && !cancel) {
+            _condition.wait(lock);
+        }
+
         if (_buffer.empty()) {
             throw std::runtime_error("No data available");
         }
@@ -138,77 +196,18 @@ public:
     }
 
     size_t available() override {
-        return _buffer.size();
-    }
-};
-
-
-class AsyncBufferedInputStreamCommunicator : public BufferedInputStreamCommunicator, public Consumer {
-    UnboundedBufferedInputStreamCommunicator _communicator;
-
-    std::mutex _mutex;
-    std::condition_variable _condition;
-public:
-    AsyncBufferedInputStreamCommunicator(std::set<int> recipients) : _communicator(std::move(recipients)) {}
-
-    void processPacket(int sender, std::span<const uint8_t> data) override {
         std::unique_lock<std::mutex> lock(_mutex);
-        _communicator.processPacket(sender, data);
+        return availableNoLock();
+    }
+
+    void clear() override {
+        std::unique_lock<std::mutex> lock(_mutex);
+        _buffer.clear();
+    }
+
+    void cancelRead() override {
+        std::unique_lock<std::mutex> lock(_mutex);
+        cancel = true;
         _condition.notify_one();
-    }
-
-    int get() override {
-        std::unique_lock<std::mutex> lock(_mutex);
-        while (_communicator.available() == 0) {
-            _condition.wait(lock);
-        }
-        return _communicator.get();
-    }
-
-    size_t read(std::span<uint8_t> buffer) override {
-        std::unique_lock<std::mutex> lock(_mutex);
-        while (_communicator.available() == 0) {
-            _condition.wait(lock);
-        }
-        return _communicator.read(buffer);
-    }
-
-    size_t available() override {
-        std::unique_lock<std::mutex> lock(_mutex);
-        return _communicator.available();
-    }
-
-    void filter(std::set<int> recipients) override {
-        std::unique_lock<std::mutex> lock(_mutex);
-        _communicator.filter(std::move(recipients));
-    }
-};
-
-
-class AsyncBufferedInputPacketCommunicator : public BufferedInputPacketCommunicator, public Consumer {
-    UnboundedBufferedInputPacketCommunicator _communicator;
-
-    std::mutex _mutex;
-    std::condition_variable _condition;
-public:
-    AsyncBufferedInputPacketCommunicator() {}
-
-    void processPacket(int sender, std::span<const uint8_t> data) override {
-        std::unique_lock<std::mutex> lock(_mutex);
-        _communicator.processPacket(sender, data);
-        _condition.notify_one();
-    }
-
-    std::pair<int, std::vector<uint8_t>> get() override {
-        std::unique_lock<std::mutex> lock(_mutex);
-        while (_communicator.available() == 0) {
-            _condition.wait(lock);
-        }
-        return _communicator.get();
-    }
-
-    size_t available() override {
-        std::unique_lock<std::mutex> lock(_mutex);
-        return _communicator.available();
     }
 };

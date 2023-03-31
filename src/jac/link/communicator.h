@@ -17,12 +17,15 @@ public:
     virtual ~OutputStreamCommunicator() = default;
 };
 
+
 class BufferedInputStreamCommunicator {
 public:
-    virtual int get() = 0;
-    virtual size_t read(std::span<uint8_t> data) = 0;
+    virtual int get() = 0;  // blocks until data is available
+    virtual size_t read(std::span<uint8_t> data) = 0;  // blocks until data is available
     virtual size_t available() = 0;
     virtual void filter(std::set<int> recipients) = 0;  // empty recipients for broadcast
+    virtual void clear() = 0;
+    virtual void cancelRead() = 0;  // unblocks any blocking read
     virtual ~BufferedInputStreamCommunicator() = default;
 };
 
@@ -38,7 +41,9 @@ public:
 
 class BufferedInputPacketCommunicator {
 public:
-    virtual std::pair<int, std::vector<uint8_t>> get() = 0;
+    virtual std::pair<int, std::vector<uint8_t>> get() = 0;  // blocks until data is available
     virtual size_t available() = 0;
+    virtual void clear() = 0;
+    virtual void cancelRead() = 0;  // unblocks any blocking read
     virtual ~BufferedInputPacketCommunicator() = default;
 };
