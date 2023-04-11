@@ -6,17 +6,52 @@
 #include <memory>
 
 
+/**
+ * @brief Interface for a binary input stream.
+ */
 class InputStream {
 public:
+    /**
+     * @brief Get a single byte from the stream.
+     * @note This method should not block.
+     *
+     * @return the byte or -1 if no data is available
+     */
     virtual int get() = 0;
+
+    /**
+     * @brief Read data from the stream.
+     * @note This method should not block.
+     *
+     * @param data the buffer to read into
+     * @return The number of bytes read
+     */
     virtual size_t read(std::span<uint8_t> data) = 0;
 
     virtual ~InputStream() = default;
 };
 
+/**
+ * @brief Interface for a binary output stream.
+ */
 class OutputStream {
 public:
+    /**
+     * @brief Write a single byte to the stream.
+     * @note This method should not block.
+     *
+     * @param c the byte
+     * @return true if the byte was written, false otherwise
+     */
     virtual bool put(uint8_t c) = 0;
+
+    /**
+     * @brief Write a buffer to the stream.
+     * @note This method should not block.
+     *
+     * @param data the buffer to write
+     * @return The number of bytes written
+     */
     virtual size_t write(std::span<const uint8_t> data) = 0;
 
     virtual bool flush() = 0;
@@ -24,8 +59,15 @@ public:
     virtual ~OutputStream() = default;
 };
 
+/**
+ * @brief Interface for an byte input/output stream.
+ */
 class Duplex : public InputStream, public OutputStream {};
 
+
+/**
+ * @brief A duplex stream that wraps an input and output stream.
+ */
 class Duplexify : public Duplex {
 private:
     std::unique_ptr<InputStream> _in;
@@ -54,45 +96,5 @@ public:
 
     bool flush() override {
         return _out->flush();
-    }
-};
-
-
-class BufferStream : public InputStream, public OutputStream {
-private:
-    std::deque<uint8_t> _buffer;
-public:
-    BufferStream() {}
-
-    int get() override {
-        if (_buffer.empty()) {
-            return EOF;
-        }
-        auto c = _buffer.front();
-        _buffer.pop_front();
-        return c;
-    }
-
-    size_t read(std::span<uint8_t> data) override {
-        size_t i = 0;
-        for (; i < data.size() && !_buffer.empty(); ++i) {
-            data[i] = _buffer.front();
-            _buffer.pop_front();
-        }
-        return i;
-    }
-
-    bool put(uint8_t c) override {
-        _buffer.push_back(c);
-        return true;
-    }
-
-    size_t write(std::span<const uint8_t> data) override {
-        _buffer.insert(_buffer.end(), data.begin(), data.end());
-        return data.size();
-    }
-
-    bool flush() override {
-        return true;
     }
 };

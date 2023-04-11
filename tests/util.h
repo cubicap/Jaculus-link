@@ -5,6 +5,7 @@
 #include <deque>
 #include <memory>
 #include <jac/link/linkTypes.h>
+#include <jac/link/stream.h>
 
 #define EQUAL_ITERABLE(a, b) { REQUIRE(std::vector(a.begin(), a.end()) == std::vector(b.begin(), b.end())); }
 
@@ -75,5 +76,44 @@ public:
 
     void processPacket(int sender, std::span<const uint8_t> data) override {
         _packets.emplace_back(sender, std::vector<uint8_t>(data.begin(), data.end()));
+    }
+};
+
+class BufferStream : public InputStream, public OutputStream {
+private:
+    std::deque<uint8_t> _buffer;
+public:
+    BufferStream() {}
+
+    int get() override {
+        if (_buffer.empty()) {
+            return EOF;
+        }
+        auto c = _buffer.front();
+        _buffer.pop_front();
+        return c;
+    }
+
+    size_t read(std::span<uint8_t> data) override {
+        size_t i = 0;
+        for (; i < data.size() && !_buffer.empty(); ++i) {
+            data[i] = _buffer.front();
+            _buffer.pop_front();
+        }
+        return i;
+    }
+
+    bool put(uint8_t c) override {
+        _buffer.push_back(c);
+        return true;
+    }
+
+    size_t write(std::span<const uint8_t> data) override {
+        _buffer.insert(_buffer.end(), data.begin(), data.end());
+        return data.size();
+    }
+
+    bool flush() override {
+        return true;
     }
 };
