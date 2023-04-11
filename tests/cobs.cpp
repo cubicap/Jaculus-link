@@ -9,6 +9,9 @@
 #include "util.h"
 
 
+using namespace jac;
+
+
 TEST_CASE("Serialize", "[cobs]") {
     const auto capacity = CobsSerializer::capacity();
 

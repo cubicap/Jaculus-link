@@ -13,6 +13,9 @@
 #include "router.h"
 
 
+namespace jac {
+
+
 class TransparentOutputStreamCommunicator : public OutputStreamCommunicator {
     Router& _router;
     uint8_t _channel;
@@ -212,3 +215,6 @@ public:
         _condition.notify_one();
     }
 };
+
+
+} // namespace jac

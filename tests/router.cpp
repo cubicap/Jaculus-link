@@ -7,6 +7,9 @@
 #include "util.h"
 
 
+using namespace jac;
+
+
 TEST_CASE("SubscribeTx", "[router]") {
     using sgn = typename std::tuple<std::string, std::vector<std::tuple<int, size_t>>>;
 

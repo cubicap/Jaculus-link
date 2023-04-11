@@ -10,6 +10,9 @@
 #include "util.h"
 
 
+using namespace jac;
+
+
 TEST_CASE("TransparentOutputStreamCommunicator", "[routerCommunicator]") {
     const size_t PACKET_SIZE = 256;
     const uint8_t CHANNEL = 0;

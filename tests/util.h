@@ -7,6 +7,10 @@
 #include <jac/link/linkTypes.h>
 #include <jac/link/stream.h>
 
+
+using namespace jac;
+
+
 #define EQUAL_ITERABLE(a, b) { REQUIRE(std::vector(a.begin(), a.end()) == std::vector(b.begin(), b.end())); }
 
 template <typename T>

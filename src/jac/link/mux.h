@@ -14,6 +14,9 @@
 #include <vector>
 
 
+namespace jac {
+
+
 /**
  * @brief A multiplexer that creates multiple channels over a single stream connection.
  *
@@ -151,3 +154,6 @@ public:
         _errorHandler = handler;
     }
 };
+
+
+} // namespace jac

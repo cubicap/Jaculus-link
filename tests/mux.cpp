@@ -9,6 +9,10 @@
 
 #include "util.h"
 
+
+using namespace jac;
+
+
 class BufferRx {
     class Handle : public ChannelReceiver {
         BufferRx* _rx;

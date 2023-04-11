@@ -4,6 +4,9 @@
 #include <span>
 
 
+namespace jac {
+
+
 class Crc16 {
 private:
     static constexpr uint16_t POLYNOMIAL = 0xA001;
@@ -37,3 +40,6 @@ public:
         return _crc;
     }
 };
+
+
+} // namespace jac

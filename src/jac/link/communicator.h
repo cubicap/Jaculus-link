@@ -10,6 +10,9 @@
 #include "linkTypes.h"
 
 
+namespace jac {
+
+
 /**
  * @brief Communicator interface that can be used send stream data.
  */
@@ -149,3 +152,6 @@ public:
 
     virtual ~BufferedInputPacketCommunicator() = default;
 };
+
+
+} // namespace jac

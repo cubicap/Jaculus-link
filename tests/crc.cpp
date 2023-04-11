@@ -8,6 +8,9 @@
 #include <cstdint>
 
 
+using namespace jac;
+
+
 TEST_CASE("crc16", "[crc]") {
     using sgn = typename std::tuple<int, std::vector<uint8_t>, uint16_t>;
     auto [id, data, expected] = GENERATE(

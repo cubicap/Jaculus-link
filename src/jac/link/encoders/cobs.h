@@ -6,6 +6,9 @@
 #include "../util/crc.h"
 
 
+namespace jac {
+
+
 struct DecodeResult {
     bool valid;
     uint8_t channel;
@@ -180,3 +183,6 @@ public:
         };
     }
 };
+
+
+} // namespace jac

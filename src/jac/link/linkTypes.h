@@ -5,6 +5,9 @@
 #include <memory>
 
 
+namespace jac {
+
+
 /**
  * @brief Interface for a consumer of packets.
  */
@@ -82,3 +85,6 @@ public:
      */
     virtual void processPacket(uint8_t channel, std::span<const uint8_t> data) = 0;
 };
+
+
+} // namespace jac

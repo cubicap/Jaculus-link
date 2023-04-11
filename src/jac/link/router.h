@@ -13,6 +13,9 @@
 #include "linkTypes.h"
 
 
+namespace jac {
+
+
 /**
  * @brief A router that can route packets from multiple channel
  * connections to consumers on specific channels.
@@ -208,3 +211,6 @@ public:
         _channelConsumers.insert_or_assign(channel, std::ref(consumer));
     }
 };
+
+
+} // namespace jac

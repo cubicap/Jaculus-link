@@ -6,6 +6,9 @@
 #include <memory>
 
 
+namespace jac {
+
+
 /**
  * @brief Interface for a binary input stream.
  */
@@ -98,3 +101,6 @@ public:
         return _out->flush();
     }
 };
+
+
+} // namespace jac
