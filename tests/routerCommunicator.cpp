@@ -308,7 +308,7 @@ TEST_CASE("UnboundedBufferedInputPacketCommunicator", "[routerCommunicator]") {
         REQUIRE(communicator.available() == packets.size());
 
         for (auto& packet : packets) {
-            auto [sender, received] = communicator.get();
+            auto [sender, received] = *communicator.get();
             REQUIRE(sender == 0);
             EQUAL_ITERABLE(received, packet);
         }
@@ -412,7 +412,7 @@ TEST_CASE("Multithread UnboundedBufferedInputPacketCommunicator", "[routerCommun
     std::thread rxThread([&] {
         uint8_t count = 0;
         while (received.size() < packets.size()) {
-            auto [sender, packet] = communicator.get();
+            auto [sender, packet] = *communicator.get();
             REQUIRE(sender == 0);
             REQUIRE(packet[0] == count);
             count++;
@@ -445,9 +445,13 @@ TEST_CASE("Multithread UnboundedBufferedInputPacketCommunicator - cancelRead", "
     bool running = true;
 
     std::thread rxThread([&] {
-        REQUIRE_THROWS_AS(communicator.get(), std::runtime_error);
+        REQUIRE(communicator.get() == make_pair(0, std::vector<uint8_t>()));
+        REQUIRE(communicator.get() == std::nullopt);
         running = false;
     });
+
+    std::this_thread::sleep_for(std::chrono::milliseconds(100));
+    communicator.processPacket(0, std::span<const uint8_t>());
 
     std::this_thread::sleep_for(std::chrono::milliseconds(100));
     REQUIRE(running);

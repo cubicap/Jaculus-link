@@ -3,6 +3,7 @@
 #include <cstdint>
 #include <deque>
 #include <memory>
+#include <optional>
 #include <span>
 #include <vector>
 #include <mutex>
@@ -180,7 +181,7 @@ public:
         _condition.notify_one();
     }
 
-    std::pair<int, std::vector<uint8_t>> get() override {
+    std::optional<std::pair<int, std::vector<uint8_t>>> get() override {
         std::unique_lock<std::mutex> lock(_mutex);
         cancel = false;
         while (availableNoLock() == 0 && !cancel) {
@@ -188,7 +189,7 @@ public:
         }
 
         if (_buffer.empty()) {
-            throw std::runtime_error("No data available");
+            return std::nullopt;
         }
         auto p = _buffer.front();
         _buffer.pop_front();
