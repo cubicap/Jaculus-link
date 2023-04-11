@@ -5,6 +5,9 @@
 #include <memory>
 
 
+/**
+ * @brief Interface for a consumer of packets.
+ */
 class Consumer {
 public:
     Consumer() = default;
@@ -18,6 +21,9 @@ public:
 };
 
 
+/**
+ * @brief Interface for creation of packets.
+ */
 class Packet {
 public:
     virtual bool put(uint8_t c) = 0;
@@ -27,6 +33,10 @@ public:
     virtual bool send() = 0;
 };
 
+
+/**
+ * @brief Interface that allows for creation and sending of packets on a channel connection.
+ */
 class ChannelTransmitter {
 public:
     ChannelTransmitter() = default;
@@ -35,10 +45,27 @@ public:
     ChannelTransmitter(ChannelTransmitter&&) = delete;
     ChannelTransmitter& operator=(ChannelTransmitter&&) = delete;
 
+    /**
+     * @brief Build a packet for the given channel.
+     *
+     * @param channel the channel
+     * @return The packet
+     */
     virtual std::unique_ptr<Packet> buildPacket(uint8_t channel) = 0;
+
+    /**
+     * @brief Get the maximum packet size for the given channel.
+     *
+     * @param channel the channel
+     * @return The maximum packet size
+     */
     virtual size_t maxPacketSize() const = 0;
 };
 
+
+/**
+ * @brief Interface that allows for receiving and processing packets on channel connection.
+ */
 class ChannelReceiver {
 public:
     ChannelReceiver() = default;
@@ -47,5 +74,11 @@ public:
     ChannelReceiver(ChannelReceiver&&) = delete;
     ChannelReceiver& operator=(ChannelReceiver&&) = delete;
 
+    /**
+     * @brief Process a received packet on the given channel.
+     *
+     * @param channel the channel
+     * @param data data of the packet
+     */
     virtual void processPacket(uint8_t channel, std::span<const uint8_t> data) = 0;
 };

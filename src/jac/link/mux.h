@@ -15,7 +15,7 @@
 
 
 /**
- * @brief Class for multiplexing multiple channels over a single stream connection.
+ * @brief A multiplexer that creates multiple channels over a single stream connection.
  *
  * @tparam Packetizer Class implementing packetization of the protocol
  * @tparam Serializer Class implementing serialization of the protocol

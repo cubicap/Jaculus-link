@@ -30,6 +30,9 @@ struct PacketStructure {
 };
 
 
+/**
+ * @brief Serializer using COBS encoding
+ */
 class CobsSerializer {
 public:
     class DataFrame : private PacketStructure {
@@ -99,6 +102,9 @@ public:
 };
 
 
+/**
+ * @brief Deserializer using COBS encoding
+ */
 class CobsPacketizer : private PacketStructure {
 private:
     size_t length = 0;

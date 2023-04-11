@@ -12,48 +12,15 @@
 
 #include "linkTypes.h"
 
+
+/**
+ * @brief A router that can route packets from multiple channel
+ * connections to consumers on specific channels.
+ */
 class Router {
     std::map<uint8_t, std::reference_wrapper<Consumer>> _channelConsumers;
     std::function<void(int sender, uint8_t channel, std::span<const uint8_t> data)> _global;
     std::map<int, std::reference_wrapper<ChannelTransmitter>> _many;
-
-public:
-    class Handle : public ChannelReceiver {
-    private:
-        Router* _router;
-        int _id;
-        Handle(Router& router, int id) : _router(&router), _id(id) {}
-    public:
-        Handle(const Handle&) = delete;
-        Handle& operator=(const Handle&) = delete;
-
-        Handle& operator=(Handle&& other) {
-            _router = other._router;
-            _id = other._id;
-            other._router = nullptr;
-            return *this;
-        }
-        Handle(Handle&& other) {
-            *this = std::move(other);
-        }
-        ~Handle() {
-            if (_router) {
-                _router->_many.erase(_id);
-            }
-        }
-
-        void processPacket(uint8_t channel, std::span<const uint8_t> data) override {
-            auto it = _router->_channelConsumers.find(channel);
-            if (it != _router->_channelConsumers.end()) {
-                it->second.get().processPacket(_id, data);
-            }
-            if (_router->_global) {
-                _router->_global(_id, channel, data);
-            }
-        }
-
-        friend class Router;
-    };
 
     class MulticastPacket : public Packet {
     private:
@@ -105,6 +72,46 @@ public:
             return true;
         }
     };
+public:
+    /**
+     * @brief A handle for receiving packets from a channel connection.
+     */
+    class Handle : public ChannelReceiver {
+    private:
+        Router* _router;
+        int _id;
+        Handle(Router& router, int id) : _router(&router), _id(id) {}
+    public:
+        Handle(const Handle&) = delete;
+        Handle& operator=(const Handle&) = delete;
+
+        Handle& operator=(Handle&& other) {
+            _router = other._router;
+            _id = other._id;
+            other._router = nullptr;
+            return *this;
+        }
+        Handle(Handle&& other) {
+            *this = std::move(other);
+        }
+        ~Handle() {
+            if (_router) {
+                _router->_many.erase(_id);
+            }
+        }
+
+        void processPacket(uint8_t channel, std::span<const uint8_t> data) override {
+            auto it = _router->_channelConsumers.find(channel);
+            if (it != _router->_channelConsumers.end()) {
+                it->second.get().processPacket(_id, data);
+            }
+            if (_router->_global) {
+                _router->_global(_id, channel, data);
+            }
+        }
+
+        friend class Router;
+    };
 
     Router() = default;
     Router(const Router&) = delete;
@@ -112,11 +119,22 @@ public:
     Router& operator=(const Router&) = delete;
     Router& operator=(Router&&) = delete;
 
-    // global callback when a packet is received on any channel
+    /**
+     * @brief Set global callback which is called whenever a packet is received on any channel and connection.
+     *
+     * @param callback the callback
+     */
     void setGlobalCallback(std::function<void(int sender, uint8_t channel, std::span<const uint8_t> data)> callback) {
         _global = callback;
     }
 
+    /**
+     * @brief Get the maximum packet size for a channel and recipients.
+     *
+     * @param channel the channel
+     * @param recipients the recipients
+     * @return The maximum packet size
+     */
     size_t maxPacketSize(uint8_t channel, std::vector<int> recipients) {
         size_t size = 0;
         bool first = true;
@@ -136,6 +154,13 @@ public:
         return size;
     }
 
+    /**
+     * @brief Build a packet for a channel and recipients.
+     *
+     * @param channel the channel
+     * @param recipients the recipients
+     * @return The packet
+     */
     std::unique_ptr<Packet> buildPacket(uint8_t channel, std::vector<int> recipients) {
         if (recipients.size() == 1) {
             auto tx = _many.find(recipients[0]);
@@ -150,6 +175,15 @@ public:
         return std::make_unique<MulticastPacket>(*this, channel, std::move(recipients));
     }
 
+    /**
+     * @brief Subscribe a connection transmitter to the router.
+     * @note This allows router to send packets to the connection.
+     * Reciever should be then bound to the returned handle.
+     *
+     * @param id id of the connection
+     * @param tx the transmitter
+     * @return The handle
+     */
     Handle subscribeTx(int id, ChannelTransmitter& tx) {
         if (_many.find(id) != _many.end()) {
             throw std::runtime_error("id already subscribed");
@@ -159,6 +193,13 @@ public:
         return Handle(*this, id);
     }
 
+    /**
+     * @brief Subscribe a channel to a consumer.
+     * @note All packets received on the channel will be passed to the consumer.
+     *
+     * @param channel the channel
+     * @param consumer the consumer
+     */
     void subscribeChannel(uint8_t channel, Consumer& consumer) {
         if (_channelConsumers.find(channel) != _channelConsumers.end()) {
             throw std::runtime_error("channel already subscribed");
