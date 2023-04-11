@@ -1,17 +1,18 @@
 cmake_minimum_required(VERSION 3.0)
 
-set(LINK
+set(JAC_LINK_SRC
     "jac/link/router.cpp"
 )
 
-if(NOT ESP_PLATFORM)
-    add_library(jac-link STATIC ${LINK})
-    target_include_directories(jac-link PUBLIC .)
 
-else()
+if(ESP_PLATFORM)
     idf_component_register(
-        SRCS ${LINK}
+        SRCS ${JAC_LINK_SRC}
         INCLUDE_DIRS .
     )
+
+else()
+    add_library(jac-link STATIC ${JAC_LINK_SRC})
+    target_include_directories(jac-link PUBLIC .)
 
 endif()
