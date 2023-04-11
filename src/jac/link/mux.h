@@ -14,7 +14,13 @@
 #include <vector>
 
 
-template<class Packetizer, class Serializer, class Stream>
+/**
+ * @brief Class for multiplexing multiple channels over a single stream connection.
+ *
+ * @tparam Packetizer Class implementing packetization of the protocol
+ * @tparam Serializer Class implementing serialization of the protocol
+ */
+template<class Packetizer, class Serializer>
 class Mux : public ChannelTransmitter {
 public:
     enum class Error : int {
@@ -23,14 +29,14 @@ public:
     };
 private:
     std::unique_ptr<ChannelReceiver> _receiver;
-    std::unique_ptr<Stream> _stream;
+    std::unique_ptr<Duplex> _stream;
 
     Packetizer _packetizer;
 
     std::mutex _writeMutex;
 
     std::function<void(Error, std::vector<int>)> _errorHandler;
-public:
+
     class MuxPacket : public Packet {
         Mux& _mux;
         uint8_t _channel;
@@ -71,15 +77,25 @@ public:
         }
     };
 
-    Mux(std::unique_ptr<Stream> stream) : _stream(std::move(stream)) {}
+public:
+    Mux(std::unique_ptr<Duplex> stream) : _stream(std::move(stream)) {}
     Mux(const Mux&) = delete;
     Mux(Mux&&) = delete;
 
-    // TODO: rewrite rx binding
+    /**
+     * @brief Bind a receiver to this mux. Received packets will be forwarded to the receiver.
+     *
+     * @param receiver the receiver to bind
+     */
     void bindRx(std::unique_ptr<ChannelReceiver> receiver) {
+        // TODO: rewrite rx binding
         _receiver = std::move(receiver);
     }
 
+    /**
+     * @brief Receive and parse data from the stream. Any received packets will be
+     * immediately forwarded to the bound receiver.
+     */
     void receive() {
         int c;
         while ((c = _stream->get()) != EOF) {
@@ -99,7 +115,7 @@ public:
                 }
             }
             else if (putRes < 0) {
-                // handle cleared buffer
+                // handle protocol error
                 if (_errorHandler) {
                     _errorHandler(Error::PACKETIZER, { putRes });
                 }
@@ -107,14 +123,30 @@ public:
         }
     }
 
+    /**
+     * @brief Build a packet for the given channel.
+     *
+     * @param channel the channel
+     * @return The packet
+     */
     std::unique_ptr<Packet> buildPacket(uint8_t channel) override {
         return std::make_unique<MuxPacket>(*this, channel);
     }
 
+    /**
+     * @brief Get the maximum packet size for this mux.
+     *
+     * @return The maximum packet size
+     */
     size_t maxPacketSize() const override {
         return Serializer::capacity();
     }
 
+    /**
+     * @brief Set the error handler for this mux.
+     *
+     * @param handler the error handler
+     */
     void setErrorHandler(std::function<void(Error, std::vector<int>)> handler) {
         _errorHandler = handler;
     }
