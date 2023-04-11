@@ -59,7 +59,7 @@ public:
             size_t crcOffset = OFFSET_DATA + _dataSize;
 
             buffer[OFFSET_DELIMITER] = DELIMITER;
-            buffer[OFFSET_LENGTH] = crcOffset + SIZE_CHECKSUM - OFFSET_COBS;
+            buffer[OFFSET_LENGTH] = static_cast<uint8_t>(crcOffset + SIZE_CHECKSUM - OFFSET_COBS);
             buffer[OFFSET_COBS] = DELIMITER;
             buffer[OFFSET_CHANNEL] = channel;
 
@@ -78,11 +78,11 @@ public:
 
                 // cobs
                 if (buffer[i] == DELIMITER) {
-                    buffer[prevDelim] = i - prevDelim;
+                    buffer[prevDelim] = static_cast<uint8_t>(i - prevDelim);
                     prevDelim = i;
                 }
             }
-            buffer[prevDelim] = length - prevDelim;
+            buffer[prevDelim] = static_cast<uint8_t>(length - prevDelim);
 
             return { buffer.data(), length };
         }

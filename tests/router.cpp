@@ -62,7 +62,7 @@ TEST_CASE("Receive", "[router]") {
     std::vector<std::unique_ptr<BufferTransmitter>> transmitters;
     std::vector<std::unique_ptr<Router::Handle>> handles;
 
-    for (size_t i = 0; i < packetSizes.size(); i++) {
+    for (uint8_t i = 0; i < packetSizes.size(); i++) {
         transmitters.push_back(std::make_unique<BufferTransmitter>(packetSizes[i]));
         handles.push_back(std::make_unique<Router::Handle>(router.subscribeTx(i, *transmitters.back())));
     }
@@ -108,7 +108,7 @@ TEST_CASE("Send", "[router]") {
     std::vector<std::unique_ptr<BufferTransmitter>> transmitters;
     std::vector<std::unique_ptr<Router::Handle>> handles;
 
-    for (size_t i = 0; i < packetSizes.size(); i++) {
+    for (uint8_t i = 0; i < packetSizes.size(); i++) {
         transmitters.push_back(std::make_unique<BufferTransmitter>(packetSizes[i]));
         handles.push_back(std::make_unique<Router::Handle>(router.subscribeTx(i, *transmitters.back())));
     }
@@ -152,7 +152,7 @@ TEST_CASE("Broadcast - multiple transmitters", "[router]") {
     std::vector<std::unique_ptr<BufferTransmitter>> transmitters;
     std::vector<std::unique_ptr<Router::Handle>> handles;
 
-    for (size_t i = 0; i < packetSizes.size(); i++) {
+    for (uint8_t i = 0; i < packetSizes.size(); i++) {
         transmitters.push_back(std::make_unique<BufferTransmitter>(packetSizes[i]));
         handles.push_back(std::make_unique<Router::Handle>(router.subscribeTx(i, *transmitters.back())));
     }
@@ -222,7 +222,7 @@ TEST_CASE("Multicast", "[router]") {
     std::vector<std::unique_ptr<BufferTransmitter>> transmitters;
     std::vector<std::unique_ptr<Router::Handle>> handles;
 
-    for (size_t i = 0; i < packetSizes.size(); i++) {
+    for (uint8_t i = 0; i < packetSizes.size(); i++) {
         transmitters.push_back(std::make_unique<BufferTransmitter>(packetSizes[i]));
         handles.push_back(std::make_unique<Router::Handle>(router.subscribeTx(i, *transmitters.back())));
     }
@@ -266,7 +266,7 @@ TEST_CASE("Overflow broadcast packet", "[router]") {
     std::vector<std::unique_ptr<BufferTransmitter>> transmitters;
     std::vector<std::unique_ptr<Router::Handle>> handles;
 
-    for (size_t i = 0; i < packetSizes.size(); i++) {
+    for (uint8_t i = 0; i < packetSizes.size(); i++) {
         transmitters.push_back(std::make_unique<BufferTransmitter>(packetSizes[i]));
         handles.push_back(std::make_unique<Router::Handle>(router.subscribeTx(i, *transmitters.back())));
     }
