@@ -1,0 +1,4 @@
+version: "0.0.1"
+description: "Jaculus-link - A library for multiplexing multiple channels over a stream connection"
+dependencies:
+  idf: ">=5.0"
