@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <cstdint>
 #include <functional>
-#include <map>
+#include <unordered_map>
 #include <memory>
 #include <span>
 #include <stdexcept>
@@ -21,9 +21,9 @@ namespace jac {
  * connections to consumers on specific channels.
  */
 class Router {
-    std::map<uint8_t, std::reference_wrapper<Consumer>> _channelConsumers;
+    std::unordered_map<uint8_t, std::reference_wrapper<Consumer>> _channelConsumers;
     std::function<void(int sender, uint8_t channel, std::span<const uint8_t> data)> _global;
-    std::map<int, std::reference_wrapper<ChannelTransmitter>> _many;
+    std::unordered_map<int, std::reference_wrapper<ChannelTransmitter>> _many;
 
     class MulticastPacket : public Packet {
     private:

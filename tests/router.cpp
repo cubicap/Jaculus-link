@@ -3,6 +3,7 @@
 
 #include <jac/link/router.h>
 #include <cstddef>
+#include <unordered_map>
 
 #include "util.h"
 
@@ -70,7 +71,7 @@ TEST_CASE("Receive", "[router]") {
         handles.push_back(std::make_unique<Router::Handle>(router.subscribeTx(i, *transmitters.back())));
     }
 
-    std::map<int, std::unique_ptr<BufferConsumer>> consumers;
+    std::unordered_map<int, std::unique_ptr<BufferConsumer>> consumers;
     for (auto channel : consumedChannels) {
         consumers[channel] = std::make_unique<BufferConsumer>();
         router.subscribeChannel(channel, *consumers[channel]);
