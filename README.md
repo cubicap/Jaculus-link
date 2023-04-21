@@ -1,7 +1,7 @@
-# Jaculus-link - A standalone communication library for multiplexing multiple channels on a single stream
+# Jaculus-link - A standalone communication library for multiplexing multiple channels on a single stream connection
 
-Jaculus-link is a communication library that allows programs to communicate using
-virtual channels over a single stream. It does not contain bindings for communication interfaces but provides a simple API for creating them.
+Jaculus-link is a communication library that allows programs to communicate using virtual channels over a single
+stream connection. It does not contain bindings for communication interfaces but provides a simple API for creating them.
 
 # License
 
