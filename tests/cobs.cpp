@@ -104,7 +104,7 @@ TEST_CASE("Serialize-packetize", "[cobs]") {
     DYNAMIC_SECTION(comment) {
         auto origSpan = std::span<const uint8_t>(original.begin(), original.end());
         auto frame = CobsEncoder::Serializer::buildDataFrame();
-        REQUIRE(frame.put(origSpan) == origSpan.end());
+        REQUIRE(frame.put(origSpan) == origSpan.size());
         auto data = frame.finalize(channel);
         // REQUIRE(packetizer.put(data) == data.end());
         for (size_t i = 0; (i + 1) < data.size(); i++) {
@@ -135,7 +135,7 @@ TEST_CASE("Overflow serializer", "[cobs]") {
 
     auto origSpan = std::span<const uint8_t>(original.begin(), original.end());
     auto putEnd = frame.put(origSpan);
-    REQUIRE(putEnd == origSpan.begin() + capacity);
+    REQUIRE(putEnd == capacity);
     auto data = frame.finalize(channel);
     // REQUIRE(packetizer.put(data) == data.end());
     for (size_t i = 0; (i + 1) < data.size(); i++) {

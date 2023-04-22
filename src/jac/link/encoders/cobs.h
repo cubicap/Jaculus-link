@@ -47,11 +47,11 @@ public:
                 return _dataSize == SIZE_DATA_MAX;
             }
 
-            auto put(std::span<const uint8_t> data) {
+            size_t put(std::span<const uint8_t> data) {
                 size_t amount = std::min(data.size(), SIZE_DATA_MAX - _dataSize);
                 std::copy(data.begin(), data.begin() + amount, buffer.begin() + OFFSET_DATA + _dataSize);
                 _dataSize += amount;
-                return data.begin() + amount;
+                return amount;
             }
 
             std::span<const uint8_t> finalize(uint8_t channel) {
@@ -91,7 +91,6 @@ public:
         static size_t capacity() {
             return PacketStructure::SIZE_DATA_MAX;
         }
-
 
         static DataFrame buildDataFrame() {
             return DataFrame();

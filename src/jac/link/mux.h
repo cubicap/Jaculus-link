@@ -66,8 +66,7 @@ private:
                 throw std::runtime_error("Packet already sent");
             }
 
-            auto it = _frame.put(data);
-            return it - data.begin();
+            return _frame.put(data);
         }
 
         size_t space() const override {
