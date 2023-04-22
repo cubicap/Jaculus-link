@@ -13,7 +13,7 @@ using namespace jac;
 
 
 TEST_CASE("Serialize", "[cobs]") {
-    const auto capacity = CobsSerializer::capacity();
+    const auto capacity = CobsEncoder::Serializer::capacity();
 
     using sgn = typename std::tuple<std::string, uint8_t, std::vector<uint8_t>, int, std::vector<uint8_t>>;
     auto [comment, channel, original, numTrue, encoded] = GENERATE_COPY(
@@ -29,7 +29,7 @@ TEST_CASE("Serialize", "[cobs]") {
     );
 
     DYNAMIC_SECTION(comment) {
-        auto frame = CobsSerializer::buildDataFrame();
+        auto frame = CobsEncoder::Serializer::buildDataFrame();
 
         size_t i = 0;
         for (; i < original.size() - numTrue; i++) {
@@ -39,7 +39,7 @@ TEST_CASE("Serialize", "[cobs]") {
             REQUIRE(frame.put(original[i]));
         }
 
-        REQUIRE(frame.size() == std::min(original.size(), CobsSerializer::capacity()));
+        REQUIRE(frame.size() == std::min(original.size(), CobsEncoder::Serializer::capacity()));
         auto packet = frame.finalize(channel);
         CAPTURE(packet);
         EQUAL_ITERABLE(packet, encoded);
@@ -47,9 +47,9 @@ TEST_CASE("Serialize", "[cobs]") {
 }
 
 TEST_CASE("Packetizer", "[cobs]") {
-    auto packetizer = CobsPacketizer();
+    auto packetizer = CobsEncoder::Packetizer();
 
-    const auto capacity = CobsSerializer::capacity();
+    const auto capacity = CobsEncoder::Serializer::capacity();
 
     using sgn = typename std::tuple<std::string, uint8_t, std::vector<uint8_t>, std::vector<uint8_t>>;
     auto [comment, channel, original, encoded] = GENERATE_COPY(
@@ -85,9 +85,9 @@ TEST_CASE("Packetizer", "[cobs]") {
 
 TEST_CASE("Serialize-packetize", "[cobs]") {
 
-    auto packetizer = CobsPacketizer();
+    auto packetizer = CobsEncoder::Packetizer();
 
-    const auto capacity = CobsSerializer::capacity();
+    const auto capacity = CobsEncoder::Serializer::capacity();
 
     using sgn = typename std::tuple<std::string, uint8_t, std::vector<uint8_t>>;
     auto [comment, channel, original] = GENERATE_COPY(
@@ -103,7 +103,7 @@ TEST_CASE("Serialize-packetize", "[cobs]") {
 
     DYNAMIC_SECTION(comment) {
         auto origSpan = std::span<const uint8_t>(original.begin(), original.end());
-        auto frame = CobsSerializer::buildDataFrame();
+        auto frame = CobsEncoder::Serializer::buildDataFrame();
         REQUIRE(frame.put(origSpan) == origSpan.end());
         auto data = frame.finalize(channel);
         // REQUIRE(packetizer.put(data) == data.end());
@@ -124,12 +124,12 @@ TEST_CASE("Serialize-packetize", "[cobs]") {
 }
 
 TEST_CASE("Overflow serializer", "[cobs]") {
-    auto packetizer = CobsPacketizer();
+    auto packetizer = CobsEncoder::Packetizer();
 
-    const auto capacity = CobsSerializer::capacity();
+    const auto capacity = CobsEncoder::Serializer::capacity();
     const uint8_t channel = 0;
 
-    auto frame = CobsSerializer::buildDataFrame();
+    auto frame = CobsEncoder::Serializer::buildDataFrame();
 
     auto original = rangeVector<uint8_t>(0, capacity + 1);
 

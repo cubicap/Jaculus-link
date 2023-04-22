@@ -3,6 +3,7 @@
 #include "router.h"
 #include "stream.h"
 #include "linkTypes.h"
+#include "encoders/encoderTypes.h"
 
 #include <deque>
 #include <functional>
@@ -20,10 +21,9 @@ namespace jac {
 /**
  * @brief A multiplexer that creates multiple channels over a single stream connection.
  *
- * @tparam Packetizer Class implementing packetization of the protocol
- * @tparam Serializer Class implementing serialization of the protocol
+ * @tparam Encoder the encoder to use
  */
-template<class Packetizer, class Serializer>
+template<class Encoder>
 class Mux : public ChannelTransmitter {
 public:
     enum class Error : int {
@@ -31,6 +31,9 @@ public:
         PACKETIZER = 2
     };
 private:
+    using Packetizer = typename Encoder::Packetizer;
+    using Serializer = typename Encoder::Serializer;
+
     std::unique_ptr<ChannelReceiver> _receiver;
     std::unique_ptr<Duplex> _stream;
 
@@ -41,9 +44,11 @@ private:
     std::function<void(Error, std::vector<int>)> _errorHandler;
 
     class MuxPacket : public Packet {
+        using DataFrame = decltype(Serializer::buildDataFrame());
+
         Mux& _mux;
         uint8_t _channel;
-        Serializer::DataFrame _frame;
+        DataFrame _frame;
         bool sent = false;
     public:
         MuxPacket(Mux& mux, uint8_t channel) : _mux(mux), _channel(channel), _frame(Serializer::buildDataFrame()) {}
@@ -104,7 +109,7 @@ public:
         while ((c = _stream->get()) != EOF) {
             auto putRes = _packetizer.put(c);
             if (putRes > 0) {
-                auto result = _packetizer.decode();
+                DecodeResult result = _packetizer.decode();
                 if (result.valid) {
                     if (_receiver) {
                         _receiver->processPacket(result.channel, result.data);

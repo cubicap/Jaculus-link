@@ -48,8 +48,8 @@ TEST_CASE("Send-receive packet", "[mux]") {
     auto outStream1 = std::make_unique<BufferStream>();
     // auto& in1 = *inStream1;
     auto& out1 = *outStream1;
-    auto mux1 = Mux<CobsPacketizer, CobsSerializer>(std::make_unique<Duplexify>(std::move(inStream1), std::move(outStream1)));
-    mux1.setErrorHandler([](Mux<CobsPacketizer, CobsSerializer>::Error error, std::vector<int> ctx) {
+    auto mux1 = Mux<CobsEncoder>(std::make_unique<Duplexify>(std::move(inStream1), std::move(outStream1)));
+    mux1.setErrorHandler([](Mux<CobsEncoder>::Error error, std::vector<int> ctx) {
         CAPTURE(error);
         CAPTURE(ctx);
         FAIL("Error handler called");
@@ -59,8 +59,8 @@ TEST_CASE("Send-receive packet", "[mux]") {
     auto outStream2 = std::make_unique<BufferStream>();
     auto& in2 = *inStream2;
     // auto& out2 = *outStream2;
-    auto mux2 = Mux<CobsPacketizer, CobsSerializer>(std::make_unique<Duplexify>(std::move(inStream2), std::move(outStream2)));
-    mux2.setErrorHandler([](Mux<CobsPacketizer, CobsSerializer>::Error error, std::vector<int> ctx) {
+    auto mux2 = Mux<CobsEncoder>(std::make_unique<Duplexify>(std::move(inStream2), std::move(outStream2)));
+    mux2.setErrorHandler([](Mux<CobsEncoder>::Error error, std::vector<int> ctx) {
         CAPTURE(error);
         CAPTURE(ctx);
         FAIL("Error handler called");
@@ -113,8 +113,8 @@ TEST_CASE("Overflow packet", "[mux]") {
     auto outStream1 = std::make_unique<BufferStream>();
     // auto& in1 = *inStream1;
     auto& out1 = *outStream1;
-    auto mux1 = Mux<CobsPacketizer, CobsSerializer>(std::make_unique<Duplexify>(std::move(inStream1), std::move(outStream1)));
-    mux1.setErrorHandler([](Mux<CobsPacketizer, CobsSerializer>::Error error, std::vector<int> ctx) {
+    auto mux1 = Mux<CobsEncoder>(std::make_unique<Duplexify>(std::move(inStream1), std::move(outStream1)));
+    mux1.setErrorHandler([](Mux<CobsEncoder>::Error error, std::vector<int> ctx) {
         CAPTURE(error);
         CAPTURE(ctx);
         FAIL("Error handler called");
@@ -124,8 +124,8 @@ TEST_CASE("Overflow packet", "[mux]") {
     auto outStream2 = std::make_unique<BufferStream>();
     auto& in2 = *inStream2;
     // auto& out2 = *outStream2;
-    auto mux2 = Mux<CobsPacketizer, CobsSerializer>(std::make_unique<Duplexify>(std::move(inStream2), std::move(outStream2)));
-    mux2.setErrorHandler([](Mux<CobsPacketizer, CobsSerializer>::Error error, std::vector<int> ctx) {
+    auto mux2 = Mux<CobsEncoder>(std::make_unique<Duplexify>(std::move(inStream2), std::move(outStream2)));
+    mux2.setErrorHandler([](Mux<CobsEncoder>::Error error, std::vector<int> ctx) {
         CAPTURE(error);
         CAPTURE(ctx);
         FAIL("Error handler called");
@@ -173,8 +173,8 @@ TEST_CASE("Packets in succession", "[mux]") {
     auto outStream1 = std::make_unique<BufferStream>();
     // auto& in1 = *inStream1;
     auto& out1 = *outStream1;
-    auto mux1 = Mux<CobsPacketizer, CobsSerializer>(std::make_unique<Duplexify>(std::move(inStream1), std::move(outStream1)));
-    mux1.setErrorHandler([](Mux<CobsPacketizer, CobsSerializer>::Error error, std::vector<int> ctx) {
+    auto mux1 = Mux<CobsEncoder>(std::make_unique<Duplexify>(std::move(inStream1), std::move(outStream1)));
+    mux1.setErrorHandler([](Mux<CobsEncoder>::Error error, std::vector<int> ctx) {
         CAPTURE(error);
         CAPTURE(ctx);
         FAIL("Error handler called");
@@ -184,8 +184,8 @@ TEST_CASE("Packets in succession", "[mux]") {
     auto outStream2 = std::make_unique<BufferStream>();
     auto& in2 = *inStream2;
     // auto& out2 = *outStream2;
-    auto mux2 = Mux<CobsPacketizer, CobsSerializer>(std::make_unique<Duplexify>(std::move(inStream2), std::move(outStream2)));
-    mux2.setErrorHandler([](Mux<CobsPacketizer, CobsSerializer>::Error error, std::vector<int> ctx) {
+    auto mux2 = Mux<CobsEncoder>(std::make_unique<Duplexify>(std::move(inStream2), std::move(outStream2)));
+    mux2.setErrorHandler([](Mux<CobsEncoder>::Error error, std::vector<int> ctx) {
         CAPTURE(error);
         CAPTURE(ctx);
         FAIL("Error handler called");
