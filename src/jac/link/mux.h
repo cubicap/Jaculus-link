@@ -76,7 +76,7 @@ private:
             auto data = _frame.finalize(_channel);
 
             std::lock_guard<std::mutex> lock(_mux._writeMutex);
-            return _mux._stream->write(data) == data.size();
+            return _mux._stream->write(data) == data.size() && _mux._stream->flush();
         }
     };
 
