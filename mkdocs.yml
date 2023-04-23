@@ -57,6 +57,8 @@ plugins:
 
 nav:
   - Home: index.md
+  - Architecture: architecture.md
+  - Usage: usage.md
   - API:
     - Class Index: "doxygen/classes.md"
     - Namespace List: "doxygen/namespaces.md"
