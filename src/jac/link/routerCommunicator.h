@@ -16,12 +16,12 @@
 namespace jac {
 
 
-class TransparentOutputStreamCommunicator : public OutputStreamCommunicator {
+class RouterOutputStreamCommunicator : public OutputStreamCommunicator {
     Router& _router;
     uint8_t _channel;
     std::vector<int> _recipients;
 public:
-    TransparentOutputStreamCommunicator(Router& router, uint8_t channel, std::vector<int> recipients)
+    RouterOutputStreamCommunicator(Router& router, uint8_t channel, std::vector<int> recipients)
             : _router(router), _channel(channel), _recipients(std::move(recipients)) {}
     bool put(uint8_t c) override {
         return write(std::span<const uint8_t>(&c, 1)) == 1;
@@ -47,7 +47,7 @@ public:
 };
 
 
-class UnboundedBufferedInputStreamCommunicator : public BufferedInputStreamCommunicator, public Consumer {
+class RouterInputStreamCommunicator : public InputStreamCommunicator, public Consumer {
     std::deque<std::vector<uint8_t>> _buffer;
     std::vector<uint8_t>::iterator _pos;
     std::set<int> _recipients;
@@ -74,7 +74,7 @@ class UnboundedBufferedInputStreamCommunicator : public BufferedInputStreamCommu
         return size;
     }
 public:
-    UnboundedBufferedInputStreamCommunicator(std::set<int> recipients) : _recipients(std::move(recipients)) {}
+    RouterInputStreamCommunicator(std::set<int> recipients) : _recipients(std::move(recipients)) {}
 
     void processPacket(int sender, std::span<const uint8_t> data) override {
         if (data.size() == 0) {
@@ -149,11 +149,11 @@ public:
 };
 
 
-class TransparentOutputPacketCommunicator : public OutputPacketCommunicator {
+class RouterOutputPacketCommunicator : public OutputPacketCommunicator {
     Router& _router;
     uint8_t _channel;
 public:
-    TransparentOutputPacketCommunicator(Router& router, uint8_t channel) : _router(router), _channel(channel) {}
+    RouterOutputPacketCommunicator(Router& router, uint8_t channel) : _router(router), _channel(channel) {}
     std::unique_ptr<Packet> buildPacket(std::vector<int> recipients) override {
         return _router.buildPacket(_channel, recipients);
     }
@@ -164,7 +164,7 @@ public:
 };
 
 
-class UnboundedBufferedInputPacketCommunicator : public BufferedInputPacketCommunicator, public Consumer {
+class RouterInputPacketCommunicator : public InputPacketCommunicator, public Consumer {
     std::deque<std::pair<int, std::vector<uint8_t>>> _buffer;
 
     std::mutex _mutex;
@@ -175,7 +175,7 @@ class UnboundedBufferedInputPacketCommunicator : public BufferedInputPacketCommu
         return _buffer.size();
     }
 public:
-    UnboundedBufferedInputPacketCommunicator() {}
+    RouterInputPacketCommunicator() {}
 
     void processPacket(int sender, std::span<const uint8_t> data) override {
         std::unique_lock<std::mutex> lock(_mutex);

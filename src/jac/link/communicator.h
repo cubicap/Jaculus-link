@@ -48,7 +48,7 @@ public:
 /**
  * @brief Communicator interface that can be used to receive stream data.
  */
-class BufferedInputStreamCommunicator {
+class InputStreamCommunicator {
 public:
     /**
      * @brief Get a single byte from the stream.
@@ -91,7 +91,7 @@ public:
      */
     virtual void cancelRead() = 0;
 
-    virtual ~BufferedInputStreamCommunicator() = default;
+    virtual ~InputStreamCommunicator() = default;
 };
 
 
@@ -123,7 +123,7 @@ public:
 /**
  * @brief Communicator interface that can be used to receive packets.
  */
-class BufferedInputPacketCommunicator {
+class InputPacketCommunicator {
 public:
     /**
      * @brief Get the next packet.
@@ -150,7 +150,7 @@ public:
      */
     virtual void cancelRead() = 0;
 
-    virtual ~BufferedInputPacketCommunicator() = default;
+    virtual ~InputPacketCommunicator() = default;
 };
 
 

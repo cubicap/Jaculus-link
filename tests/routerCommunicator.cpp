@@ -13,7 +13,7 @@
 using namespace jac;
 
 
-TEST_CASE("TransparentOutputStreamCommunicator", "[routerCommunicator]") {
+TEST_CASE("RouterOutputStreamCommunicator", "[routerCommunicator]") {
     const size_t PACKET_SIZE = 256;
     const uint8_t CHANNEL = 0;
 
@@ -22,7 +22,7 @@ TEST_CASE("TransparentOutputStreamCommunicator", "[routerCommunicator]") {
 
     auto handle = router.subscribeTx(0, transmitter);
 
-    TransparentOutputStreamCommunicator communicator(router, CHANNEL, {});
+    RouterOutputStreamCommunicator communicator(router, CHANNEL, {});
 
     using sgn = typename std::tuple<std::string, std::vector<uint8_t>>;
     auto [comment, data] = GENERATE_COPY(
@@ -50,7 +50,7 @@ TEST_CASE("TransparentOutputStreamCommunicator", "[routerCommunicator]") {
 }
 
 
-TEST_CASE("TransparentOutputStreamCommunicator - recipients", "[routerCommunicator]") {
+TEST_CASE("RouterOutputStreamCommunicator - recipients", "[routerCommunicator]") {
     Router router;
 
     const std::vector<size_t> packetSizes = { 64, 256, 128 };
@@ -75,7 +75,7 @@ TEST_CASE("TransparentOutputStreamCommunicator - recipients", "[routerCommunicat
     );
 
     DYNAMIC_SECTION(comment) {
-        TransparentOutputStreamCommunicator communicator(router, 0, {});
+        RouterOutputStreamCommunicator communicator(router, 0, {});
         communicator.setRecipients(recipients);
 
         communicator.write(std::span(data.begin(), data.end()));
@@ -101,7 +101,7 @@ TEST_CASE("TransparentOutputStreamCommunicator - recipients", "[routerCommunicat
 }
 
 
-TEST_CASE("UnboundedBufferedInputStreamCommunicator", "[routerCommunicator]") {
+TEST_CASE("RouterInputStreamCommunicator", "[routerCommunicator]") {
     const size_t PACKET_SIZE = 256;
     const uint8_t CHANNEL = 0;
 
@@ -110,7 +110,7 @@ TEST_CASE("UnboundedBufferedInputStreamCommunicator", "[routerCommunicator]") {
 
     auto handle = router.subscribeTx(0, transmitter);
 
-    UnboundedBufferedInputStreamCommunicator communicator({});
+    RouterInputStreamCommunicator communicator({});
     router.subscribeChannel(CHANNEL, communicator);
 
     using sgn = typename std::tuple<std::string, std::vector<uint8_t>>;
@@ -151,7 +151,7 @@ TEST_CASE("UnboundedBufferedInputStreamCommunicator", "[routerCommunicator]") {
 }
 
 
-TEST_CASE("UnboundedBufferedInputStreamCommunicator - filter", "[routerCommunicator]") {
+TEST_CASE("RouterInputStreamCommunicator - filter", "[routerCommunicator]") {
     const size_t PACKET_SIZE = 256;
     const uint8_t CHANNEL = 0;
 
@@ -160,7 +160,7 @@ TEST_CASE("UnboundedBufferedInputStreamCommunicator - filter", "[routerCommunica
 
     auto handle = router.subscribeTx(0, transmitter);
 
-    UnboundedBufferedInputStreamCommunicator communicator({});
+    RouterInputStreamCommunicator communicator({});
     router.subscribeChannel(CHANNEL, communicator);
 
     using sgn = typename std::tuple<std::string, std::vector<uint8_t>, std::set<int>>;
@@ -202,7 +202,7 @@ TEST_CASE("UnboundedBufferedInputStreamCommunicator - filter", "[routerCommunica
 }
 
 
-TEST_CASE("TransparentOutputPacketCommunicator", "[routerCommunicator]") {
+TEST_CASE("RouterOutputPacketCommunicator", "[routerCommunicator]") {
     const size_t PACKET_SIZE = 256;
     const uint8_t CHANNEL = 0;
 
@@ -215,7 +215,7 @@ TEST_CASE("TransparentOutputPacketCommunicator", "[routerCommunicator]") {
     auto handle2 = router.subscribeTx(1, transmitter2);
     auto handle3 = router.subscribeTx(2, transmitter3);
 
-    TransparentOutputPacketCommunicator communicator(router, CHANNEL);
+    RouterOutputPacketCommunicator communicator(router, CHANNEL);
 
     using sgn = typename std::tuple<std::string, std::vector<uint8_t>>;
     auto [comment, data] = GENERATE_COPY(
@@ -274,7 +274,7 @@ TEST_CASE("TransparentOutputPacketCommunicator", "[routerCommunicator]") {
 }
 
 
-TEST_CASE("UnboundedBufferedInputPacketCommunicator", "[routerCommunicator]") {
+TEST_CASE("RouterInputPacketCommunicator", "[routerCommunicator]") {
     const size_t PACKET_SIZE = 256;
     const uint8_t CHANNEL = 0;
 
@@ -283,7 +283,7 @@ TEST_CASE("UnboundedBufferedInputPacketCommunicator", "[routerCommunicator]") {
 
     auto handle = router.subscribeTx(0, transmitter);
 
-    UnboundedBufferedInputPacketCommunicator communicator;
+    RouterInputPacketCommunicator communicator;
     router.subscribeChannel(CHANNEL, communicator);
 
     using sgn = typename std::tuple<std::string, std::vector<uint8_t>>;
@@ -321,7 +321,7 @@ TEST_CASE("UnboundedBufferedInputPacketCommunicator", "[routerCommunicator]") {
 }
 
 
-TEST_CASE("Multithread UnboundedBufferedInputStreamCommunicator", "[routerCommunicator]") {
+TEST_CASE("Multithread RouterInputStreamCommunicator", "[routerCommunicator]") {
     const size_t PACKET_SIZE = 256;
     const uint8_t CHANNEL = 0;
 
@@ -330,7 +330,7 @@ TEST_CASE("Multithread UnboundedBufferedInputStreamCommunicator", "[routerCommun
 
     auto handle = router.subscribeTx(0, transmitter);
 
-    UnboundedBufferedInputStreamCommunicator communicator({});
+    RouterInputStreamCommunicator communicator({});
     router.subscribeChannel(CHANNEL, communicator);
 
     std::vector<std::vector<uint8_t>> packets;
@@ -362,7 +362,7 @@ TEST_CASE("Multithread UnboundedBufferedInputStreamCommunicator", "[routerCommun
 }
 
 
-TEST_CASE("Multithread UnboundedBufferedInputStreamCommunicator - cancelRead", "[routerCommunicator]") {
+TEST_CASE("Multithread RouterInputStreamCommunicator - cancelRead", "[routerCommunicator]") {
     const size_t PACKET_SIZE = 256;
     const uint8_t CHANNEL = 0;
 
@@ -371,7 +371,7 @@ TEST_CASE("Multithread UnboundedBufferedInputStreamCommunicator - cancelRead", "
 
     auto handle = router.subscribeTx(0, transmitter);
 
-    UnboundedBufferedInputStreamCommunicator communicator({});
+    RouterInputStreamCommunicator communicator({});
     router.subscribeChannel(CHANNEL, communicator);
 
     bool running = true;
@@ -393,7 +393,7 @@ TEST_CASE("Multithread UnboundedBufferedInputStreamCommunicator - cancelRead", "
 }
 
 
-TEST_CASE("Multithread UnboundedBufferedInputPacketCommunicator", "[routerCommunicator]") {
+TEST_CASE("Multithread RouterInputPacketCommunicator", "[routerCommunicator]") {
     const size_t PACKET_SIZE = 256;
     const uint8_t CHANNEL = 0;
 
@@ -402,7 +402,7 @@ TEST_CASE("Multithread UnboundedBufferedInputPacketCommunicator", "[routerCommun
 
     auto handle = router.subscribeTx(0, transmitter);
 
-    UnboundedBufferedInputPacketCommunicator communicator;
+    RouterInputPacketCommunicator communicator;
     router.subscribeChannel(CHANNEL, communicator);
 
     std::vector<std::vector<uint8_t>> packets;
@@ -433,7 +433,7 @@ TEST_CASE("Multithread UnboundedBufferedInputPacketCommunicator", "[routerCommun
 }
 
 
-TEST_CASE("Multithread UnboundedBufferedInputPacketCommunicator - cancelRead", "[routerCommunicator]") {
+TEST_CASE("Multithread RouterInputPacketCommunicator - cancelRead", "[routerCommunicator]") {
     const size_t PACKET_SIZE = 256;
     const uint8_t CHANNEL = 0;
 
@@ -442,7 +442,7 @@ TEST_CASE("Multithread UnboundedBufferedInputPacketCommunicator - cancelRead", "
 
     auto handle = router.subscribeTx(0, transmitter);
 
-    UnboundedBufferedInputPacketCommunicator communicator;
+    RouterInputPacketCommunicator communicator;
     router.subscribeChannel(CHANNEL, communicator);
 
     bool running = true;
