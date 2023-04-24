@@ -1,9 +1,10 @@
 #pragma once
 
 #include <cstdint>
-#include <span>
 #include <deque>
+#include <functional>
 #include <memory>
+#include <span>
 
 
 namespace jac {
@@ -18,7 +19,7 @@ public:
      * @brief Get a single byte from the stream.
      * @note This method should not block.
      *
-     * @return the byte or -1 if no data is available
+     * @return The byte or -1 if no data is available
      */
     virtual int get() = 0;
 
@@ -30,6 +31,14 @@ public:
      * @return The number of bytes read
      */
     virtual size_t read(std::span<uint8_t> data) = 0;
+
+    /**
+     * @brief Register a callback to be called when data is available.
+     * @note The callback will not be called in parallel.
+     *
+     * @param onData the callback
+     */
+    virtual void onData(std::function<void(void)>) = 0;
 
     virtual ~InputStream() = default;
 };
@@ -91,6 +100,10 @@ public:
 
     bool put(uint8_t c) override {
         return _out->put(c);
+    }
+
+    void onData(std::function<void(void)> callback) override {
+        _in->onData(callback);
     }
 
     size_t write(std::span<const uint8_t> data) override {

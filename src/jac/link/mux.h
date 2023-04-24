@@ -5,6 +5,7 @@
 #include "linkTypes.h"
 #include "encoders/encoderTypes.h"
 
+#include <any>
 #include <deque>
 #include <functional>
 #include <memory>
@@ -28,7 +29,8 @@ class Mux : public ChannelTransmitter {
 public:
     enum class Error : int {
         INVALID_RECEIVE = 1,
-        PACKETIZER = 2
+        PACKETIZER = 2,
+        PROCESSING = 3,
     };
 private:
     using Packetizer = typename Encoder::Packetizer;
@@ -41,7 +43,7 @@ private:
 
     std::mutex _writeMutex;
 
-    std::function<void(Error, std::vector<int>)> _errorHandler;
+    std::function<void(Error, std::any)> _errorHandler;
 
     class MuxPacket : public Packet {
         using DataFrame = decltype(Serializer::buildDataFrame());
@@ -84,21 +86,6 @@ private:
         }
     };
 
-public:
-    Mux(std::unique_ptr<Duplex> stream) : _stream(std::move(stream)) {}
-    Mux(const Mux&) = delete;
-    Mux(Mux&&) = delete;
-
-    /**
-     * @brief Bind a receiver to this mux. Received packets will be forwarded to the receiver.
-     *
-     * @param receiver the receiver to bind
-     */
-    void bindRx(std::unique_ptr<ChannelReceiver> receiver) {
-        // TODO: rewrite rx binding
-        _receiver = std::move(receiver);
-    }
-
     /**
      * @brief Receive and parse data from the stream. Any received packets will be
      * immediately forwarded to the bound receiver.
@@ -117,17 +104,46 @@ public:
                 else {
                     // handle invalid packet
                     if (_errorHandler) {
-                        _errorHandler(Error::INVALID_RECEIVE, { putRes, result.channel });
+                        _errorHandler(Error::INVALID_RECEIVE, std::tuple<int, uint8_t>{ putRes, result.channel });
                     }
                 }
             }
             else if (putRes < 0) {
                 // handle protocol error
                 if (_errorHandler) {
-                    _errorHandler(Error::PACKETIZER, { putRes });
+                    _errorHandler(Error::PACKETIZER, int(putRes));
                 }
             }
         }
+    }
+public:
+    Mux(std::unique_ptr<Duplex> stream) : _stream(std::move(stream)) {
+        _stream->onData([this]() {
+            try {
+                receive();
+            }
+            catch (std::exception& e) {
+                if (this->_errorHandler) {
+                    this->_errorHandler(Error::PROCESSING, std::string("Exception: ") + e.what());
+                }
+            }
+            catch (...) {
+                if (this->_errorHandler) {
+                    this->_errorHandler(Error::PROCESSING, std::string("Unknown exception"));
+                }
+            }
+        });
+    }
+    Mux(const Mux&) = delete;
+    Mux(Mux&&) = delete;
+
+    /**
+     * @brief Bind a receiver to this mux. Received packets will be forwarded to the receiver.
+     *
+     * @param receiver the receiver to bind
+     */
+    void bindRx(std::unique_ptr<ChannelReceiver> receiver) {
+        _receiver = std::move(receiver);
     }
 
     /**
@@ -154,7 +170,7 @@ public:
      *
      * @param handler the error handler
      */
-    void setErrorHandler(std::function<void(Error, std::vector<int>)> handler) {
+    void setErrorHandler(std::function<void(Error, std::any)> handler) {
         _errorHandler = handler;
     }
 };

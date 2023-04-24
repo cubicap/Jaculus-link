@@ -49,7 +49,7 @@ TEST_CASE("Send-receive packet", "[mux]") {
     // auto& in1 = *inStream1;
     auto& out1 = *outStream1;
     auto mux1 = Mux<CobsEncoder>(std::make_unique<Duplexify>(std::move(inStream1), std::move(outStream1)));
-    mux1.setErrorHandler([](Mux<CobsEncoder>::Error error, std::vector<int> ctx) {
+    mux1.setErrorHandler([](Mux<CobsEncoder>::Error error, std::any ctx) {
         CAPTURE(error);
         CAPTURE(ctx);
         FAIL("Error handler called");
@@ -60,7 +60,7 @@ TEST_CASE("Send-receive packet", "[mux]") {
     auto& in2 = *inStream2;
     // auto& out2 = *outStream2;
     auto mux2 = Mux<CobsEncoder>(std::make_unique<Duplexify>(std::move(inStream2), std::move(outStream2)));
-    mux2.setErrorHandler([](Mux<CobsEncoder>::Error error, std::vector<int> ctx) {
+    mux2.setErrorHandler([](Mux<CobsEncoder>::Error error, std::any ctx) {
         CAPTURE(error);
         CAPTURE(ctx);
         FAIL("Error handler called");
@@ -97,8 +97,6 @@ TEST_CASE("Send-receive packet", "[mux]") {
             in2.put(c);
         }
 
-        mux2.receive();
-
         REQUIRE(rx.packets.size() == 1);
         auto& [ch, received] = rx.packets[0];
 
@@ -114,7 +112,7 @@ TEST_CASE("Overflow packet", "[mux]") {
     // auto& in1 = *inStream1;
     auto& out1 = *outStream1;
     auto mux1 = Mux<CobsEncoder>(std::make_unique<Duplexify>(std::move(inStream1), std::move(outStream1)));
-    mux1.setErrorHandler([](Mux<CobsEncoder>::Error error, std::vector<int> ctx) {
+    mux1.setErrorHandler([](Mux<CobsEncoder>::Error error, std::any ctx) {
         CAPTURE(error);
         CAPTURE(ctx);
         FAIL("Error handler called");
@@ -125,7 +123,7 @@ TEST_CASE("Overflow packet", "[mux]") {
     auto& in2 = *inStream2;
     // auto& out2 = *outStream2;
     auto mux2 = Mux<CobsEncoder>(std::make_unique<Duplexify>(std::move(inStream2), std::move(outStream2)));
-    mux2.setErrorHandler([](Mux<CobsEncoder>::Error error, std::vector<int> ctx) {
+    mux2.setErrorHandler([](Mux<CobsEncoder>::Error error, std::any ctx) {
         CAPTURE(error);
         CAPTURE(ctx);
         FAIL("Error handler called");
@@ -155,8 +153,6 @@ TEST_CASE("Overflow packet", "[mux]") {
         in2.put(c);
     }
 
-    mux2.receive();
-
     REQUIRE(rx.packets.size() == 1);
     auto& [ch, received] = rx.packets[0];
 
@@ -174,7 +170,7 @@ TEST_CASE("Packets in succession", "[mux]") {
     // auto& in1 = *inStream1;
     auto& out1 = *outStream1;
     auto mux1 = Mux<CobsEncoder>(std::make_unique<Duplexify>(std::move(inStream1), std::move(outStream1)));
-    mux1.setErrorHandler([](Mux<CobsEncoder>::Error error, std::vector<int> ctx) {
+    mux1.setErrorHandler([](Mux<CobsEncoder>::Error error, std::any ctx) {
         CAPTURE(error);
         CAPTURE(ctx);
         FAIL("Error handler called");
@@ -185,7 +181,7 @@ TEST_CASE("Packets in succession", "[mux]") {
     auto& in2 = *inStream2;
     // auto& out2 = *outStream2;
     auto mux2 = Mux<CobsEncoder>(std::make_unique<Duplexify>(std::move(inStream2), std::move(outStream2)));
-    mux2.setErrorHandler([](Mux<CobsEncoder>::Error error, std::vector<int> ctx) {
+    mux2.setErrorHandler([](Mux<CobsEncoder>::Error error, std::any ctx) {
         CAPTURE(error);
         CAPTURE(ctx);
         FAIL("Error handler called");
@@ -223,8 +219,6 @@ TEST_CASE("Packets in succession", "[mux]") {
         while ((c = out1.get()) != EOF) {
             in2.put(c);
         }
-
-        mux2.receive();
 
         REQUIRE(rx.packets.size() == count + 1);
         auto& [ch, received] = rx.packets.back();

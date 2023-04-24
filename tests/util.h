@@ -86,6 +86,7 @@ public:
 class BufferStream : public InputStream, public OutputStream {
 private:
     std::deque<uint8_t> _buffer;
+    std::function<void()> _onData;
 public:
     BufferStream() {}
 
@@ -107,13 +108,23 @@ public:
         return i;
     }
 
+    void onData(std::function<void()> callback) override {
+        _onData = callback;
+    }
+
     bool put(uint8_t c) override {
         _buffer.push_back(c);
+        if (_onData) {
+            _onData();
+        }
         return true;
     }
 
     size_t write(std::span<const uint8_t> data) override {
         _buffer.insert(_buffer.end(), data.begin(), data.end());
+        if (_onData) {
+            _onData();
+        }
         return data.size();
     }
 
