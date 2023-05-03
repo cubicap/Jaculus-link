@@ -34,6 +34,7 @@ public:
     virtual size_t space() const = 0;
 
     virtual bool send() = 0;
+    virtual ~Packet() = default;
 };
 
 
@@ -63,6 +64,8 @@ public:
      * @return The maximum packet size
      */
     virtual size_t maxPacketSize() const = 0;
+
+    virtual ~ChannelTransmitter() = default;
 };
 
 
@@ -84,6 +87,8 @@ public:
      * @param data data of the packet
      */
     virtual void processPacket(uint8_t channel, std::span<const uint8_t> data) = 0;
+
+    virtual ~ChannelReceiver() = default;
 };
 
 
