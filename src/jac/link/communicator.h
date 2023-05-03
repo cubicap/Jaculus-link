@@ -41,6 +41,9 @@ public:
      */
     virtual void setRecipients(std::vector<int> recipients) = 0;
 
+    OutputStreamCommunicator() = default;
+    OutputStreamCommunicator(const OutputStreamCommunicator&) = delete;
+    OutputStreamCommunicator& operator=(const OutputStreamCommunicator&) = delete;
     virtual ~OutputStreamCommunicator() = default;
 };
 
@@ -91,6 +94,9 @@ public:
      */
     virtual void cancelRead() = 0;
 
+    InputStreamCommunicator() = default;
+    InputStreamCommunicator(const InputStreamCommunicator&) = delete;
+    InputStreamCommunicator& operator=(const InputStreamCommunicator&) = delete;
     virtual ~InputStreamCommunicator() = default;
 };
 
@@ -116,6 +122,9 @@ public:
      */
     virtual size_t maxPacketSize(std::vector<int> recipients) const = 0;
 
+    OutputPacketCommunicator() = default;
+    OutputPacketCommunicator(const OutputPacketCommunicator&) = delete;
+    OutputPacketCommunicator& operator=(const OutputPacketCommunicator&) = delete;
     virtual ~OutputPacketCommunicator() = default;
 };
 
@@ -150,6 +159,9 @@ public:
      */
     virtual void cancelRead() = 0;
 
+    InputPacketCommunicator() = default;
+    InputPacketCommunicator(const InputPacketCommunicator&) = delete;
+    InputPacketCommunicator& operator=(const InputPacketCommunicator&) = delete;
     virtual ~InputPacketCommunicator() = default;
 };
 

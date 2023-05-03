@@ -34,6 +34,10 @@ public:
     virtual size_t space() const = 0;
 
     virtual bool send() = 0;
+
+    Packet() = default;
+    Packet(const Packet&) = delete;
+    Packet& operator=(const Packet&) = delete;
     virtual ~Packet() = default;
 };
 

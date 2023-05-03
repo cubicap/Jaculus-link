@@ -17,7 +17,7 @@ namespace jac {
 
 
 class RouterOutputStreamCommunicator : public OutputStreamCommunicator {
-    Router& _router;
+    std::reference_wrapper<Router> _router;
     uint8_t _channel;
     std::vector<int> _recipients;
 public:
@@ -30,7 +30,7 @@ public:
     size_t write(std::span<const uint8_t> data) override {
         auto it = data.begin();
         while (it != data.end()) {
-            auto packet = _router.buildPacket(_channel, _recipients);
+            auto packet = _router.get().buildPacket(_channel, _recipients);
             auto size = packet->put(std::span<const uint8_t>(it, data.end()));
             if (size == 0) {
                 return it - data.begin();
@@ -150,16 +150,16 @@ public:
 
 
 class RouterOutputPacketCommunicator : public OutputPacketCommunicator {
-    Router& _router;
+    std::reference_wrapper<Router> _router;
     uint8_t _channel;
 public:
     RouterOutputPacketCommunicator(Router& router, uint8_t channel) : _router(router), _channel(channel) {}
     std::unique_ptr<Packet> buildPacket(std::vector<int> recipients) override {
-        return _router.buildPacket(_channel, recipients);
+        return _router.get().buildPacket(_channel, recipients);
     }
 
     size_t maxPacketSize(std::vector<int> recipients) const override {
-        return _router.maxPacketSize(_channel, recipients);
+        return _router.get().maxPacketSize(_channel, recipients);
     }
 };
 

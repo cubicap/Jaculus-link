@@ -48,7 +48,7 @@ private:
     class MuxPacket : public Packet {
         using DataFrame = decltype(Serializer::buildDataFrame());
 
-        Mux& _mux;
+        std::reference_wrapper<Mux> _mux;
         uint8_t _channel;
         DataFrame _frame;
         bool sent = false;
@@ -81,8 +81,8 @@ private:
             }
             auto data = _frame.finalize(_channel);
 
-            std::lock_guard<std::mutex> lock(_mux._writeMutex);
-            return _mux._stream->write(data) == data.size() && _mux._stream->flush();
+            std::lock_guard<std::mutex> lock(_mux.get()._writeMutex);
+            return _mux.get()._stream->write(data) == data.size() && _mux.get()._stream->flush();
         }
     };
 

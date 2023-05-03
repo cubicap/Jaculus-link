@@ -31,7 +31,6 @@ private:
 
 public:
     class Serializer {
-    public:
         class DataFrame : private PacketStructure {
             size_t _dataSize = 0;
         public:
@@ -88,6 +87,7 @@ public:
             }
         };
 
+    public:
         static size_t capacity() {
             return PacketStructure::SIZE_DATA_MAX;
         }

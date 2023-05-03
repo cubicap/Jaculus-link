@@ -27,7 +27,7 @@ class Router {
 
     class MulticastPacket : public Packet {
     private:
-        Router& _router;
+        std::reference_wrapper<Router> _router;
         uint8_t _channel;
         size_t _maxSize;
         std::vector<uint8_t> _data;
@@ -38,7 +38,7 @@ class Router {
             _channel(channel),
             _recipients(std::move(recipients))
         {
-            _maxSize = _router.maxPacketSize(channel, _recipients);
+            _maxSize = _router.get().maxPacketSize(channel, _recipients);
             _data.reserve(_maxSize);
         }
 
@@ -61,7 +61,7 @@ class Router {
         }
 
         bool send() override {
-            for (auto& [id, transmitter] : _router._many) {
+            for (auto& [id, transmitter] : _router.get()._many) {
                 if (!_recipients.empty() && std::find(_recipients.begin(), _recipients.end(), id) == _recipients.end()) {
                     continue;
                 }
