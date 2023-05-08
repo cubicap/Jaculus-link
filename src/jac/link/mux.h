@@ -19,19 +19,20 @@
 namespace jac {
 
 
+enum class MuxError : int {
+    INVALID_RECEIVE = 1,
+    PACKETIZER = 2,
+    PROCESSING = 3,
+};
+
+
 /**
- * @brief A multiplexer that creates multiple channels over a single stream connection.
+ * @brief A multiplexer that creates 256 channels on a single stream connection.
  *
  * @tparam Encoder the encoder to use
  */
 template<class Encoder>
 class Mux : public ChannelTransmitter {
-public:
-    enum class Error : int {
-        INVALID_RECEIVE = 1,
-        PACKETIZER = 2,
-        PROCESSING = 3,
-    };
 private:
     using Packetizer = typename Encoder::Packetizer;
     using Serializer = typename Encoder::Serializer;
@@ -43,7 +44,7 @@ private:
 
     std::mutex _writeMutex;
 
-    std::function<void(Error, std::any)> _errorHandler;
+    std::function<void(MuxError, std::any)> _errorHandler;
 
     class MuxPacket : public Packet {
         using DataFrame = decltype(Serializer::buildDataFrame());
@@ -104,14 +105,14 @@ private:
                 else {
                     // handle invalid packet
                     if (_errorHandler) {
-                        _errorHandler(Error::INVALID_RECEIVE, std::tuple<int, uint8_t>{ putRes, result.channel });
+                        _errorHandler(MuxError::INVALID_RECEIVE, std::tuple<int, uint8_t>{ putRes, result.channel });
                     }
                 }
             }
             else if (putRes < 0) {
                 // handle protocol error
                 if (_errorHandler) {
-                    _errorHandler(Error::PACKETIZER, int(putRes));
+                    _errorHandler(MuxError::PACKETIZER, int(putRes));
                 }
             }
         }
@@ -124,12 +125,12 @@ public:
             }
             catch (std::exception& e) {
                 if (this->_errorHandler) {
-                    this->_errorHandler(Error::PROCESSING, std::string("Exception: ") + e.what());
+                    this->_errorHandler(MuxError::PROCESSING, std::string("Exception: ") + e.what());
                 }
             }
             catch (...) {
                 if (this->_errorHandler) {
-                    this->_errorHandler(Error::PROCESSING, std::string("Unknown exception"));
+                    this->_errorHandler(MuxError::PROCESSING, std::string("Unknown exception"));
                 }
             }
         });
@@ -170,7 +171,7 @@ public:
      *
      * @param handler the error handler
      */
-    void setErrorHandler(std::function<void(Error, std::any)> handler) {
+    void setErrorHandler(std::function<void(MuxError, std::any)> handler) {
         _errorHandler = handler;
     }
 };
