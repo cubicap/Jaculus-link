@@ -34,14 +34,14 @@ Communicators used for receiving data from a `Router` must implement the `Consum
 them to be subscribed to a specific channel on a `Router` instance. They must process the received data without
 blocking, preferably only by storing the data in a buffer and processing it later.
 
-Communicators used for sending data directly access the `Router` instance and send data to a specific channel
-on a specific link (or links).
+Communicators that send data access the `Router` instance directly and send data to a specific channel on
+a specific link (or links).
 
 The provided communicator types are:
 
-- `OutputStreamCommunicator` - sends data as a stream of bytes.
-- `InputStreamCommunicator` - receives data as a stream of bytes.
-- `OutputPacketCommunicator` - sends data using the underlying data framing.
-- `InputPacketCommunicator` - receives data using the underlying data framing.
+- `OutputStreamCommunicator` - sends data as a stream of bytes
+- `InputStreamCommunicator` - receives data as a stream of bytes
+- `OutputPacketCommunicator` - sends data while exposing the underlying data framing
+- `InputPacketCommunicator` - receives data while exposing the underlying data framing
 
 The communicators for the `Router` class are implemented in [`jac/link/routerCommunicator.h`](/doxygen/routerCommunicator_8h/)

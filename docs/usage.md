@@ -24,6 +24,8 @@ class MyStream : public Duplex {
 public:
     int get() override { ... }
     size_t read(std::span<uint8_t> data) override { ... }
+    void onData(std::function<void(void)>) override { ... }
+
     bool put(uint8_t c) override { ... }
     size_t write(std::span<const uint8_t> data) override { ... }
     bool flush() override { ... }
@@ -44,7 +46,7 @@ int main() {
     mux.bindRx(std::make_unique<decltype(handle)>(std::move(handle)));
 
 
-    // Create an input stream communicator
+    // Create an input stream the communicator
     RouterInputStreamCommunicator input({});
 
     // Subscribe the communicator to the router
