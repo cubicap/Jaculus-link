@@ -9,7 +9,7 @@ namespace jac {
 
 
 /**
- * @brief Interface for a consumer of packets.
+ * @brief Interface for a packet consumer.
  */
 class Consumer {
 public:
@@ -19,13 +19,13 @@ public:
     Consumer(Consumer&&) = delete;
     Consumer& operator=(Consumer&&) = delete;
 
-    virtual void processPacket(int sender, std::span<const uint8_t> data) = 0;
+    virtual void processPacket(int linkId, std::span<const uint8_t> data) = 0;
     virtual ~Consumer() = default;
 };
 
 
 /**
- * @brief Interface for creation of packets.
+ * @brief Interface for building packets.
  */
 class Packet {
 public:
@@ -43,15 +43,15 @@ public:
 
 
 /**
- * @brief Interface that allows for creation and sending of packets on a channel connection.
+ * @brief Interface that allows for creation and sending of packets to a data link.
  */
-class ChannelTransmitter {
+class DataLinkTx {
 public:
-    ChannelTransmitter() = default;
-    ChannelTransmitter(const ChannelTransmitter&) = delete;
-    ChannelTransmitter& operator=(const ChannelTransmitter&) = delete;
-    ChannelTransmitter(ChannelTransmitter&&) = delete;
-    ChannelTransmitter& operator=(ChannelTransmitter&&) = delete;
+    DataLinkTx() = default;
+    DataLinkTx(const DataLinkTx&) = delete;
+    DataLinkTx& operator=(const DataLinkTx&) = delete;
+    DataLinkTx(DataLinkTx&&) = delete;
+    DataLinkTx& operator=(DataLinkTx&&) = delete;
 
     /**
      * @brief Build a packet for the given channel.
@@ -69,20 +69,20 @@ public:
      */
     virtual size_t maxPacketSize() const = 0;
 
-    virtual ~ChannelTransmitter() = default;
+    virtual ~DataLinkTx() = default;
 };
 
 
 /**
- * @brief Interface that allows for receiving and processing packets on channel connection.
+ * @brief Interface that allows for receiving and processing packets from a data link.
  */
-class ChannelReceiver {
+class DataLinkRx {
 public:
-    ChannelReceiver() = default;
-    ChannelReceiver(const ChannelReceiver&) = delete;
-    ChannelReceiver& operator=(const ChannelReceiver&) = delete;
-    ChannelReceiver(ChannelReceiver&&) = delete;
-    ChannelReceiver& operator=(ChannelReceiver&&) = delete;
+    DataLinkRx() = default;
+    DataLinkRx(const DataLinkRx&) = delete;
+    DataLinkRx& operator=(const DataLinkRx&) = delete;
+    DataLinkRx(DataLinkRx&&) = delete;
+    DataLinkRx& operator=(DataLinkRx&&) = delete;
 
     /**
      * @brief Process a received packet on the given channel.
@@ -92,7 +92,7 @@ public:
      */
     virtual void processPacket(uint8_t channel, std::span<const uint8_t> data) = 0;
 
-    virtual ~ChannelReceiver() = default;
+    virtual ~DataLinkRx() = default;
 };
 
 

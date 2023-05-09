@@ -35,9 +35,9 @@ public:
     virtual size_t write(std::span<const uint8_t> data) = 0;
 
     /**
-     * @brief Set the recipients the stream should be sent to. Empty recipients for broadcast.
+     * @brief Set the data links the stream should be sent to. Empty links for broadcast.
      *
-     * @param recipients the recipients
+     * @param recipients the data link ids
      */
     virtual void setRecipients(std::vector<int> recipients) = 0;
 
@@ -78,11 +78,11 @@ public:
     virtual size_t available() = 0;
 
     /**
-     * @brief Set filter to only receive data from the given recipients. Empty recipients for all.
+     * @brief Set filter to only receive data from the given data links. Empty links for any.
      *
-     * @param recipients the recipients
+     * @param links the data link ids
      */
-    virtual void filter(std::set<int> recipients) = 0;
+    virtual void filter(std::set<int> links) = 0;
 
     /**
      * @brief Clear the buffer.
@@ -107,20 +107,20 @@ public:
 class OutputPacketCommunicator {
 public:
     /**
-     * @brief Build a packet for the given recipients.
+     * @brief Build a packet for the given data links.
      *
-     * @param recipients the recipients
+     * @param links the data link ids
      * @return The packet
      */
-    virtual std::unique_ptr<Packet> buildPacket(std::vector<int> recipients) = 0;
+    virtual std::unique_ptr<Packet> buildPacket(std::vector<int> links) = 0;
 
     /**
-     * @brief Get the maximum packet size for the given recipients.
+     * @brief Get the maximum packet size for the given data links.
      *
-     * @param recipients the recipients
+     * @param links the data link ids
      * @return The maximum packet size
      */
-    virtual size_t maxPacketSize(std::vector<int> recipients) const = 0;
+    virtual size_t maxPacketSize(std::vector<int> links) const = 0;
 
     OutputPacketCommunicator() = default;
     OutputPacketCommunicator(const OutputPacketCommunicator&) = delete;

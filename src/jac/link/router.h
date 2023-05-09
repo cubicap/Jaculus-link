@@ -17,13 +17,13 @@ namespace jac {
 
 
 /**
- * @brief A router that can route packets from multiple channel
- * connections to consumers on specific channels.
+ * @brief A router that can route packets from multiple data links to
+ * to consumers on specific channels.
  */
 class Router {
     std::unordered_map<uint8_t, std::reference_wrapper<Consumer>> _channelConsumers;
-    std::function<void(int sender, uint8_t channel, std::span<const uint8_t> data)> _global;
-    std::unordered_map<int, std::reference_wrapper<ChannelTransmitter>> _many;
+    std::function<void(int linkId, uint8_t channel, std::span<const uint8_t> data)> _global;
+    std::unordered_map<int, std::reference_wrapper<DataLinkTx>> _many;
 
     class MulticastPacket : public Packet {
     private:
@@ -31,14 +31,14 @@ class Router {
         uint8_t _channel;
         size_t _maxSize;
         std::vector<uint8_t> _data;
-        std::vector<int> _recipients;
+        std::vector<int> _links;
     public:
-        MulticastPacket(Router& router, uint8_t channel, std::vector<int> recipients) :
+        MulticastPacket(Router& router, uint8_t channel, std::vector<int> links):
             _router(router),
             _channel(channel),
-            _recipients(std::move(recipients))
+            _links(std::move(links))
         {
-            _maxSize = _router.get().maxPacketSize(channel, _recipients);
+            _maxSize = _router.get().maxPacketSize(channel, _links);
             _data.reserve(_maxSize);
         }
 
@@ -62,7 +62,7 @@ class Router {
 
         bool send() override {
             for (auto& [id, transmitter] : _router.get()._many) {
-                if (!_recipients.empty() && std::find(_recipients.begin(), _recipients.end(), id) == _recipients.end()) {
+                if (!_links.empty() && std::find(_links.begin(), _links.end(), id) == _links.end()) {
                     continue;
                 }
                 auto packet = transmitter.get().buildPacket(_channel);
@@ -77,20 +77,20 @@ class Router {
     };
 public:
     /**
-     * @brief A handle for receiving packets from a channel connection.
+     * @brief A handle for receiving packets from a data link.
      */
-    class Handle : public ChannelReceiver {
+    class Handle : public DataLinkRx {
     private:
         Router* _router;
-        int _id;
-        Handle(Router& router, int id) : _router(&router), _id(id) {}
+        int _linkId;
+        Handle(Router& router, int linkId) : _router(&router), _linkId(linkId) {}
     public:
         Handle(const Handle&) = delete;
         Handle& operator=(const Handle&) = delete;
 
         Handle& operator=(Handle&& other) {
             _router = other._router;
-            _id = other._id;
+            _linkId = other._linkId;
             other._router = nullptr;
             return *this;
         }
@@ -99,17 +99,17 @@ public:
         }
         ~Handle() {
             if (_router) {
-                _router->_many.erase(_id);
+                _router->_many.erase(_linkId);
             }
         }
 
         void processPacket(uint8_t channel, std::span<const uint8_t> data) override {
             auto it = _router->_channelConsumers.find(channel);
             if (it != _router->_channelConsumers.end()) {
-                it->second.get().processPacket(_id, data);
+                it->second.get().processPacket(_linkId, data);
             }
             if (_router->_global) {
-                _router->_global(_id, channel, data);
+                _router->_global(_linkId, channel, data);
             }
         }
 
@@ -123,27 +123,27 @@ public:
     Router& operator=(Router&&) = delete;
 
     /**
-     * @brief Set global callback which is called whenever a packet is received on any channel and connection.
+     * @brief Set global callback which is called whenever a packet is received on any channel and data link.
      *
      * @param callback the callback
      */
-    void setGlobalCallback(std::function<void(int sender, uint8_t channel, std::span<const uint8_t> data)> callback) {
+    void setGlobalCallback(std::function<void(int linkId, uint8_t channel, std::span<const uint8_t> data)> callback) {
         _global = callback;
     }
 
     /**
-     * @brief Get the maximum packet size for a channel and recipients.
+     * @brief Get the maximum packet size for a channel and data links.
      *
      * @param channel the channel
-     * @param recipients the recipients
+     * @param links the data links
      * @return The maximum packet size
      */
-    size_t maxPacketSize(uint8_t channel, std::vector<int> recipients) {
+    size_t maxPacketSize(uint8_t channel, std::vector<int> links) {
         size_t size = 0;
         bool first = true;
 
         for (auto& [id, transmitter] : _many) {
-            if (!recipients.empty() && std::find(recipients.begin(), recipients.end(), id) == recipients.end()) {
+            if (!links.empty() && std::find(links.begin(), links.end(), id) == links.end()) {
                 continue;
             }
             if (first) {
@@ -158,36 +158,36 @@ public:
     }
 
     /**
-     * @brief Build a packet for a channel and recipients.
+     * @brief Build a packet for a channel and data links.
      *
      * @param channel the channel
-     * @param recipients the recipients
+     * @param links the data links
      * @return The packet
      */
-    std::unique_ptr<Packet> buildPacket(uint8_t channel, std::vector<int> recipients) {
-        if (recipients.size() == 1) {
-            auto tx = _many.find(recipients[0]);
+    std::unique_ptr<Packet> buildPacket(uint8_t channel, std::vector<int> links) {
+        if (links.size() == 1) {
+            auto tx = _many.find(links[0]);
             if (tx == _many.end()) {
                 return nullptr;
             }
             return tx->second.get().buildPacket(channel);
         }
-        if (recipients.size() == 0 && _many.size() == 1) {
+        if (links.size() == 0 && _many.size() == 1) {
             return _many.begin()->second.get().buildPacket(channel);
         }
-        return std::make_unique<MulticastPacket>(*this, channel, std::move(recipients));
+        return std::make_unique<MulticastPacket>(*this, channel, std::move(links));
     }
 
     /**
-     * @brief Subscribe a connection transmitter to the router.
-     * @note This allows router to send packets to the connection.
+     * @brief Subscribe a data link transmitter to the router.
+     * @note This allows router to send packets to the data link id.
      * Reciever should be then bound to the returned handle.
      *
-     * @param id id of the connection
+     * @param id id of the data link
      * @param tx the transmitter
      * @return The handle
      */
-    Handle subscribeTx(int id, ChannelTransmitter& tx) {
+    Handle subscribeTx(int id, DataLinkTx& tx) {
         if (_many.find(id) != _many.end()) {
             throw std::runtime_error("id already subscribed");
         }

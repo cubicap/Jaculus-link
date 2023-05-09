@@ -14,7 +14,7 @@ using namespace jac;
 
 
 class BufferRx {
-    class Handle : public ChannelReceiver {
+    class Handle : public DataLinkRx {
         BufferRx* _rx;
     public:
         Handle(BufferRx* rx) : _rx(rx) {}

@@ -19,10 +19,10 @@ namespace jac {
 class RouterOutputStreamCommunicator : public OutputStreamCommunicator {
     std::reference_wrapper<Router> _router;
     uint8_t _channel;
-    std::vector<int> _recipients;
+    std::vector<int> _links;
 public:
-    RouterOutputStreamCommunicator(Router& router, uint8_t channel, std::vector<int> recipients)
-            : _router(router), _channel(channel), _recipients(std::move(recipients)) {}
+    RouterOutputStreamCommunicator(Router& router, uint8_t channel, std::vector<int> links)
+            : _router(router), _channel(channel), _links(std::move(links)) {}
     bool put(uint8_t c) override {
         return write(std::span<const uint8_t>(&c, 1)) == 1;
     }
@@ -30,7 +30,7 @@ public:
     size_t write(std::span<const uint8_t> data) override {
         auto it = data.begin();
         while (it != data.end()) {
-            auto packet = _router.get().buildPacket(_channel, _recipients);
+            auto packet = _router.get().buildPacket(_channel, _links);
             auto size = packet->put(std::span<const uint8_t>(it, data.end()));
             if (size == 0) {
                 return it - data.begin();
@@ -42,7 +42,7 @@ public:
     }
 
     void setRecipients(std::vector<int> recipients) override {
-        _recipients = std::move(recipients);
+        _links = std::move(recipients);
     }
 };
 
@@ -50,7 +50,7 @@ public:
 class RouterInputStreamCommunicator : public InputStreamCommunicator, public Consumer {
     std::deque<std::vector<uint8_t>> _buffer;
     std::vector<uint8_t>::iterator _pos;
-    std::set<int> _recipients;
+    std::set<int> _links;
 
     std::mutex _mutex;
     std::condition_variable _condition;
@@ -74,16 +74,16 @@ class RouterInputStreamCommunicator : public InputStreamCommunicator, public Con
         return size;
     }
 public:
-    RouterInputStreamCommunicator(std::set<int> recipients) : _recipients(std::move(recipients)) {}
+    RouterInputStreamCommunicator(std::set<int> links) : _links(std::move(links)) {}
 
-    void processPacket(int sender, std::span<const uint8_t> data) override {
+    void processPacket(int linkId, std::span<const uint8_t> data) override {
         if (data.size() == 0) {
             return;
         }
 
         std::unique_lock<std::mutex> lock(_mutex);
 
-        if (!_recipients.empty() && _recipients.find(sender) == _recipients.end()) {
+        if (!_links.empty() && _links.find(linkId) == _links.end()) {
             return;
         }
 
@@ -131,9 +131,9 @@ public:
         return availableNoLock();
     }
 
-    void filter(std::set<int> recipients) override {
+    void filter(std::set<int> links) override {
         std::unique_lock<std::mutex> lock(_mutex);
-        _recipients = std::move(recipients);
+        _links = std::move(links);
     }
 
     void clear() override {
@@ -154,12 +154,12 @@ class RouterOutputPacketCommunicator : public OutputPacketCommunicator {
     uint8_t _channel;
 public:
     RouterOutputPacketCommunicator(Router& router, uint8_t channel) : _router(router), _channel(channel) {}
-    std::unique_ptr<Packet> buildPacket(std::vector<int> recipients) override {
-        return _router.get().buildPacket(_channel, recipients);
+    std::unique_ptr<Packet> buildPacket(std::vector<int> links) override {
+        return _router.get().buildPacket(_channel, links);
     }
 
-    size_t maxPacketSize(std::vector<int> recipients) const override {
-        return _router.get().maxPacketSize(_channel, recipients);
+    size_t maxPacketSize(std::vector<int> links) const override {
+        return _router.get().maxPacketSize(_channel, links);
     }
 };
 
@@ -177,9 +177,9 @@ class RouterInputPacketCommunicator : public InputPacketCommunicator, public Con
 public:
     RouterInputPacketCommunicator() {}
 
-    void processPacket(int sender, std::span<const uint8_t> data) override {
+    void processPacket(int linkId, std::span<const uint8_t> data) override {
         std::unique_lock<std::mutex> lock(_mutex);
-        _buffer.push_back(std::make_pair(sender, std::vector<uint8_t>(data.begin(), data.end())));
+        _buffer.push_back(std::make_pair(linkId, std::vector<uint8_t>(data.begin(), data.end())));
 
         _condition.notify_one();
     }

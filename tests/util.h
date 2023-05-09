@@ -26,7 +26,7 @@ auto rangeVector(T start, size_t count) {
 }
 
 
-class BufferTransmitter : public ChannelTransmitter {
+class BufferTransmitter : public DataLinkTx {
 public:
     size_t _maxPacketSize;
     std::vector<std::tuple<uint8_t, std::vector<uint8_t>>> _packets;

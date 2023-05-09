@@ -32,12 +32,12 @@ enum class MuxError : int {
  * @tparam Encoder the encoder to use
  */
 template<class Encoder>
-class Mux : public ChannelTransmitter {
+class Mux : public DataLinkTx {
 private:
     using Packetizer = typename Encoder::Packetizer;
     using Serializer = typename Encoder::Serializer;
 
-    std::unique_ptr<ChannelReceiver> _receiver;
+    std::unique_ptr<DataLinkRx> _receiver;
     std::unique_ptr<Duplex> _stream;
 
     Packetizer _packetizer;
@@ -143,7 +143,7 @@ public:
      *
      * @param receiver the receiver to bind
      */
-    void bindRx(std::unique_ptr<ChannelReceiver> receiver) {
+    void bindRx(std::unique_ptr<DataLinkRx> receiver) {
         _receiver = std::move(receiver);
     }
 
