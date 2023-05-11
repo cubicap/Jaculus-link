@@ -68,8 +68,6 @@ public:
      * @return The maximum packet size
      */
     virtual size_t maxPacketSize() const = 0;
-
-    virtual ~DataLinkTx() = default;
 };
 
 
