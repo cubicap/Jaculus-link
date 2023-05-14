@@ -12,7 +12,7 @@ The data link is responsible for transmitting data along with channel identifier
 library is implemented in the `Mux` class, which multiplexes 256 channels on a single stream connection.
 
 It is possible to use other implementations which use different protocols, provided that they implement the
-`ChannelTransmitter` interface for transmission and provide a way to connect them to a `ChannelReceiver` for
+`DataLinkTx` interface for transmission and provide a way to connect them to a `DataLinkRx` for
 processing received data.
 
 ## Routing layer
