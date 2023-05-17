@@ -1,0 +1,204 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1Router_1_1MulticastPacket" kind="class" language="C++" prot="private">
+    <compoundname>jac::Router::MulticastPacket</compoundname>
+    <basecompoundref refid="classjac_1_1Packet" prot="public" virt="non-virtual">jac::Packet</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classjac_1_1Router_1_1MulticastPacket_1a832c4c958ba18ad67accd80cb89d7577" prot="private" static="no" mutable="no">
+        <type>std::reference_wrapper&lt; <ref refid="classjac_1_1Router" kindref="compound">Router</ref> &gt;</type>
+        <definition>std::reference_wrapper&lt;Router&gt; jac::Router::MulticastPacket::_router</definition>
+        <argsstring></argsstring>
+        <name>_router</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="30" column="32" bodyfile="src/jac/link/router.h" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Router_1_1MulticastPacket_1a10972e1bef202048b30476e90f829fe9" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t jac::Router::MulticastPacket::_channel</definition>
+        <argsstring></argsstring>
+        <name>_channel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="31" column="17" bodyfile="src/jac/link/router.h" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Router_1_1MulticastPacket_1a31f5e8e219d35b5f39afaf434380c897" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t jac::Router::MulticastPacket::_maxSize</definition>
+        <argsstring></argsstring>
+        <name>_maxSize</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="32" column="16" bodyfile="src/jac/link/router.h" bodystart="32" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Router_1_1MulticastPacket_1aca89a5a13efbe39750c8af25ca4acfca" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; uint8_t &gt;</type>
+        <definition>std::vector&lt;uint8_t&gt; jac::Router::MulticastPacket::_data</definition>
+        <argsstring></argsstring>
+        <name>_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="33" column="21" bodyfile="src/jac/link/router.h" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Router_1_1MulticastPacket_1a115a73500ebea53cd25070387c27ee42" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; jac::Router::MulticastPacket::_links</definition>
+        <argsstring></argsstring>
+        <name>_links</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="34" column="21" bodyfile="src/jac/link/router.h" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1Router_1_1MulticastPacket_1a1e8e93690cdeead69b0f2f09d45c4b07" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::Router::MulticastPacket::MulticastPacket</definition>
+        <argsstring>(Router &amp;router, uint8_t channel, std::vector&lt; int &gt; links)</argsstring>
+        <name>MulticastPacket</name>
+        <param>
+          <type><ref refid="classjac_1_1Router" kindref="compound">Router</ref> &amp;</type>
+          <declname>router</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; int &gt;</type>
+          <declname>links</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="36" column="9" bodyfile="src/jac/link/router.h" bodystart="36" bodyend="43"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Router_1_1MulticastPacket_1aa6727da19b25128a5076971176a7b239" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool jac::Router::MulticastPacket::put</definition>
+        <argsstring>(uint8_t c) override</argsstring>
+        <name>put</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="45" column="14" bodyfile="src/jac/link/router.h" bodystart="45" bodyend="51"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Router_1_1MulticastPacket_1ac9ae53428ba22c15d718f4ed0f1eac2b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t jac::Router::MulticastPacket::put</definition>
+        <argsstring>(std::span&lt; const uint8_t &gt; data) override</argsstring>
+        <name>put</name>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="53" column="16" bodyfile="src/jac/link/router.h" bodystart="53" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Router_1_1MulticastPacket_1a12ef3b30ffcc33683a5bf4fe0daab705" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t jac::Router::MulticastPacket::space</definition>
+        <argsstring>() const override</argsstring>
+        <name>space</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="59" column="16" bodyfile="src/jac/link/router.h" bodystart="59" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Router_1_1MulticastPacket_1ad70b886916aa09eec49111b10c9ae895" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool jac::Router::MulticastPacket::send</definition>
+        <argsstring>() override</argsstring>
+        <name>send</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="63" column="14" bodyfile="src/jac/link/router.h" bodystart="63" bodyend="76"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>jac::Packet</label>
+        <link refid="classjac_1_1Packet"/>
+      </node>
+      <node id="1">
+        <label>jac::Router::MulticastPacket</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>jac::Packet</label>
+        <link refid="classjac_1_1Packet"/>
+      </node>
+      <node id="1">
+        <label>jac::Router::MulticastPacket</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/jac/link/router.h" line="28" column="5" bodyfile="src/jac/link/router.h" bodystart="28" bodyend="77"/>
+    <listofallmembers>
+      <member refid="classjac_1_1Router_1_1MulticastPacket_1a10972e1bef202048b30476e90f829fe9" prot="private" virt="non-virtual"><scope>jac::Router::MulticastPacket</scope><name>_channel</name></member>
+      <member refid="classjac_1_1Router_1_1MulticastPacket_1aca89a5a13efbe39750c8af25ca4acfca" prot="private" virt="non-virtual"><scope>jac::Router::MulticastPacket</scope><name>_data</name></member>
+      <member refid="classjac_1_1Router_1_1MulticastPacket_1a115a73500ebea53cd25070387c27ee42" prot="private" virt="non-virtual"><scope>jac::Router::MulticastPacket</scope><name>_links</name></member>
+      <member refid="classjac_1_1Router_1_1MulticastPacket_1a31f5e8e219d35b5f39afaf434380c897" prot="private" virt="non-virtual"><scope>jac::Router::MulticastPacket</scope><name>_maxSize</name></member>
+      <member refid="classjac_1_1Router_1_1MulticastPacket_1a832c4c958ba18ad67accd80cb89d7577" prot="private" virt="non-virtual"><scope>jac::Router::MulticastPacket</scope><name>_router</name></member>
+      <member refid="classjac_1_1Router_1_1MulticastPacket_1a1e8e93690cdeead69b0f2f09d45c4b07" prot="public" virt="non-virtual"><scope>jac::Router::MulticastPacket</scope><name>MulticastPacket</name></member>
+      <member refid="classjac_1_1Packet_1ac5ac2f3043893d313139e4fedbce21f0" prot="public" virt="non-virtual"><scope>jac::Router::MulticastPacket</scope><name>operator=</name></member>
+      <member refid="classjac_1_1Packet_1afa9aa04bd9f5ea11c30f8dd5763b2c71" prot="public" virt="non-virtual"><scope>jac::Router::MulticastPacket</scope><name>Packet</name></member>
+      <member refid="classjac_1_1Packet_1a9bc69f2dfab87a0349e7480b6e510d57" prot="public" virt="non-virtual"><scope>jac::Router::MulticastPacket</scope><name>Packet</name></member>
+      <member refid="classjac_1_1Router_1_1MulticastPacket_1aa6727da19b25128a5076971176a7b239" prot="public" virt="non-virtual"><scope>jac::Router::MulticastPacket</scope><name>put</name></member>
+      <member refid="classjac_1_1Router_1_1MulticastPacket_1ac9ae53428ba22c15d718f4ed0f1eac2b" prot="public" virt="non-virtual"><scope>jac::Router::MulticastPacket</scope><name>put</name></member>
+      <member refid="classjac_1_1Router_1_1MulticastPacket_1ad70b886916aa09eec49111b10c9ae895" prot="public" virt="non-virtual"><scope>jac::Router::MulticastPacket</scope><name>send</name></member>
+      <member refid="classjac_1_1Router_1_1MulticastPacket_1a12ef3b30ffcc33683a5bf4fe0daab705" prot="public" virt="non-virtual"><scope>jac::Router::MulticastPacket</scope><name>space</name></member>
+      <member refid="classjac_1_1Packet_1af8edfae2c8552a3425ddcc3803f96ced" prot="public" virt="virtual"><scope>jac::Router::MulticastPacket</scope><name>~Packet</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

@@ -1,0 +1,300 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.9.1" xml:lang="en-US">
+  <compound refid="structjac_1_1CobsEncoder" kind="struct"><name>jac::CobsEncoder</name>
+  </compound>
+  <compound refid="classjac_1_1Consumer" kind="class"><name>jac::Consumer</name>
+    <member refid="classjac_1_1Consumer_1a9711ad4bf845f62fece000ea96d35382" kind="function"><name>Consumer</name></member>
+    <member refid="classjac_1_1Consumer_1a7ef168e4309bdb18af11ad78da57fc9d" kind="function"><name>Consumer</name></member>
+    <member refid="classjac_1_1Consumer_1a66bdca09f9dfa96f2def09be7b2db1fb" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1Consumer_1a0a3616a3fceaa3265fe5ee6a39ac80da" kind="function"><name>Consumer</name></member>
+    <member refid="classjac_1_1Consumer_1a092688a0b1870f78dea809d1605fd259" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1Consumer_1a3607cca2ad2bb0bf6e74c9ae05845896" kind="function"><name>processPacket</name></member>
+    <member refid="classjac_1_1Consumer_1a098efd185655669da5d3f956fe4b6bd8" kind="function"><name>~Consumer</name></member>
+  </compound>
+  <compound refid="classjac_1_1Crc16" kind="class"><name>jac::Crc16</name>
+    <member refid="classjac_1_1Crc16_1a77346b05266334c7a8f49edf7b1e6ef2" kind="variable"><name>POLYNOMIAL</name></member>
+    <member refid="classjac_1_1Crc16_1aef84087126e6bef07e863846236d53d2" kind="variable"><name>_crc</name></member>
+    <member refid="classjac_1_1Crc16_1a96b3af5e17f633b200b7a03d70776490" kind="function"><name>Crc16</name></member>
+    <member refid="classjac_1_1Crc16_1acd89c7b5a22265ffdd7a491c8cd8f992" kind="function"><name>reset</name></member>
+    <member refid="classjac_1_1Crc16_1ac6d64ea66890e3115534c3a62e2cb74e" kind="function"><name>update</name></member>
+    <member refid="classjac_1_1Crc16_1a353881247518db41421b5601029bee6f" kind="function"><name>update</name></member>
+    <member refid="classjac_1_1Crc16_1a886b2b84449b6820252857401849a35e" kind="function"><name>value</name></member>
+  </compound>
+  <compound refid="classjac_1_1CobsEncoder_1_1Serializer_1_1DataFrame" kind="class"><name>jac::CobsEncoder::Serializer::DataFrame</name>
+    <member refid="classjac_1_1CobsEncoder_1_1Serializer_1_1DataFrame_1ab9427275398a4491927b63cb2d67ee11" kind="variable"><name>_dataSize</name></member>
+    <member refid="classjac_1_1CobsEncoder_1_1Serializer_1_1DataFrame_1a70731f69ff23998395d22e096d4c4666" kind="function"><name>size</name></member>
+    <member refid="classjac_1_1CobsEncoder_1_1Serializer_1_1DataFrame_1a38083fd4fdd38e27c5e44cb968a9a832" kind="function"><name>put</name></member>
+    <member refid="classjac_1_1CobsEncoder_1_1Serializer_1_1DataFrame_1a90d1bab70f41e46f4a8e53f27a64dc60" kind="function"><name>put</name></member>
+    <member refid="classjac_1_1CobsEncoder_1_1Serializer_1_1DataFrame_1ac7b9b743108787d95e86d85096c35592" kind="function"><name>finalize</name></member>
+  </compound>
+  <compound refid="classjac_1_1DataLinkRx" kind="class"><name>jac::DataLinkRx</name>
+    <member refid="classjac_1_1DataLinkRx_1a9c3676f768fedf614bd97af06df0ad47" kind="function"><name>DataLinkRx</name></member>
+    <member refid="classjac_1_1DataLinkRx_1a89d8abe52fc06607e3977088d5eb24ad" kind="function"><name>DataLinkRx</name></member>
+    <member refid="classjac_1_1DataLinkRx_1afe88291032661823469fd608bd1d674a" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1DataLinkRx_1a10c24aa84e63a33fc8b625328bbf482d" kind="function"><name>DataLinkRx</name></member>
+    <member refid="classjac_1_1DataLinkRx_1a69cddbe3a220cf9820b20a44866a43d0" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1DataLinkRx_1a108df0a6d52a7b528fffd11066a32d98" kind="function"><name>processPacket</name></member>
+    <member refid="classjac_1_1DataLinkRx_1a6029f843752ca371f01070b9c5cb6c1e" kind="function"><name>~DataLinkRx</name></member>
+  </compound>
+  <compound refid="classjac_1_1DataLinkTx" kind="class"><name>jac::DataLinkTx</name>
+    <member refid="classjac_1_1DataLinkTx_1a60b1ab070fbc0fb84d2b39194d091869" kind="function"><name>DataLinkTx</name></member>
+    <member refid="classjac_1_1DataLinkTx_1a4a72e04cb6f3375fdb5804357566f3e2" kind="function"><name>DataLinkTx</name></member>
+    <member refid="classjac_1_1DataLinkTx_1a70819f19303f22735e071ad1de681294" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1DataLinkTx_1ab5c1e163d91a1745d6a5b57ab37b3a0f" kind="function"><name>DataLinkTx</name></member>
+    <member refid="classjac_1_1DataLinkTx_1a9a9b2128effbae54dda8e5b2322a432e" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1DataLinkTx_1aa51aa046ce93c2800e69c23f1d7b90d2" kind="function"><name>buildPacket</name></member>
+    <member refid="classjac_1_1DataLinkTx_1ab7417e876c84d5d9ac14b5c145942655" kind="function"><name>maxPacketSize</name></member>
+  </compound>
+  <compound refid="structjac_1_1DecodeResult" kind="struct"><name>jac::DecodeResult</name>
+    <member refid="structjac_1_1DecodeResult_1a1ccdc90d484fba0cabc1d6d7c1e0bdb0" kind="variable"><name>valid</name></member>
+    <member refid="structjac_1_1DecodeResult_1a9b4842bbb68b1e07a7cf6df3a0712378" kind="variable"><name>channel</name></member>
+    <member refid="structjac_1_1DecodeResult_1a02959a803eae51d637984f7b349fd2ad" kind="variable"><name>data</name></member>
+  </compound>
+  <compound refid="classjac_1_1Duplex" kind="class"><name>jac::Duplex</name>
+  </compound>
+  <compound refid="classjac_1_1Duplexify" kind="class"><name>jac::Duplexify</name>
+    <member refid="classjac_1_1Duplexify_1ae49207b072aba26d8984866747342d50" kind="variable"><name>_in</name></member>
+    <member refid="classjac_1_1Duplexify_1a66bfcf664a5ae31076568525aab7fc08" kind="variable"><name>_out</name></member>
+    <member refid="classjac_1_1Duplexify_1a86396474ce76d491a5b77586470ea6a9" kind="function"><name>Duplexify</name></member>
+    <member refid="classjac_1_1Duplexify_1a549ce5abaf4b1c6542162801e5cbf4ab" kind="function"><name>get</name></member>
+    <member refid="classjac_1_1Duplexify_1adf8abf9d51f1373e05bf298878865558" kind="function"><name>read</name></member>
+    <member refid="classjac_1_1Duplexify_1a34db88da88a12f3c55134dad5363fd16" kind="function"><name>put</name></member>
+    <member refid="classjac_1_1Duplexify_1a86bd512d14d51587e985fdac71830689" kind="function"><name>onData</name></member>
+    <member refid="classjac_1_1Duplexify_1ace21696ec769356a92ef0dcbd0e23844" kind="function"><name>write</name></member>
+    <member refid="classjac_1_1Duplexify_1a8dc96ed65bbc9bbba80efc901eb3c691" kind="function"><name>flush</name></member>
+  </compound>
+  <compound refid="classjac_1_1Router_1_1Handle" kind="class"><name>jac::Router::Handle</name>
+    <member refid="classjac_1_1Router_1_1Handle_1aedda19ae465cd6298d4ead1306df0e97" kind="variable"><name>_router</name></member>
+    <member refid="classjac_1_1Router_1_1Handle_1a2dcf66fec36a86a0b23c6fcb3de5543d" kind="variable"><name>_linkId</name></member>
+    <member refid="classjac_1_1Router_1_1Handle_1ad1fd3424328f664cd049fe429e0e3dc6" kind="friend"><name>Router</name></member>
+    <member refid="classjac_1_1Router_1_1Handle_1a8a8f9ce78d533953563edc2c6f2af779" kind="function"><name>Handle</name></member>
+    <member refid="classjac_1_1Router_1_1Handle_1ac1168972e93d0f02c31652df399769fd" kind="function"><name>Handle</name></member>
+    <member refid="classjac_1_1Router_1_1Handle_1aa2837a2a97be16396c6bcd078a55202f" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1Router_1_1Handle_1acb21dc96f02e2a209e07117907baf78c" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1Router_1_1Handle_1a8e47ba13e853b323225b570b7188980f" kind="function"><name>Handle</name></member>
+    <member refid="classjac_1_1Router_1_1Handle_1aed5707920c827b3c565e1e040b57b6a3" kind="function"><name>~Handle</name></member>
+    <member refid="classjac_1_1Router_1_1Handle_1a2ffb0c5d16e9c90ed74263374870d225" kind="function"><name>processPacket</name></member>
+  </compound>
+  <compound refid="classjac_1_1InputPacketCommunicator" kind="class"><name>jac::InputPacketCommunicator</name>
+    <member refid="classjac_1_1InputPacketCommunicator_1a57e9d539152357c7f4efd04d790e2192" kind="function"><name>get</name></member>
+    <member refid="classjac_1_1InputPacketCommunicator_1a2ae82d26c4e9b06299155b7635439862" kind="function"><name>available</name></member>
+    <member refid="classjac_1_1InputPacketCommunicator_1a2acc24cddf1075e765bdbe781a9085ca" kind="function"><name>clear</name></member>
+    <member refid="classjac_1_1InputPacketCommunicator_1a715d7c961a90a5c905e9bb993da30537" kind="function"><name>cancelRead</name></member>
+    <member refid="classjac_1_1InputPacketCommunicator_1a46a38da37fb62b53e2bbde24182aff51" kind="function"><name>InputPacketCommunicator</name></member>
+    <member refid="classjac_1_1InputPacketCommunicator_1a94cc7e5bbac7151d074d93ffd4ae2873" kind="function"><name>InputPacketCommunicator</name></member>
+    <member refid="classjac_1_1InputPacketCommunicator_1a7ef5605306992906b9cfd0acdec655f2" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1InputPacketCommunicator_1a02a098de87cf0c821da27cfd77ca7b82" kind="function"><name>~InputPacketCommunicator</name></member>
+  </compound>
+  <compound refid="classjac_1_1InputStream" kind="class"><name>jac::InputStream</name>
+    <member refid="classjac_1_1InputStream_1a07e2380a04b62a667afa0a21698986fa" kind="function"><name>get</name></member>
+    <member refid="classjac_1_1InputStream_1a768b432b1e788e6ae6ffe271baaf032a" kind="function"><name>read</name></member>
+    <member refid="classjac_1_1InputStream_1ae8772f2f4a81c1ea9d49b083755efdea" kind="function"><name>onData</name></member>
+    <member refid="classjac_1_1InputStream_1a70ab93ac8dcf00eb73799c28f2e7a9a7" kind="function"><name>~InputStream</name></member>
+  </compound>
+  <compound refid="classjac_1_1InputStreamCommunicator" kind="class"><name>jac::InputStreamCommunicator</name>
+    <member refid="classjac_1_1InputStreamCommunicator_1a3453eb3ac7913e5b8706c8b5ac22692f" kind="function"><name>get</name></member>
+    <member refid="classjac_1_1InputStreamCommunicator_1a36b8ae1a223d448392df6864b478eb47" kind="function"><name>read</name></member>
+    <member refid="classjac_1_1InputStreamCommunicator_1a99cc98836aaedd3fcaeeecefe965d047" kind="function"><name>available</name></member>
+    <member refid="classjac_1_1InputStreamCommunicator_1ae3c4c0ca10731a8349518c640c045c35" kind="function"><name>filter</name></member>
+    <member refid="classjac_1_1InputStreamCommunicator_1aa5510ebf7eaecf44ae4653f84128927a" kind="function"><name>clear</name></member>
+    <member refid="classjac_1_1InputStreamCommunicator_1a06221040cc8b35199a709069b35e7cc9" kind="function"><name>cancelRead</name></member>
+    <member refid="classjac_1_1InputStreamCommunicator_1ab05c84639995e4073dbbad66105025f3" kind="function"><name>InputStreamCommunicator</name></member>
+    <member refid="classjac_1_1InputStreamCommunicator_1a6d8c4a6d46e75fc7866c9b50457111e6" kind="function"><name>InputStreamCommunicator</name></member>
+    <member refid="classjac_1_1InputStreamCommunicator_1a61a8c2e538b57f30f10845d85055d9e8" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1InputStreamCommunicator_1a8712212825cced2147d67458bd6bb339" kind="function"><name>~InputStreamCommunicator</name></member>
+  </compound>
+  <compound refid="classjac_1_1Router_1_1MulticastPacket" kind="class"><name>jac::Router::MulticastPacket</name>
+    <member refid="classjac_1_1Router_1_1MulticastPacket_1a832c4c958ba18ad67accd80cb89d7577" kind="variable"><name>_router</name></member>
+    <member refid="classjac_1_1Router_1_1MulticastPacket_1a10972e1bef202048b30476e90f829fe9" kind="variable"><name>_channel</name></member>
+    <member refid="classjac_1_1Router_1_1MulticastPacket_1a31f5e8e219d35b5f39afaf434380c897" kind="variable"><name>_maxSize</name></member>
+    <member refid="classjac_1_1Router_1_1MulticastPacket_1aca89a5a13efbe39750c8af25ca4acfca" kind="variable"><name>_data</name></member>
+    <member refid="classjac_1_1Router_1_1MulticastPacket_1a115a73500ebea53cd25070387c27ee42" kind="variable"><name>_links</name></member>
+    <member refid="classjac_1_1Router_1_1MulticastPacket_1a1e8e93690cdeead69b0f2f09d45c4b07" kind="function"><name>MulticastPacket</name></member>
+    <member refid="classjac_1_1Router_1_1MulticastPacket_1aa6727da19b25128a5076971176a7b239" kind="function"><name>put</name></member>
+    <member refid="classjac_1_1Router_1_1MulticastPacket_1ac9ae53428ba22c15d718f4ed0f1eac2b" kind="function"><name>put</name></member>
+    <member refid="classjac_1_1Router_1_1MulticastPacket_1a12ef3b30ffcc33683a5bf4fe0daab705" kind="function"><name>space</name></member>
+    <member refid="classjac_1_1Router_1_1MulticastPacket_1ad70b886916aa09eec49111b10c9ae895" kind="function"><name>send</name></member>
+  </compound>
+  <compound refid="classjac_1_1Mux" kind="class"><name>jac::Mux</name>
+    <member refid="classjac_1_1Mux_1af00a954d7210a29ce8b40185b1e00dde" kind="typedef"><name>Packetizer</name></member>
+    <member refid="classjac_1_1Mux_1a2fbd504ade13413c1869c8917f6149b5" kind="typedef"><name>Serializer</name></member>
+    <member refid="classjac_1_1Mux_1a3cd9f27c86e9ba64f0d8a2d37aea3ec4" kind="variable"><name>_receiver</name></member>
+    <member refid="classjac_1_1Mux_1aa51fb1dc992797dd71bba01897b18794" kind="variable"><name>_stream</name></member>
+    <member refid="classjac_1_1Mux_1a70693ebe3912d4e859053d28dd416e7b" kind="variable"><name>_packetizer</name></member>
+    <member refid="classjac_1_1Mux_1a8cb00a63dd0e604c4232610ba8d85b62" kind="variable"><name>_writeMutex</name></member>
+    <member refid="classjac_1_1Mux_1af215827dd27b034beb561afc7c3f2515" kind="variable"><name>_errorHandler</name></member>
+    <member refid="classjac_1_1Mux_1a78b5a0de13c8d3c6d5a74facc7f76e17" kind="function"><name>receive</name></member>
+    <member refid="classjac_1_1Mux_1a8cb3e6a7df617a480c7b2d84cbd71eb5" kind="function"><name>Mux</name></member>
+    <member refid="classjac_1_1Mux_1a85346e41435b0990d9d361084a909f65" kind="function"><name>Mux</name></member>
+    <member refid="classjac_1_1Mux_1af5651e1004f676f9ab35e9a181dc56bc" kind="function"><name>Mux</name></member>
+    <member refid="classjac_1_1Mux_1a46b7bf2e9584670516a61acd6bb523f1" kind="function"><name>bindRx</name></member>
+    <member refid="classjac_1_1Mux_1a0b68c7cfcfb8c7a601f0741a851ebd55" kind="function"><name>buildPacket</name></member>
+    <member refid="classjac_1_1Mux_1a6955be75e1789fcc01dc1a3a774d89a7" kind="function"><name>maxPacketSize</name></member>
+    <member refid="classjac_1_1Mux_1ab5114deab060075d24fb14168d4e40bd" kind="function"><name>setErrorHandler</name></member>
+  </compound>
+  <compound refid="classjac_1_1Mux_1_1MuxPacket" kind="class"><name>jac::Mux::MuxPacket</name>
+    <member refid="classjac_1_1Mux_1_1MuxPacket_1a9ec02df8db4c4ceb9f26f7dc77003119" kind="typedef"><name>DataFrame</name></member>
+    <member refid="classjac_1_1Mux_1_1MuxPacket_1adf75678d85b99f21ba2fc8f357e73309" kind="variable"><name>_mux</name></member>
+    <member refid="classjac_1_1Mux_1_1MuxPacket_1a67fb3e8ab7181d1efd921c93e5283fe0" kind="variable"><name>_channel</name></member>
+    <member refid="classjac_1_1Mux_1_1MuxPacket_1aabcb81dceebd525400e2c8d0582785ab" kind="variable"><name>_frame</name></member>
+    <member refid="classjac_1_1Mux_1_1MuxPacket_1a7b85c140f442be65a8652c07409ab10b" kind="variable"><name>sent</name></member>
+    <member refid="classjac_1_1Mux_1_1MuxPacket_1a574a76ec5033268d1a0d6d013a6ed1a0" kind="function"><name>MuxPacket</name></member>
+    <member refid="classjac_1_1Mux_1_1MuxPacket_1a53e693bb071e3f78ae323533f4f48055" kind="function"><name>put</name></member>
+    <member refid="classjac_1_1Mux_1_1MuxPacket_1ad99036d03ed93198b7fca1f895b5b877" kind="function"><name>put</name></member>
+    <member refid="classjac_1_1Mux_1_1MuxPacket_1a8e34e41963d62aa02343d4e45d2e5bb2" kind="function"><name>space</name></member>
+    <member refid="classjac_1_1Mux_1_1MuxPacket_1ae3f48f53200f9432204a0d3ce07592c4" kind="function"><name>send</name></member>
+  </compound>
+  <compound refid="classjac_1_1OutputPacketCommunicator" kind="class"><name>jac::OutputPacketCommunicator</name>
+    <member refid="classjac_1_1OutputPacketCommunicator_1ac21ae2c67538cc47c5fa965bd51b6be2" kind="function"><name>buildPacket</name></member>
+    <member refid="classjac_1_1OutputPacketCommunicator_1ad75648f10d1510bf441e533a804b2557" kind="function"><name>maxPacketSize</name></member>
+    <member refid="classjac_1_1OutputPacketCommunicator_1a2cfb816d4fe4664d71323bef02fc022d" kind="function"><name>OutputPacketCommunicator</name></member>
+    <member refid="classjac_1_1OutputPacketCommunicator_1a69730fb3f5d044f69398d743353ec3d4" kind="function"><name>OutputPacketCommunicator</name></member>
+    <member refid="classjac_1_1OutputPacketCommunicator_1adb2a1f158d8c179a63ce28cad2c4ec4a" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1OutputPacketCommunicator_1a7e8d0945027380319fc04aa0bf746cdb" kind="function"><name>~OutputPacketCommunicator</name></member>
+  </compound>
+  <compound refid="classjac_1_1OutputStream" kind="class"><name>jac::OutputStream</name>
+    <member refid="classjac_1_1OutputStream_1a2d287dd1b99377e139b733b6e262222e" kind="function"><name>put</name></member>
+    <member refid="classjac_1_1OutputStream_1af657d42bb042094ee3d8dfbe2b7a4986" kind="function"><name>write</name></member>
+    <member refid="classjac_1_1OutputStream_1a0f92c299e35e9dd93b5b63970c404669" kind="function"><name>flush</name></member>
+    <member refid="classjac_1_1OutputStream_1a809391d8351043eaea9e48886a753313" kind="function"><name>~OutputStream</name></member>
+  </compound>
+  <compound refid="classjac_1_1OutputStreamCommunicator" kind="class"><name>jac::OutputStreamCommunicator</name>
+    <member refid="classjac_1_1OutputStreamCommunicator_1a4bf9e5a3b02c726c9d2d52bf22431e38" kind="function"><name>put</name></member>
+    <member refid="classjac_1_1OutputStreamCommunicator_1a3a33987605fdbf76e47d21f2d54a2e46" kind="function"><name>write</name></member>
+    <member refid="classjac_1_1OutputStreamCommunicator_1a3e2d99f27118efe0b6bcb585443ecd8d" kind="function"><name>setRecipients</name></member>
+    <member refid="classjac_1_1OutputStreamCommunicator_1ae142e3fb63bddfab1dcc72fec98d699b" kind="function"><name>OutputStreamCommunicator</name></member>
+    <member refid="classjac_1_1OutputStreamCommunicator_1a515321f6600ac4fc1b148bd17967fca1" kind="function"><name>OutputStreamCommunicator</name></member>
+    <member refid="classjac_1_1OutputStreamCommunicator_1a0fd247b087928f7f8b947b789f477fff" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1OutputStreamCommunicator_1a0ac8941b6a2074094c56bbadac441f73" kind="function"><name>~OutputStreamCommunicator</name></member>
+  </compound>
+  <compound refid="classjac_1_1Packet" kind="class"><name>jac::Packet</name>
+    <member refid="classjac_1_1Packet_1a69facc8a06a553d77d749579763dc6a5" kind="function"><name>put</name></member>
+    <member refid="classjac_1_1Packet_1ac1851a026dec13621112528160982b53" kind="function"><name>put</name></member>
+    <member refid="classjac_1_1Packet_1af3497fa256200978b7799d03c0c3bff4" kind="function"><name>space</name></member>
+    <member refid="classjac_1_1Packet_1ab0e2eb4a05e673494993d34670e8d602" kind="function"><name>send</name></member>
+    <member refid="classjac_1_1Packet_1afa9aa04bd9f5ea11c30f8dd5763b2c71" kind="function"><name>Packet</name></member>
+    <member refid="classjac_1_1Packet_1a9bc69f2dfab87a0349e7480b6e510d57" kind="function"><name>Packet</name></member>
+    <member refid="classjac_1_1Packet_1ac5ac2f3043893d313139e4fedbce21f0" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1Packet_1af8edfae2c8552a3425ddcc3803f96ced" kind="function"><name>~Packet</name></member>
+  </compound>
+  <compound refid="classjac_1_1CobsEncoder_1_1Packetizer" kind="class"><name>jac::CobsEncoder::Packetizer</name>
+    <member refid="classjac_1_1CobsEncoder_1_1Packetizer_1a7d9f70653919764fc689b104b74e9a61" kind="variable"><name>length</name></member>
+    <member refid="classjac_1_1CobsEncoder_1_1Packetizer_1aada5b85d07d740e30ad06f31bdde92c0" kind="function"><name>expectedLength</name></member>
+    <member refid="classjac_1_1CobsEncoder_1_1Packetizer_1a7fa7f7b2ff341b890cf2e3a347f6c8c3" kind="function"><name>reset</name></member>
+    <member refid="classjac_1_1CobsEncoder_1_1Packetizer_1a658c6f968a0853cfeabdf7e82454942e" kind="function"><name>put</name></member>
+    <member refid="classjac_1_1CobsEncoder_1_1Packetizer_1a7a45cac62f43f2e9bf760bda4c400797" kind="function"><name>decode</name></member>
+  </compound>
+  <compound refid="structjac_1_1CobsEncoder_1_1PacketStructure" kind="struct"><name>jac::CobsEncoder::PacketStructure</name>
+    <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1ace280275cd3594d90939f453bcd52415" kind="variable"><name>DELIMITER</name></member>
+    <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1a109411b64fee9ead185fe46934c4db98" kind="variable"><name>SIZE_CHECKSUM</name></member>
+    <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1a2aa0049d2e553bb60e08747d7a259cb0" kind="variable"><name>SIZE_LENGTH</name></member>
+    <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1a134c3b8ba7be1d183037e71a287cdef5" kind="variable"><name>SIZE_CHANNEL</name></member>
+    <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1a2967751dd0ac68056eb5386507361403" kind="variable"><name>OFFSET_DELIMITER</name></member>
+    <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1a2aa239f4e3e61d3b2242e37c83cddda3" kind="variable"><name>OFFSET_LENGTH</name></member>
+    <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1a28f2af73903c645bdd70a00707698a5b" kind="variable"><name>OFFSET_COBS</name></member>
+    <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1afd35a7564c8a7aa753f56994b69ecc79" kind="variable"><name>OFFSET_CHANNEL</name></member>
+    <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1ac06a7fbf44c5c8258493482dab2cc489" kind="variable"><name>OFFSET_DATA</name></member>
+    <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1aeafd4c8e57ab556ea48292e1785ba340" kind="variable"><name>SIZE_DATA_MAX</name></member>
+    <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1ab389bc674034874199a7ae111ddc85a4" kind="variable"><name>buffer</name></member>
+  </compound>
+  <compound refid="classjac_1_1Router" kind="class"><name>jac::Router</name>
+    <member refid="classjac_1_1Router_1a4da8be0e4637d38b9561bba04016ced5" kind="variable"><name>_channelConsumers</name></member>
+    <member refid="classjac_1_1Router_1a5c4e4bc87299013ae7b55f516cd17851" kind="variable"><name>_global</name></member>
+    <member refid="classjac_1_1Router_1a21217d302e0da4e0d0fac05d2c4b124e" kind="variable"><name>_many</name></member>
+    <member refid="classjac_1_1Router_1a1a1830d8e5af61a950ee2627948fa3bf" kind="function"><name>Router</name></member>
+    <member refid="classjac_1_1Router_1ab57e5102eb86edee4af99b3899a3f2d0" kind="function"><name>Router</name></member>
+    <member refid="classjac_1_1Router_1a9377077f5c5451cf033b2de3da3e7084" kind="function"><name>Router</name></member>
+    <member refid="classjac_1_1Router_1aa0f1270edc6b56760bdeee7936535924" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1Router_1a8f9ed3130c67fb4b3b02b2a55bef2a75" kind="function"><name>operator=</name></member>
+    <member refid="classjac_1_1Router_1aedec4abfa05c3040e70d2030930eeeaf" kind="function"><name>setGlobalCallback</name></member>
+    <member refid="classjac_1_1Router_1a61f88bc0436a7722a80d0c6c3a45804d" kind="function"><name>maxPacketSize</name></member>
+    <member refid="classjac_1_1Router_1aff72bf78206e0a692e0b9b4d50cfb062" kind="function"><name>buildPacket</name></member>
+    <member refid="classjac_1_1Router_1a7ae29fa8ae0f021307849025dd800d14" kind="function"><name>subscribeTx</name></member>
+    <member refid="classjac_1_1Router_1ae4caba90256d53b52d9a4d022831ab8d" kind="function"><name>subscribeChannel</name></member>
+  </compound>
+  <compound refid="classjac_1_1RouterInputPacketCommunicator" kind="class"><name>jac::RouterInputPacketCommunicator</name>
+    <member refid="classjac_1_1RouterInputPacketCommunicator_1a4dd8133f96d5b89c0598b23ee6b1b4ef" kind="variable"><name>_buffer</name></member>
+    <member refid="classjac_1_1RouterInputPacketCommunicator_1a90ff5585ece28c8d235ce2d29a1bd7d8" kind="variable"><name>_mutex</name></member>
+    <member refid="classjac_1_1RouterInputPacketCommunicator_1ac51ba154866d5bb709af4b3fee0badab" kind="variable"><name>_condition</name></member>
+    <member refid="classjac_1_1RouterInputPacketCommunicator_1a10722148b1b455ee8c800cfdfda3ffc7" kind="variable"><name>cancel</name></member>
+    <member refid="classjac_1_1RouterInputPacketCommunicator_1a3a5201736bfb07c75af9aef4a0afb33b" kind="function"><name>availableNoLock</name></member>
+    <member refid="classjac_1_1RouterInputPacketCommunicator_1a9dee2c9d130b1ab52fb7610806eeca47" kind="function"><name>RouterInputPacketCommunicator</name></member>
+    <member refid="classjac_1_1RouterInputPacketCommunicator_1a1ca116d3b5069a28ec31e6daeff36510" kind="function"><name>processPacket</name></member>
+    <member refid="classjac_1_1RouterInputPacketCommunicator_1ad9119d4c306b8f8dfc3685d669f7be4d" kind="function"><name>get</name></member>
+    <member refid="classjac_1_1RouterInputPacketCommunicator_1a5e414262236ccccab3accce9738e7ad8" kind="function"><name>available</name></member>
+    <member refid="classjac_1_1RouterInputPacketCommunicator_1a0872d792cf8773cb62c6dd82f0874cee" kind="function"><name>clear</name></member>
+    <member refid="classjac_1_1RouterInputPacketCommunicator_1a913c1160dbbdf1a1ff21a23e8511322d" kind="function"><name>cancelRead</name></member>
+  </compound>
+  <compound refid="classjac_1_1RouterInputStreamCommunicator" kind="class"><name>jac::RouterInputStreamCommunicator</name>
+    <member refid="classjac_1_1RouterInputStreamCommunicator_1a25063a069926a95b9966966b63232994" kind="variable"><name>_buffer</name></member>
+    <member refid="classjac_1_1RouterInputStreamCommunicator_1a76ed5712e9ebbef808a53ba69e6e8fd2" kind="variable"><name>_pos</name></member>
+    <member refid="classjac_1_1RouterInputStreamCommunicator_1af4e4e20257cee6bbc603a31dcae5973e" kind="variable"><name>_links</name></member>
+    <member refid="classjac_1_1RouterInputStreamCommunicator_1a5eed8b1279130db8d20635509a421f68" kind="variable"><name>_mutex</name></member>
+    <member refid="classjac_1_1RouterInputStreamCommunicator_1ade9eef27fc126312109a1d81a02d14e7" kind="variable"><name>_condition</name></member>
+    <member refid="classjac_1_1RouterInputStreamCommunicator_1a487ab5863aea2e37d5fc0be45f45c50d" kind="variable"><name>cancel</name></member>
+    <member refid="classjac_1_1RouterInputStreamCommunicator_1a406dcb726db5a96ae1f7e1c5712c215e" kind="function"><name>next</name></member>
+    <member refid="classjac_1_1RouterInputStreamCommunicator_1a4692257f7fa5da8fd71c13801947a2e7" kind="function"><name>availableNoLock</name></member>
+    <member refid="classjac_1_1RouterInputStreamCommunicator_1a60a0eea58c2aaf55324b95674484cb42" kind="function"><name>RouterInputStreamCommunicator</name></member>
+    <member refid="classjac_1_1RouterInputStreamCommunicator_1abe8c5fe50ea7428caeb12ce43536fda8" kind="function"><name>processPacket</name></member>
+    <member refid="classjac_1_1RouterInputStreamCommunicator_1a413ed8eb31d5c69ecc3c79d1d7cc489a" kind="function"><name>get</name></member>
+    <member refid="classjac_1_1RouterInputStreamCommunicator_1a19a1034d36958818dd3321425ada759d" kind="function"><name>read</name></member>
+    <member refid="classjac_1_1RouterInputStreamCommunicator_1abd88afa2d6d8b0ffe70f49b067ebad5c" kind="function"><name>available</name></member>
+    <member refid="classjac_1_1RouterInputStreamCommunicator_1a21edea876fe8c2f51759f4fc8cef2e82" kind="function"><name>filter</name></member>
+    <member refid="classjac_1_1RouterInputStreamCommunicator_1a995fc1c369ce4f5f60fa61b783174113" kind="function"><name>clear</name></member>
+    <member refid="classjac_1_1RouterInputStreamCommunicator_1a7554d6f834b113a88188c3cb9d08cb23" kind="function"><name>cancelRead</name></member>
+  </compound>
+  <compound refid="classjac_1_1RouterOutputPacketCommunicator" kind="class"><name>jac::RouterOutputPacketCommunicator</name>
+    <member refid="classjac_1_1RouterOutputPacketCommunicator_1af8863042585adb42d18ac17b5a8968e9" kind="variable"><name>_router</name></member>
+    <member refid="classjac_1_1RouterOutputPacketCommunicator_1ae0767c428ddd6042c5304e74f9202995" kind="variable"><name>_channel</name></member>
+    <member refid="classjac_1_1RouterOutputPacketCommunicator_1ab4a60c031d2198eb4e2d552904d21eff" kind="function"><name>RouterOutputPacketCommunicator</name></member>
+    <member refid="classjac_1_1RouterOutputPacketCommunicator_1a12760ce32955afb6ac2ddf44f5302832" kind="function"><name>buildPacket</name></member>
+    <member refid="classjac_1_1RouterOutputPacketCommunicator_1a0d80cb5073c4f0be02aa912db93fbd29" kind="function"><name>maxPacketSize</name></member>
+  </compound>
+  <compound refid="classjac_1_1RouterOutputStreamCommunicator" kind="class"><name>jac::RouterOutputStreamCommunicator</name>
+    <member refid="classjac_1_1RouterOutputStreamCommunicator_1a43105cf5d47673b1f2462399485a2762" kind="variable"><name>_router</name></member>
+    <member refid="classjac_1_1RouterOutputStreamCommunicator_1aa8be6b80a8fb03d098c68effb8c6098b" kind="variable"><name>_channel</name></member>
+    <member refid="classjac_1_1RouterOutputStreamCommunicator_1acf5065de7eb802c7e6e630f379d38489" kind="variable"><name>_links</name></member>
+    <member refid="classjac_1_1RouterOutputStreamCommunicator_1a2e5f125a42df7cec89cb82c8ae6a40e8" kind="function"><name>RouterOutputStreamCommunicator</name></member>
+    <member refid="classjac_1_1RouterOutputStreamCommunicator_1accbdfee5bf6561c903adfbe7e4e64eb2" kind="function"><name>put</name></member>
+    <member refid="classjac_1_1RouterOutputStreamCommunicator_1a0a5fd5a0766be7c326c68ae74f19cbdd" kind="function"><name>write</name></member>
+    <member refid="classjac_1_1RouterOutputStreamCommunicator_1a8aa66c91f11eeaee6b0b886e742033ae" kind="function"><name>setRecipients</name></member>
+  </compound>
+  <compound refid="classjac_1_1CobsEncoder_1_1Serializer" kind="class"><name>jac::CobsEncoder::Serializer</name>
+    <member refid="classjac_1_1CobsEncoder_1_1Serializer_1ac86cab0e9c8724b550cda55243f0b60f" kind="function"><name>capacity</name></member>
+    <member refid="classjac_1_1CobsEncoder_1_1Serializer_1a6d609595458a703168236cb2af8ee67d" kind="function"><name>buildDataFrame</name></member>
+  </compound>
+  <compound refid="namespacejac" kind="namespace"><name>jac</name>
+    <member refid="mux_8h_1a60864d56f607ff4b7c5ad5addfcb96c1" kind="enum"><name>MuxError</name></member>
+    <member refid="mux_8h_1a60864d56f607ff4b7c5ad5addfcb96c1adc3e4a624402a84e63dbe2e70ad6f20f" kind="enumvalue"><name>INVALID_RECEIVE</name></member>
+    <member refid="mux_8h_1a60864d56f607ff4b7c5ad5addfcb96c1a162c5dd7c43643b12ccea31fc922d4c2" kind="enumvalue"><name>PACKETIZER</name></member>
+    <member refid="mux_8h_1a60864d56f607ff4b7c5ad5addfcb96c1ae133e9a63fd4950f19c2180be4047ecc" kind="enumvalue"><name>PROCESSING</name></member>
+  </compound>
+  <compound refid="communicator_8h" kind="file"><name>communicator.h</name>
+  </compound>
+  <compound refid="cobs_8h" kind="file"><name>cobs.h</name>
+  </compound>
+  <compound refid="encoderTypes_8h" kind="file"><name>encoderTypes.h</name>
+  </compound>
+  <compound refid="linkTypes_8h" kind="file"><name>linkTypes.h</name>
+  </compound>
+  <compound refid="mux_8h" kind="file"><name>mux.h</name>
+  </compound>
+  <compound refid="router_8h" kind="file"><name>router.h</name>
+  </compound>
+  <compound refid="routerCommunicator_8h" kind="file"><name>routerCommunicator.h</name>
+  </compound>
+  <compound refid="stream_8h" kind="file"><name>stream.h</name>
+  </compound>
+  <compound refid="crc_8h" kind="file"><name>crc.h</name>
+  </compound>
+  <compound refid="dir_2a175438597ed609dba8ae6e9b56060c" kind="dir"><name>src/jac/link/encoders</name>
+  </compound>
+  <compound refid="dir_256037ad7d0c306238e2bc4f945d341d" kind="dir"><name>src/jac</name>
+  </compound>
+  <compound refid="dir_c1e6982d0168263bc2c86cc40d5c26c8" kind="dir"><name>src/jac/link</name>
+  </compound>
+  <compound refid="dir_68267d1309a1af8e8297ef4c3efbcdba" kind="dir"><name>src</name>
+  </compound>
+  <compound refid="dir_29d605275cbfa1320720848587238697" kind="dir"><name>src/jac/link/util</name>
+  </compound>
+</doxygenindex>

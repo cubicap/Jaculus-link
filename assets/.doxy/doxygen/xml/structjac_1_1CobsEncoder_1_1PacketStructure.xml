@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="structjac_1_1CobsEncoder_1_1PacketStructure" kind="struct" language="C++" prot="private">
+    <compoundname>jac::CobsEncoder::PacketStructure</compoundname>
+    <derivedcompoundref refid="classjac_1_1CobsEncoder_1_1Packetizer" prot="private" virt="non-virtual">jac::CobsEncoder::Packetizer</derivedcompoundref>
+      <sectiondef kind="public-static-attrib">
+      <memberdef kind="variable" id="structjac_1_1CobsEncoder_1_1PacketStructure_1ace280275cd3594d90939f453bcd52415" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint8_t</type>
+        <definition>constexpr uint8_t jac::CobsEncoder::PacketStructure::DELIMITER</definition>
+        <argsstring></argsstring>
+        <name>DELIMITER</name>
+        <initializer>= 0x00</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="16" column="34" bodyfile="src/jac/link/encoders/cobs.h" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjac_1_1CobsEncoder_1_1PacketStructure_1a109411b64fee9ead185fe46934c4db98" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t jac::CobsEncoder::PacketStructure::SIZE_CHECKSUM</definition>
+        <argsstring></argsstring>
+        <name>SIZE_CHECKSUM</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="17" column="33" bodyfile="src/jac/link/encoders/cobs.h" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjac_1_1CobsEncoder_1_1PacketStructure_1a2aa0049d2e553bb60e08747d7a259cb0" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t jac::CobsEncoder::PacketStructure::SIZE_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>SIZE_LENGTH</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="18" column="33" bodyfile="src/jac/link/encoders/cobs.h" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjac_1_1CobsEncoder_1_1PacketStructure_1a134c3b8ba7be1d183037e71a287cdef5" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t jac::CobsEncoder::PacketStructure::SIZE_CHANNEL</definition>
+        <argsstring></argsstring>
+        <name>SIZE_CHANNEL</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="19" column="33" bodyfile="src/jac/link/encoders/cobs.h" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjac_1_1CobsEncoder_1_1PacketStructure_1a2967751dd0ac68056eb5386507361403" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t jac::CobsEncoder::PacketStructure::OFFSET_DELIMITER</definition>
+        <argsstring></argsstring>
+        <name>OFFSET_DELIMITER</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="21" column="33" bodyfile="src/jac/link/encoders/cobs.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjac_1_1CobsEncoder_1_1PacketStructure_1a2aa239f4e3e61d3b2242e37c83cddda3" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t jac::CobsEncoder::PacketStructure::OFFSET_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>OFFSET_LENGTH</name>
+        <initializer>= 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="22" column="33" bodyfile="src/jac/link/encoders/cobs.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjac_1_1CobsEncoder_1_1PacketStructure_1a28f2af73903c645bdd70a00707698a5b" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t jac::CobsEncoder::PacketStructure::OFFSET_COBS</definition>
+        <argsstring></argsstring>
+        <name>OFFSET_COBS</name>
+        <initializer>= 2</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="23" column="33" bodyfile="src/jac/link/encoders/cobs.h" bodystart="23" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjac_1_1CobsEncoder_1_1PacketStructure_1afd35a7564c8a7aa753f56994b69ecc79" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t jac::CobsEncoder::PacketStructure::OFFSET_CHANNEL</definition>
+        <argsstring></argsstring>
+        <name>OFFSET_CHANNEL</name>
+        <initializer>= OFFSET_COBS + 1</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="24" column="33" bodyfile="src/jac/link/encoders/cobs.h" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjac_1_1CobsEncoder_1_1PacketStructure_1ac06a7fbf44c5c8258493482dab2cc489" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t jac::CobsEncoder::PacketStructure::OFFSET_DATA</definition>
+        <argsstring></argsstring>
+        <name>OFFSET_DATA</name>
+        <initializer>= OFFSET_CHANNEL + SIZE_CHANNEL</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="25" column="33" bodyfile="src/jac/link/encoders/cobs.h" bodystart="25" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="structjac_1_1CobsEncoder_1_1PacketStructure_1aeafd4c8e57ab556ea48292e1785ba340" prot="public" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr size_t</type>
+        <definition>constexpr size_t jac::CobsEncoder::PacketStructure::SIZE_DATA_MAX</definition>
+        <argsstring></argsstring>
+        <name>SIZE_DATA_MAX</name>
+        <initializer>= 254 - SIZE_CHANNEL - SIZE_CHECKSUM</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="27" column="33" bodyfile="src/jac/link/encoders/cobs.h" bodystart="27" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structjac_1_1CobsEncoder_1_1PacketStructure_1ab389bc674034874199a7ae111ddc85a4" prot="public" static="no" mutable="no">
+        <type>std::array&lt; uint8_t, OFFSET_DATA+SIZE_DATA_MAX+SIZE_CHECKSUM &gt;</type>
+        <definition>std::array&lt;uint8_t, OFFSET_DATA + SIZE_DATA_MAX + SIZE_CHECKSUM&gt; jac::CobsEncoder::PacketStructure::buffer</definition>
+        <argsstring></argsstring>
+        <name>buffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="29" column="20" bodyfile="src/jac/link/encoders/cobs.h" bodystart="29" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>jac::CobsEncoder::PacketStructure</label>
+      </node>
+      <node id="2">
+        <label>jac::CobsEncoder::Packetizer</label>
+        <link refid="classjac_1_1CobsEncoder_1_1Packetizer"/>
+        <childnode refid="1" relation="private-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="src/jac/link/encoders/cobs.h" line="15" column="5" bodyfile="src/jac/link/encoders/cobs.h" bodystart="15" bodyend="30"/>
+    <listofallmembers>
+      <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1ab389bc674034874199a7ae111ddc85a4" prot="public" virt="non-virtual"><scope>jac::CobsEncoder::PacketStructure</scope><name>buffer</name></member>
+      <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1ace280275cd3594d90939f453bcd52415" prot="public" virt="non-virtual"><scope>jac::CobsEncoder::PacketStructure</scope><name>DELIMITER</name></member>
+      <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1afd35a7564c8a7aa753f56994b69ecc79" prot="public" virt="non-virtual"><scope>jac::CobsEncoder::PacketStructure</scope><name>OFFSET_CHANNEL</name></member>
+      <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1a28f2af73903c645bdd70a00707698a5b" prot="public" virt="non-virtual"><scope>jac::CobsEncoder::PacketStructure</scope><name>OFFSET_COBS</name></member>
+      <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1ac06a7fbf44c5c8258493482dab2cc489" prot="public" virt="non-virtual"><scope>jac::CobsEncoder::PacketStructure</scope><name>OFFSET_DATA</name></member>
+      <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1a2967751dd0ac68056eb5386507361403" prot="public" virt="non-virtual"><scope>jac::CobsEncoder::PacketStructure</scope><name>OFFSET_DELIMITER</name></member>
+      <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1a2aa239f4e3e61d3b2242e37c83cddda3" prot="public" virt="non-virtual"><scope>jac::CobsEncoder::PacketStructure</scope><name>OFFSET_LENGTH</name></member>
+      <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1a134c3b8ba7be1d183037e71a287cdef5" prot="public" virt="non-virtual"><scope>jac::CobsEncoder::PacketStructure</scope><name>SIZE_CHANNEL</name></member>
+      <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1a109411b64fee9ead185fe46934c4db98" prot="public" virt="non-virtual"><scope>jac::CobsEncoder::PacketStructure</scope><name>SIZE_CHECKSUM</name></member>
+      <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1aeafd4c8e57ab556ea48292e1785ba340" prot="public" virt="non-virtual"><scope>jac::CobsEncoder::PacketStructure</scope><name>SIZE_DATA_MAX</name></member>
+      <member refid="structjac_1_1CobsEncoder_1_1PacketStructure_1a2aa0049d2e553bb60e08747d7a259cb0" prot="public" virt="non-virtual"><scope>jac::CobsEncoder::PacketStructure</scope><name>SIZE_LENGTH</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

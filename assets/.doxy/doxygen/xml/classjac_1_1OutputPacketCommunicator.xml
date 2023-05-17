@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1OutputPacketCommunicator" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>jac::OutputPacketCommunicator</compoundname>
+    <derivedcompoundref refid="classjac_1_1RouterOutputPacketCommunicator" prot="public" virt="non-virtual">jac::RouterOutputPacketCommunicator</derivedcompoundref>
+    <includes refid="communicator_8h" local="no">communicator.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1OutputPacketCommunicator_1ac21ae2c67538cc47c5fa965bd51b6be2" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::unique_ptr&lt; <ref refid="classjac_1_1Packet" kindref="compound">Packet</ref> &gt;</type>
+        <definition>virtual std::unique_ptr&lt;Packet&gt; jac::OutputPacketCommunicator::buildPacket</definition>
+        <argsstring>(std::vector&lt; int &gt; links)=0</argsstring>
+        <name>buildPacket</name>
+        <reimplementedby refid="classjac_1_1RouterOutputPacketCommunicator_1a12760ce32955afb6ac2ddf44f5302832">buildPacket</reimplementedby>
+        <param>
+          <type>std::vector&lt; int &gt;</type>
+          <declname>links</declname>
+        </param>
+        <briefdescription>
+<para>Build a packet for the given data links. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>links</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data link ids </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The packet </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/communicator.h" line="115" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1OutputPacketCommunicator_1ad75648f10d1510bf441e533a804b2557" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>size_t</type>
+        <definition>virtual size_t jac::OutputPacketCommunicator::maxPacketSize</definition>
+        <argsstring>(std::vector&lt; int &gt; links) const =0</argsstring>
+        <name>maxPacketSize</name>
+        <reimplementedby refid="classjac_1_1RouterOutputPacketCommunicator_1a0d80cb5073c4f0be02aa912db93fbd29">maxPacketSize</reimplementedby>
+        <param>
+          <type>std::vector&lt; int &gt;</type>
+          <declname>links</declname>
+        </param>
+        <briefdescription>
+<para>Get the maximum packet size for the given data links. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>links</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data link ids </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The maximum packet size </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/communicator.h" line="123" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1OutputPacketCommunicator_1a2cfb816d4fe4664d71323bef02fc022d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::OutputPacketCommunicator::OutputPacketCommunicator</definition>
+        <argsstring>()=default</argsstring>
+        <name>OutputPacketCommunicator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/communicator.h" line="125" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1OutputPacketCommunicator_1a69730fb3f5d044f69398d743353ec3d4" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::OutputPacketCommunicator::OutputPacketCommunicator</definition>
+        <argsstring>(const OutputPacketCommunicator &amp;)=delete</argsstring>
+        <name>OutputPacketCommunicator</name>
+        <param>
+          <type>const <ref refid="classjac_1_1OutputPacketCommunicator" kindref="compound">OutputPacketCommunicator</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/communicator.h" line="126" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1OutputPacketCommunicator_1adb2a1f158d8c179a63ce28cad2c4ec4a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1OutputPacketCommunicator" kindref="compound">OutputPacketCommunicator</ref> &amp;</type>
+        <definition>OutputPacketCommunicator&amp; jac::OutputPacketCommunicator::operator=</definition>
+        <argsstring>(const OutputPacketCommunicator &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classjac_1_1OutputPacketCommunicator" kindref="compound">OutputPacketCommunicator</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/communicator.h" line="127" column="30"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1OutputPacketCommunicator_1a7e8d0945027380319fc04aa0bf746cdb" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual jac::OutputPacketCommunicator::~OutputPacketCommunicator</definition>
+        <argsstring>()=default</argsstring>
+        <name>~OutputPacketCommunicator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/communicator.h" line="128" column="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Communicator interface that can be used to send packets. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>jac::OutputPacketCommunicator</label>
+        <link refid="classjac_1_1OutputPacketCommunicator"/>
+      </node>
+      <node id="2">
+        <label>jac::RouterOutputPacketCommunicator</label>
+        <link refid="classjac_1_1RouterOutputPacketCommunicator"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="src/jac/link/communicator.h" line="107" column="1" bodyfile="src/jac/link/communicator.h" bodystart="107" bodyend="129"/>
+    <listofallmembers>
+      <member refid="classjac_1_1OutputPacketCommunicator_1ac21ae2c67538cc47c5fa965bd51b6be2" prot="public" virt="pure-virtual"><scope>jac::OutputPacketCommunicator</scope><name>buildPacket</name></member>
+      <member refid="classjac_1_1OutputPacketCommunicator_1ad75648f10d1510bf441e533a804b2557" prot="public" virt="pure-virtual"><scope>jac::OutputPacketCommunicator</scope><name>maxPacketSize</name></member>
+      <member refid="classjac_1_1OutputPacketCommunicator_1adb2a1f158d8c179a63ce28cad2c4ec4a" prot="public" virt="non-virtual"><scope>jac::OutputPacketCommunicator</scope><name>operator=</name></member>
+      <member refid="classjac_1_1OutputPacketCommunicator_1a2cfb816d4fe4664d71323bef02fc022d" prot="public" virt="non-virtual"><scope>jac::OutputPacketCommunicator</scope><name>OutputPacketCommunicator</name></member>
+      <member refid="classjac_1_1OutputPacketCommunicator_1a69730fb3f5d044f69398d743353ec3d4" prot="public" virt="non-virtual"><scope>jac::OutputPacketCommunicator</scope><name>OutputPacketCommunicator</name></member>
+      <member refid="classjac_1_1OutputPacketCommunicator_1a7e8d0945027380319fc04aa0bf746cdb" prot="public" virt="virtual"><scope>jac::OutputPacketCommunicator</scope><name>~OutputPacketCommunicator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

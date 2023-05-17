@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1Packet" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>jac::Packet</compoundname>
+    <includes refid="linkTypes_8h" local="no">linkTypes.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1Packet_1a69facc8a06a553d77d749579763dc6a5" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool jac::Packet::put</definition>
+        <argsstring>(uint8_t c)=0</argsstring>
+        <name>put</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="32" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Packet_1ac1851a026dec13621112528160982b53" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>size_t</type>
+        <definition>virtual size_t jac::Packet::put</definition>
+        <argsstring>(std::span&lt; const uint8_t &gt; data)=0</argsstring>
+        <name>put</name>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="33" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Packet_1af3497fa256200978b7799d03c0c3bff4" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>size_t</type>
+        <definition>virtual size_t jac::Packet::space</definition>
+        <argsstring>() const =0</argsstring>
+        <name>space</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="34" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Packet_1ab0e2eb4a05e673494993d34670e8d602" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>bool</type>
+        <definition>virtual bool jac::Packet::send</definition>
+        <argsstring>()=0</argsstring>
+        <name>send</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="36" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Packet_1afa9aa04bd9f5ea11c30f8dd5763b2c71" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::Packet::Packet</definition>
+        <argsstring>()=default</argsstring>
+        <name>Packet</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="38" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Packet_1a9bc69f2dfab87a0349e7480b6e510d57" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::Packet::Packet</definition>
+        <argsstring>(const Packet &amp;)=delete</argsstring>
+        <name>Packet</name>
+        <param>
+          <type>const <ref refid="classjac_1_1Packet" kindref="compound">Packet</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="39" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Packet_1ac5ac2f3043893d313139e4fedbce21f0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Packet" kindref="compound">Packet</ref> &amp;</type>
+        <definition>Packet&amp; jac::Packet::operator=</definition>
+        <argsstring>(const Packet &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classjac_1_1Packet" kindref="compound">Packet</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="40" column="12"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Packet_1af8edfae2c8552a3425ddcc3803f96ced" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual jac::Packet::~Packet</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Packet</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="41" column="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface for building packets. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/jac/link/linkTypes.h" line="30" column="1" bodyfile="src/jac/link/linkTypes.h" bodystart="30" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classjac_1_1Packet_1ac5ac2f3043893d313139e4fedbce21f0" prot="public" virt="non-virtual"><scope>jac::Packet</scope><name>operator=</name></member>
+      <member refid="classjac_1_1Packet_1afa9aa04bd9f5ea11c30f8dd5763b2c71" prot="public" virt="non-virtual"><scope>jac::Packet</scope><name>Packet</name></member>
+      <member refid="classjac_1_1Packet_1a9bc69f2dfab87a0349e7480b6e510d57" prot="public" virt="non-virtual"><scope>jac::Packet</scope><name>Packet</name></member>
+      <member refid="classjac_1_1Packet_1a69facc8a06a553d77d749579763dc6a5" prot="public" virt="pure-virtual"><scope>jac::Packet</scope><name>put</name></member>
+      <member refid="classjac_1_1Packet_1ac1851a026dec13621112528160982b53" prot="public" virt="pure-virtual"><scope>jac::Packet</scope><name>put</name></member>
+      <member refid="classjac_1_1Packet_1ab0e2eb4a05e673494993d34670e8d602" prot="public" virt="pure-virtual"><scope>jac::Packet</scope><name>send</name></member>
+      <member refid="classjac_1_1Packet_1af3497fa256200978b7799d03c0c3bff4" prot="public" virt="pure-virtual"><scope>jac::Packet</scope><name>space</name></member>
+      <member refid="classjac_1_1Packet_1af8edfae2c8552a3425ddcc3803f96ced" prot="public" virt="virtual"><scope>jac::Packet</scope><name>~Packet</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

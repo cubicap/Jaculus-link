@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1Duplex" kind="class" language="C++" prot="public">
+    <compoundname>jac::Duplex</compoundname>
+    <basecompoundref refid="classjac_1_1InputStream" prot="public" virt="non-virtual">jac::InputStream</basecompoundref>
+    <basecompoundref refid="classjac_1_1OutputStream" prot="public" virt="non-virtual">jac::OutputStream</basecompoundref>
+    <derivedcompoundref refid="classjac_1_1Duplexify" prot="public" virt="non-virtual">jac::Duplexify</derivedcompoundref>
+    <includes refid="stream_8h" local="no">stream.h</includes>
+    <briefdescription>
+<para>Interface for an byte input/output stream. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>jac::Duplex</label>
+        <link refid="classjac_1_1Duplex"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>jac::OutputStream</label>
+        <link refid="classjac_1_1OutputStream"/>
+      </node>
+      <node id="4">
+        <label>jac::Duplexify</label>
+        <link refid="classjac_1_1Duplexify"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jac::InputStream</label>
+        <link refid="classjac_1_1InputStream"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="1">
+        <label>jac::Duplex</label>
+        <link refid="classjac_1_1Duplex"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>jac::OutputStream</label>
+        <link refid="classjac_1_1OutputStream"/>
+      </node>
+      <node id="2">
+        <label>jac::InputStream</label>
+        <link refid="classjac_1_1InputStream"/>
+      </node>
+    </collaborationgraph>
+    <location file="src/jac/link/stream.h" line="77" column="1" bodyfile="src/jac/link/stream.h" bodystart="77" bodyend="77"/>
+    <listofallmembers>
+      <member refid="classjac_1_1OutputStream_1a0f92c299e35e9dd93b5b63970c404669" prot="public" virt="pure-virtual"><scope>jac::Duplex</scope><name>flush</name></member>
+      <member refid="classjac_1_1InputStream_1a07e2380a04b62a667afa0a21698986fa" prot="public" virt="pure-virtual"><scope>jac::Duplex</scope><name>get</name></member>
+      <member refid="classjac_1_1InputStream_1ae8772f2f4a81c1ea9d49b083755efdea" prot="public" virt="pure-virtual"><scope>jac::Duplex</scope><name>onData</name></member>
+      <member refid="classjac_1_1OutputStream_1a2d287dd1b99377e139b733b6e262222e" prot="public" virt="pure-virtual"><scope>jac::Duplex</scope><name>put</name></member>
+      <member refid="classjac_1_1InputStream_1a768b432b1e788e6ae6ffe271baaf032a" prot="public" virt="pure-virtual"><scope>jac::Duplex</scope><name>read</name></member>
+      <member refid="classjac_1_1OutputStream_1af657d42bb042094ee3d8dfbe2b7a4986" prot="public" virt="pure-virtual"><scope>jac::Duplex</scope><name>write</name></member>
+      <member refid="classjac_1_1InputStream_1a70ab93ac8dcf00eb73799c28f2e7a9a7" prot="public" virt="virtual"><scope>jac::Duplex</scope><name>~InputStream</name></member>
+      <member refid="classjac_1_1OutputStream_1a809391d8351043eaea9e48886a753313" prot="public" virt="virtual"><scope>jac::Duplex</scope><name>~OutputStream</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

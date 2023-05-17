@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="dir_c1e6982d0168263bc2c86cc40d5c26c8" kind="dir">
+    <compoundname>src/jac/link</compoundname>
+    <innerdir refid="dir_2a175438597ed609dba8ae6e9b56060c">src/jac/link/encoders</innerdir>
+    <innerdir refid="dir_29d605275cbfa1320720848587238697">src/jac/link/util</innerdir>
+    <innerfile refid="communicator_8h">communicator.h</innerfile>
+    <innerfile refid="linkTypes_8h">linkTypes.h</innerfile>
+    <innerfile refid="mux_8h">mux.h</innerfile>
+    <innerfile refid="router_8h">router.h</innerfile>
+    <innerfile refid="routerCommunicator_8h">routerCommunicator.h</innerfile>
+    <innerfile refid="stream_8h">stream.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/jac/link/"/>
+  </compounddef>
+</doxygen>

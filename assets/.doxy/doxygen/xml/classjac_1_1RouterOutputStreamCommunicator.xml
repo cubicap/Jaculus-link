@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1RouterOutputStreamCommunicator" kind="class" language="C++" prot="public">
+    <compoundname>jac::RouterOutputStreamCommunicator</compoundname>
+    <basecompoundref refid="classjac_1_1OutputStreamCommunicator" prot="public" virt="non-virtual">jac::OutputStreamCommunicator</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classjac_1_1RouterOutputStreamCommunicator_1a43105cf5d47673b1f2462399485a2762" prot="private" static="no" mutable="no">
+        <type>std::reference_wrapper&lt; <ref refid="classjac_1_1Router" kindref="compound">Router</ref> &gt;</type>
+        <definition>std::reference_wrapper&lt;Router&gt; jac::RouterOutputStreamCommunicator::_router</definition>
+        <argsstring></argsstring>
+        <name>_router</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/routerCommunicator.h" line="20" column="28" bodyfile="src/jac/link/routerCommunicator.h" bodystart="20" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1RouterOutputStreamCommunicator_1aa8be6b80a8fb03d098c68effb8c6098b" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t jac::RouterOutputStreamCommunicator::_channel</definition>
+        <argsstring></argsstring>
+        <name>_channel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/routerCommunicator.h" line="21" column="13" bodyfile="src/jac/link/routerCommunicator.h" bodystart="21" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1RouterOutputStreamCommunicator_1acf5065de7eb802c7e6e630f379d38489" prot="private" static="no" mutable="no">
+        <type>std::vector&lt; int &gt;</type>
+        <definition>std::vector&lt;int&gt; jac::RouterOutputStreamCommunicator::_links</definition>
+        <argsstring></argsstring>
+        <name>_links</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/routerCommunicator.h" line="22" column="17" bodyfile="src/jac/link/routerCommunicator.h" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1RouterOutputStreamCommunicator_1a2e5f125a42df7cec89cb82c8ae6a40e8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::RouterOutputStreamCommunicator::RouterOutputStreamCommunicator</definition>
+        <argsstring>(Router &amp;router, uint8_t channel, std::vector&lt; int &gt; links)</argsstring>
+        <name>RouterOutputStreamCommunicator</name>
+        <param>
+          <type><ref refid="classjac_1_1Router" kindref="compound">Router</ref> &amp;</type>
+          <declname>router</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type>std::vector&lt; int &gt;</type>
+          <declname>links</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/routerCommunicator.h" line="24" column="5" bodyfile="src/jac/link/routerCommunicator.h" bodystart="24" bodyend="25"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1RouterOutputStreamCommunicator_1accbdfee5bf6561c903adfbe7e4e64eb2" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool jac::RouterOutputStreamCommunicator::put</definition>
+        <argsstring>(uint8_t c) override</argsstring>
+        <name>put</name>
+        <reimplements refid="classjac_1_1OutputStreamCommunicator_1a4bf9e5a3b02c726c9d2d52bf22431e38">put</reimplements>
+        <param>
+          <type>uint8_t</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Put a single byte to the stream. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the byte to put </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the byte was put successfully </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/routerCommunicator.h" line="26" column="10" bodyfile="src/jac/link/routerCommunicator.h" bodystart="26" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1RouterOutputStreamCommunicator_1a0a5fd5a0766be7c326c68ae74f19cbdd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>size_t</type>
+        <definition>size_t jac::RouterOutputStreamCommunicator::write</definition>
+        <argsstring>(std::span&lt; const uint8_t &gt; data) override</argsstring>
+        <name>write</name>
+        <reimplements refid="classjac_1_1OutputStreamCommunicator_1a3a33987605fdbf76e47d21f2d54a2e46">write</reimplements>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Write a buffer to the stream. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the buffer to write </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes put </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/routerCommunicator.h" line="30" column="12" bodyfile="src/jac/link/routerCommunicator.h" bodystart="30" bodyend="42"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1RouterOutputStreamCommunicator_1a8aa66c91f11eeaee6b0b886e742033ae" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void jac::RouterOutputStreamCommunicator::setRecipients</definition>
+        <argsstring>(std::vector&lt; int &gt; recipients) override</argsstring>
+        <name>setRecipients</name>
+        <reimplements refid="classjac_1_1OutputStreamCommunicator_1a3e2d99f27118efe0b6bcb585443ecd8d">setRecipients</reimplements>
+        <param>
+          <type>std::vector&lt; int &gt;</type>
+          <declname>recipients</declname>
+        </param>
+        <briefdescription>
+<para>Set the data links the stream should be sent to. Empty links for broadcast. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>recipients</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the data link ids </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/routerCommunicator.h" line="44" column="10" bodyfile="src/jac/link/routerCommunicator.h" bodystart="44" bodyend="46"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>jac::OutputStreamCommunicator</label>
+        <link refid="classjac_1_1OutputStreamCommunicator"/>
+      </node>
+      <node id="1">
+        <label>jac::RouterOutputStreamCommunicator</label>
+        <link refid="classjac_1_1RouterOutputStreamCommunicator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>jac::OutputStreamCommunicator</label>
+        <link refid="classjac_1_1OutputStreamCommunicator"/>
+      </node>
+      <node id="1">
+        <label>jac::RouterOutputStreamCommunicator</label>
+        <link refid="classjac_1_1RouterOutputStreamCommunicator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/jac/link/routerCommunicator.h" line="19" column="1" bodyfile="src/jac/link/routerCommunicator.h" bodystart="19" bodyend="47"/>
+    <listofallmembers>
+      <member refid="classjac_1_1RouterOutputStreamCommunicator_1aa8be6b80a8fb03d098c68effb8c6098b" prot="private" virt="non-virtual"><scope>jac::RouterOutputStreamCommunicator</scope><name>_channel</name></member>
+      <member refid="classjac_1_1RouterOutputStreamCommunicator_1acf5065de7eb802c7e6e630f379d38489" prot="private" virt="non-virtual"><scope>jac::RouterOutputStreamCommunicator</scope><name>_links</name></member>
+      <member refid="classjac_1_1RouterOutputStreamCommunicator_1a43105cf5d47673b1f2462399485a2762" prot="private" virt="non-virtual"><scope>jac::RouterOutputStreamCommunicator</scope><name>_router</name></member>
+      <member refid="classjac_1_1OutputStreamCommunicator_1a0fd247b087928f7f8b947b789f477fff" prot="public" virt="non-virtual"><scope>jac::RouterOutputStreamCommunicator</scope><name>operator=</name></member>
+      <member refid="classjac_1_1OutputStreamCommunicator_1ae142e3fb63bddfab1dcc72fec98d699b" prot="public" virt="non-virtual"><scope>jac::RouterOutputStreamCommunicator</scope><name>OutputStreamCommunicator</name></member>
+      <member refid="classjac_1_1OutputStreamCommunicator_1a515321f6600ac4fc1b148bd17967fca1" prot="public" virt="non-virtual"><scope>jac::RouterOutputStreamCommunicator</scope><name>OutputStreamCommunicator</name></member>
+      <member refid="classjac_1_1RouterOutputStreamCommunicator_1accbdfee5bf6561c903adfbe7e4e64eb2" prot="public" virt="virtual"><scope>jac::RouterOutputStreamCommunicator</scope><name>put</name></member>
+      <member refid="classjac_1_1RouterOutputStreamCommunicator_1a2e5f125a42df7cec89cb82c8ae6a40e8" prot="public" virt="non-virtual"><scope>jac::RouterOutputStreamCommunicator</scope><name>RouterOutputStreamCommunicator</name></member>
+      <member refid="classjac_1_1RouterOutputStreamCommunicator_1a8aa66c91f11eeaee6b0b886e742033ae" prot="public" virt="virtual"><scope>jac::RouterOutputStreamCommunicator</scope><name>setRecipients</name></member>
+      <member refid="classjac_1_1RouterOutputStreamCommunicator_1a0a5fd5a0766be7c326c68ae74f19cbdd" prot="public" virt="virtual"><scope>jac::RouterOutputStreamCommunicator</scope><name>write</name></member>
+      <member refid="classjac_1_1OutputStreamCommunicator_1a0ac8941b6a2074094c56bbadac441f73" prot="public" virt="virtual"><scope>jac::RouterOutputStreamCommunicator</scope><name>~OutputStreamCommunicator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

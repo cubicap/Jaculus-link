@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="communicator_8h" kind="file" language="C++">
+    <compoundname>communicator.h</compoundname>
+    <includes local="no">cstdint</includes>
+    <includes local="no">memory</includes>
+    <includes local="no">optional</includes>
+    <includes local="no">set</includes>
+    <includes local="no">span</includes>
+    <includes local="no">vector</includes>
+    <includes refid="linkTypes_8h" local="yes">linkTypes.h</includes>
+    <includedby refid="routerCommunicator_8h" local="yes">src/jac/link/routerCommunicator.h</includedby>
+    <incdepgraph>
+      <node id="2">
+        <label>cstdint</label>
+      </node>
+      <node id="8">
+        <label>linkTypes.h</label>
+        <link refid="linkTypes_8h_source"/>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>optional</label>
+      </node>
+      <node id="7">
+        <label>vector</label>
+      </node>
+      <node id="1">
+        <label>src/jac/link/communicator.h</label>
+        <link refid="communicator_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+        <childnode refid="3" relation="include">
+        </childnode>
+        <childnode refid="4" relation="include">
+        </childnode>
+        <childnode refid="5" relation="include">
+        </childnode>
+        <childnode refid="6" relation="include">
+        </childnode>
+        <childnode refid="7" relation="include">
+        </childnode>
+        <childnode refid="8" relation="include">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>set</label>
+      </node>
+      <node id="6">
+        <label>span</label>
+      </node>
+      <node id="3">
+        <label>memory</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="2">
+        <label>src/jac/link/routerCommunicator.h</label>
+        <link refid="routerCommunicator_8h_source"/>
+      </node>
+      <node id="1">
+        <label>src/jac/link/communicator.h</label>
+        <link refid="communicator_8h"/>
+        <childnode refid="2" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="classjac_1_1OutputStreamCommunicator" prot="public">jac::OutputStreamCommunicator</innerclass>
+    <innerclass refid="classjac_1_1InputStreamCommunicator" prot="public">jac::InputStreamCommunicator</innerclass>
+    <innerclass refid="classjac_1_1OutputPacketCommunicator" prot="public">jac::OutputPacketCommunicator</innerclass>
+    <innerclass refid="classjac_1_1InputPacketCommunicator" prot="public">jac::InputPacketCommunicator</innerclass>
+    <innernamespace refid="namespacejac">jac</innernamespace>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#pragma<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;cstdint&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;memory&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;optional&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;set&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;span&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;vector&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;linkTypes.h&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight><highlight class="keyword">namespace<sp/></highlight><highlight class="normal">jac<sp/>{</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19" refid="classjac_1_1OutputStreamCommunicator" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classjac_1_1OutputStreamCommunicator" kindref="compound">OutputStreamCommunicator</ref><sp/>{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="27" refid="classjac_1_1OutputStreamCommunicator_1a4bf9e5a3b02c726c9d2d52bf22431e38" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1OutputStreamCommunicator_1a4bf9e5a3b02c726c9d2d52bf22431e38" kindref="member">put</ref>(uint8_t<sp/>c)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="35" refid="classjac_1_1OutputStreamCommunicator_1a3a33987605fdbf76e47d21f2d54a2e46" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1OutputStreamCommunicator_1a3a33987605fdbf76e47d21f2d54a2e46" kindref="member">write</ref>(std::span&lt;const<sp/>uint8_t&gt;<sp/>data)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42" refid="classjac_1_1OutputStreamCommunicator_1a3e2d99f27118efe0b6bcb585443ecd8d" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1OutputStreamCommunicator_1a3e2d99f27118efe0b6bcb585443ecd8d" kindref="member">setRecipients</ref>(std::vector&lt;int&gt;<sp/>recipients)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjac_1_1OutputStreamCommunicator" kindref="compound">OutputStreamCommunicator</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjac_1_1OutputStreamCommunicator" kindref="compound">OutputStreamCommunicator</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1OutputStreamCommunicator" kindref="compound">OutputStreamCommunicator</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjac_1_1OutputStreamCommunicator" kindref="compound">OutputStreamCommunicator</ref>&amp;<sp/>operator=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1OutputStreamCommunicator" kindref="compound">OutputStreamCommunicator</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~<ref refid="classjac_1_1OutputStreamCommunicator" kindref="compound">OutputStreamCommunicator</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"></highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="54" refid="classjac_1_1InputStreamCommunicator" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classjac_1_1InputStreamCommunicator" kindref="compound">InputStreamCommunicator</ref><sp/>{</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="62" refid="classjac_1_1InputStreamCommunicator_1a3453eb3ac7913e5b8706c8b5ac22692f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1InputStreamCommunicator_1a3453eb3ac7913e5b8706c8b5ac22692f" kindref="member">get</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="classjac_1_1InputStreamCommunicator_1a36b8ae1a223d448392df6864b478eb47" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1InputStreamCommunicator_1a36b8ae1a223d448392df6864b478eb47" kindref="member">read</ref>(std::span&lt;uint8_t&gt;<sp/>data)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="78" refid="classjac_1_1InputStreamCommunicator_1a99cc98836aaedd3fcaeeecefe965d047" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1InputStreamCommunicator_1a99cc98836aaedd3fcaeeecefe965d047" kindref="member">available</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="classjac_1_1InputStreamCommunicator_1ae3c4c0ca10731a8349518c640c045c35" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1InputStreamCommunicator_1ae3c4c0ca10731a8349518c640c045c35" kindref="member">filter</ref>(std::set&lt;int&gt;<sp/>links)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="90" refid="classjac_1_1InputStreamCommunicator_1aa5510ebf7eaecf44ae4653f84128927a" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1InputStreamCommunicator_1aa5510ebf7eaecf44ae4653f84128927a" kindref="member">clear</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="91"><highlight class="normal"></highlight></codeline>
+<codeline lineno="95" refid="classjac_1_1InputStreamCommunicator_1a06221040cc8b35199a709069b35e7cc9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1InputStreamCommunicator_1a06221040cc8b35199a709069b35e7cc9" kindref="member">cancelRead</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjac_1_1InputStreamCommunicator" kindref="compound">InputStreamCommunicator</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="98"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjac_1_1InputStreamCommunicator" kindref="compound">InputStreamCommunicator</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1InputStreamCommunicator" kindref="compound">InputStreamCommunicator</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjac_1_1InputStreamCommunicator" kindref="compound">InputStreamCommunicator</ref>&amp;<sp/>operator=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1InputStreamCommunicator" kindref="compound">InputStreamCommunicator</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~<ref refid="classjac_1_1InputStreamCommunicator" kindref="compound">InputStreamCommunicator</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="101"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="102"><highlight class="normal"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"></highlight></codeline>
+<codeline lineno="107" refid="classjac_1_1OutputPacketCommunicator" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classjac_1_1OutputPacketCommunicator" kindref="compound">OutputPacketCommunicator</ref><sp/>{</highlight></codeline>
+<codeline lineno="108"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="115" refid="classjac_1_1OutputPacketCommunicator_1ac21ae2c67538cc47c5fa965bd51b6be2" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::unique_ptr&lt;Packet&gt;<sp/><ref refid="classjac_1_1OutputPacketCommunicator_1ac21ae2c67538cc47c5fa965bd51b6be2" kindref="member">buildPacket</ref>(std::vector&lt;int&gt;<sp/>links)<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="classjac_1_1OutputPacketCommunicator_1ad75648f10d1510bf441e533a804b2557" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1OutputPacketCommunicator_1ad75648f10d1510bf441e533a804b2557" kindref="member">maxPacketSize</ref>(std::vector&lt;int&gt;<sp/>links)<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"></highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjac_1_1OutputPacketCommunicator" kindref="compound">OutputPacketCommunicator</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjac_1_1OutputPacketCommunicator" kindref="compound">OutputPacketCommunicator</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1OutputPacketCommunicator" kindref="compound">OutputPacketCommunicator</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjac_1_1OutputPacketCommunicator" kindref="compound">OutputPacketCommunicator</ref>&amp;<sp/>operator=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1OutputPacketCommunicator" kindref="compound">OutputPacketCommunicator</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~<ref refid="classjac_1_1OutputPacketCommunicator" kindref="compound">OutputPacketCommunicator</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="129"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135" refid="classjac_1_1InputPacketCommunicator" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="classjac_1_1InputPacketCommunicator" kindref="compound">InputPacketCommunicator</ref><sp/>{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="143" refid="classjac_1_1InputPacketCommunicator_1a57e9d539152357c7f4efd04d790e2192" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>std::optional&lt;std::pair&lt;int,<sp/>std::vector&lt;uint8_t&gt;&gt;&gt;<sp/><ref refid="classjac_1_1InputPacketCommunicator_1a57e9d539152357c7f4efd04d790e2192" kindref="member">get</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="150" refid="classjac_1_1InputPacketCommunicator_1a2ae82d26c4e9b06299155b7635439862" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">size_t</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1InputPacketCommunicator_1a2ae82d26c4e9b06299155b7635439862" kindref="member">available</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155" refid="classjac_1_1InputPacketCommunicator_1a2acc24cddf1075e765bdbe781a9085ca" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1InputPacketCommunicator_1a2acc24cddf1075e765bdbe781a9085ca" kindref="member">clear</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160" refid="classjac_1_1InputPacketCommunicator_1a715d7c961a90a5c905e9bb993da30537" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1InputPacketCommunicator_1a715d7c961a90a5c905e9bb993da30537" kindref="member">cancelRead</ref>()<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjac_1_1InputPacketCommunicator" kindref="compound">InputPacketCommunicator</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjac_1_1InputPacketCommunicator" kindref="compound">InputPacketCommunicator</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1InputPacketCommunicator" kindref="compound">InputPacketCommunicator</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="classjac_1_1InputPacketCommunicator" kindref="compound">InputPacketCommunicator</ref>&amp;<sp/>operator=(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="classjac_1_1InputPacketCommunicator" kindref="compound">InputPacketCommunicator</ref>&amp;)<sp/>=<sp/></highlight><highlight class="keyword">delete</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">virtual</highlight><highlight class="normal"><sp/>~<ref refid="classjac_1_1InputPacketCommunicator" kindref="compound">InputPacketCommunicator</ref>()<sp/>=<sp/></highlight><highlight class="keywordflow">default</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="166"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"></highlight></codeline>
+<codeline lineno="168"><highlight class="normal"></highlight></codeline>
+<codeline lineno="169"><highlight class="normal">}<sp/></highlight><highlight class="comment">//<sp/>namespace<sp/>jac</highlight><highlight class="normal"></highlight></codeline>
+    </programlisting>
+    <location file="src/jac/link/communicator.h"/>
+  </compounddef>
+</doxygen>

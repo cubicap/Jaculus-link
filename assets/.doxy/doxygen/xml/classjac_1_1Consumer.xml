@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1Consumer" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>jac::Consumer</compoundname>
+    <derivedcompoundref refid="classjac_1_1RouterInputPacketCommunicator" prot="public" virt="non-virtual">jac::RouterInputPacketCommunicator</derivedcompoundref>
+    <derivedcompoundref refid="classjac_1_1RouterInputStreamCommunicator" prot="public" virt="non-virtual">jac::RouterInputStreamCommunicator</derivedcompoundref>
+    <includes refid="linkTypes_8h" local="no">linkTypes.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1Consumer_1a9711ad4bf845f62fece000ea96d35382" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::Consumer::Consumer</definition>
+        <argsstring>()=default</argsstring>
+        <name>Consumer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="16" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Consumer_1a7ef168e4309bdb18af11ad78da57fc9d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::Consumer::Consumer</definition>
+        <argsstring>(const Consumer &amp;)=delete</argsstring>
+        <name>Consumer</name>
+        <param>
+          <type>const <ref refid="classjac_1_1Consumer" kindref="compound">Consumer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="17" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Consumer_1a66bdca09f9dfa96f2def09be7b2db1fb" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Consumer" kindref="compound">Consumer</ref> &amp;</type>
+        <definition>Consumer&amp; jac::Consumer::operator=</definition>
+        <argsstring>(const Consumer &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classjac_1_1Consumer" kindref="compound">Consumer</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="18" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Consumer_1a0a3616a3fceaa3265fe5ee6a39ac80da" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::Consumer::Consumer</definition>
+        <argsstring>(Consumer &amp;&amp;)=delete</argsstring>
+        <name>Consumer</name>
+        <param>
+          <type><ref refid="classjac_1_1Consumer" kindref="compound">Consumer</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="19" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Consumer_1a092688a0b1870f78dea809d1605fd259" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Consumer" kindref="compound">Consumer</ref> &amp;</type>
+        <definition>Consumer&amp; jac::Consumer::operator=</definition>
+        <argsstring>(Consumer &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classjac_1_1Consumer" kindref="compound">Consumer</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="20" column="14"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Consumer_1a3607cca2ad2bb0bf6e74c9ae05845896" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void jac::Consumer::processPacket</definition>
+        <argsstring>(int linkId, std::span&lt; const uint8_t &gt; data)=0</argsstring>
+        <name>processPacket</name>
+        <reimplementedby refid="classjac_1_1RouterInputStreamCommunicator_1abe8c5fe50ea7428caeb12ce43536fda8">processPacket</reimplementedby>
+        <reimplementedby refid="classjac_1_1RouterInputPacketCommunicator_1a1ca116d3b5069a28ec31e6daeff36510">processPacket</reimplementedby>
+        <param>
+          <type>int</type>
+          <declname>linkId</declname>
+        </param>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="22" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Consumer_1a098efd185655669da5d3f956fe4b6bd8" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual jac::Consumer::~Consumer</definition>
+        <argsstring>()=default</argsstring>
+        <name>~Consumer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="23" column="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface for a packet consumer. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>jac::Consumer</label>
+        <link refid="classjac_1_1Consumer"/>
+      </node>
+      <node id="2">
+        <label>jac::RouterInputPacketCommunicator</label>
+        <link refid="classjac_1_1RouterInputPacketCommunicator"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>jac::RouterInputStreamCommunicator</label>
+        <link refid="classjac_1_1RouterInputStreamCommunicator"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="src/jac/link/linkTypes.h" line="14" column="1" bodyfile="src/jac/link/linkTypes.h" bodystart="14" bodyend="24"/>
+    <listofallmembers>
+      <member refid="classjac_1_1Consumer_1a9711ad4bf845f62fece000ea96d35382" prot="public" virt="non-virtual"><scope>jac::Consumer</scope><name>Consumer</name></member>
+      <member refid="classjac_1_1Consumer_1a7ef168e4309bdb18af11ad78da57fc9d" prot="public" virt="non-virtual"><scope>jac::Consumer</scope><name>Consumer</name></member>
+      <member refid="classjac_1_1Consumer_1a0a3616a3fceaa3265fe5ee6a39ac80da" prot="public" virt="non-virtual"><scope>jac::Consumer</scope><name>Consumer</name></member>
+      <member refid="classjac_1_1Consumer_1a66bdca09f9dfa96f2def09be7b2db1fb" prot="public" virt="non-virtual"><scope>jac::Consumer</scope><name>operator=</name></member>
+      <member refid="classjac_1_1Consumer_1a092688a0b1870f78dea809d1605fd259" prot="public" virt="non-virtual"><scope>jac::Consumer</scope><name>operator=</name></member>
+      <member refid="classjac_1_1Consumer_1a3607cca2ad2bb0bf6e74c9ae05845896" prot="public" virt="pure-virtual"><scope>jac::Consumer</scope><name>processPacket</name></member>
+      <member refid="classjac_1_1Consumer_1a098efd185655669da5d3f956fe4b6bd8" prot="public" virt="virtual"><scope>jac::Consumer</scope><name>~Consumer</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

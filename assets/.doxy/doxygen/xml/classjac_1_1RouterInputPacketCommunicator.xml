@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1RouterInputPacketCommunicator" kind="class" language="C++" prot="public">
+    <compoundname>jac::RouterInputPacketCommunicator</compoundname>
+    <basecompoundref refid="classjac_1_1InputPacketCommunicator" prot="public" virt="non-virtual">jac::InputPacketCommunicator</basecompoundref>
+    <basecompoundref refid="classjac_1_1Consumer" prot="public" virt="non-virtual">jac::Consumer</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classjac_1_1RouterInputPacketCommunicator_1a4dd8133f96d5b89c0598b23ee6b1b4ef" prot="private" static="no" mutable="no">
+        <type>std::deque&lt; std::pair&lt; int, std::vector&lt; uint8_t &gt; &gt; &gt;</type>
+        <definition>std::deque&lt;std::pair&lt;int, std::vector&lt;uint8_t&gt; &gt; &gt; jac::RouterInputPacketCommunicator::_buffer</definition>
+        <argsstring></argsstring>
+        <name>_buffer</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/routerCommunicator.h" line="168" column="16" bodyfile="src/jac/link/routerCommunicator.h" bodystart="168" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1RouterInputPacketCommunicator_1a90ff5585ece28c8d235ce2d29a1bd7d8" prot="private" static="no" mutable="no">
+        <type>std::mutex</type>
+        <definition>std::mutex jac::RouterInputPacketCommunicator::_mutex</definition>
+        <argsstring></argsstring>
+        <name>_mutex</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/routerCommunicator.h" line="170" column="16" bodyfile="src/jac/link/routerCommunicator.h" bodystart="170" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1RouterInputPacketCommunicator_1ac51ba154866d5bb709af4b3fee0badab" prot="private" static="no" mutable="no">
+        <type>std::condition_variable</type>
+        <definition>std::condition_variable jac::RouterInputPacketCommunicator::_condition</definition>
+        <argsstring></argsstring>
+        <name>_condition</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/routerCommunicator.h" line="171" column="29" bodyfile="src/jac/link/routerCommunicator.h" bodystart="171" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1RouterInputPacketCommunicator_1a10722148b1b455ee8c800cfdfda3ffc7" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool jac::RouterInputPacketCommunicator::cancel</definition>
+        <argsstring></argsstring>
+        <name>cancel</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/routerCommunicator.h" line="172" column="10" bodyfile="src/jac/link/routerCommunicator.h" bodystart="172" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classjac_1_1RouterInputPacketCommunicator_1a3a5201736bfb07c75af9aef4a0afb33b" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t jac::RouterInputPacketCommunicator::availableNoLock</definition>
+        <argsstring>()</argsstring>
+        <name>availableNoLock</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/routerCommunicator.h" line="174" column="12" bodyfile="src/jac/link/routerCommunicator.h" bodystart="174" bodyend="176"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1RouterInputPacketCommunicator_1a9dee2c9d130b1ab52fb7610806eeca47" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::RouterInputPacketCommunicator::RouterInputPacketCommunicator</definition>
+        <argsstring>()</argsstring>
+        <name>RouterInputPacketCommunicator</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/routerCommunicator.h" line="178" column="5" bodyfile="src/jac/link/routerCommunicator.h" bodystart="178" bodyend="178"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1RouterInputPacketCommunicator_1a1ca116d3b5069a28ec31e6daeff36510" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void jac::RouterInputPacketCommunicator::processPacket</definition>
+        <argsstring>(int linkId, std::span&lt; const uint8_t &gt; data) override</argsstring>
+        <name>processPacket</name>
+        <reimplements refid="classjac_1_1Consumer_1a3607cca2ad2bb0bf6e74c9ae05845896">processPacket</reimplements>
+        <param>
+          <type>int</type>
+          <declname>linkId</declname>
+        </param>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/routerCommunicator.h" line="180" column="10" bodyfile="src/jac/link/routerCommunicator.h" bodystart="180" bodyend="185"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1RouterInputPacketCommunicator_1ad9119d4c306b8f8dfc3685d669f7be4d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>std::optional&lt; std::pair&lt; int, std::vector&lt; uint8_t &gt; &gt; &gt;</type>
+        <definition>std::optional&lt;std::pair&lt;int, std::vector&lt;uint8_t&gt; &gt; &gt; jac::RouterInputPacketCommunicator::get</definition>
+        <argsstring>() override</argsstring>
+        <name>get</name>
+        <reimplements refid="classjac_1_1InputPacketCommunicator_1a57e9d539152357c7f4efd04d790e2192">get</reimplements>
+        <briefdescription>
+<para>Get the next packet. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This method blocks until a packet is available.</para>
+</simplesect>
+<simplesect kind="return"><para>The packet </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/routerCommunicator.h" line="187" column="19" bodyfile="src/jac/link/routerCommunicator.h" bodystart="187" bodyend="200"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1RouterInputPacketCommunicator_1a5e414262236ccccab3accce9738e7ad8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>size_t</type>
+        <definition>size_t jac::RouterInputPacketCommunicator::available</definition>
+        <argsstring>() override</argsstring>
+        <name>available</name>
+        <reimplements refid="classjac_1_1InputPacketCommunicator_1a2ae82d26c4e9b06299155b7635439862">available</reimplements>
+        <briefdescription>
+<para>Get the number of packets available to read. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The number </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/routerCommunicator.h" line="202" column="12" bodyfile="src/jac/link/routerCommunicator.h" bodystart="202" bodyend="205"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1RouterInputPacketCommunicator_1a0872d792cf8773cb62c6dd82f0874cee" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void jac::RouterInputPacketCommunicator::clear</definition>
+        <argsstring>() override</argsstring>
+        <name>clear</name>
+        <reimplements refid="classjac_1_1InputPacketCommunicator_1a2acc24cddf1075e765bdbe781a9085ca">clear</reimplements>
+        <briefdescription>
+<para>Clear the buffer. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/routerCommunicator.h" line="207" column="10" bodyfile="src/jac/link/routerCommunicator.h" bodystart="207" bodyend="210"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1RouterInputPacketCommunicator_1a913c1160dbbdf1a1ff21a23e8511322d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void jac::RouterInputPacketCommunicator::cancelRead</definition>
+        <argsstring>() override</argsstring>
+        <name>cancelRead</name>
+        <reimplements refid="classjac_1_1InputPacketCommunicator_1a715d7c961a90a5c905e9bb993da30537">cancelRead</reimplements>
+        <briefdescription>
+<para>Cancel any blocking read. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/routerCommunicator.h" line="212" column="10" bodyfile="src/jac/link/routerCommunicator.h" bodystart="212" bodyend="216"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="3">
+        <label>jac::Consumer</label>
+        <link refid="classjac_1_1Consumer"/>
+      </node>
+      <node id="1">
+        <label>jac::RouterInputPacketCommunicator</label>
+        <link refid="classjac_1_1RouterInputPacketCommunicator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jac::InputPacketCommunicator</label>
+        <link refid="classjac_1_1InputPacketCommunicator"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="3">
+        <label>jac::Consumer</label>
+        <link refid="classjac_1_1Consumer"/>
+      </node>
+      <node id="1">
+        <label>jac::RouterInputPacketCommunicator</label>
+        <link refid="classjac_1_1RouterInputPacketCommunicator"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="2">
+        <label>jac::InputPacketCommunicator</label>
+        <link refid="classjac_1_1InputPacketCommunicator"/>
+      </node>
+    </collaborationgraph>
+    <location file="src/jac/link/routerCommunicator.h" line="167" column="1" bodyfile="src/jac/link/routerCommunicator.h" bodystart="167" bodyend="217"/>
+    <listofallmembers>
+      <member refid="classjac_1_1RouterInputPacketCommunicator_1a4dd8133f96d5b89c0598b23ee6b1b4ef" prot="private" virt="non-virtual"><scope>jac::RouterInputPacketCommunicator</scope><name>_buffer</name></member>
+      <member refid="classjac_1_1RouterInputPacketCommunicator_1ac51ba154866d5bb709af4b3fee0badab" prot="private" virt="non-virtual"><scope>jac::RouterInputPacketCommunicator</scope><name>_condition</name></member>
+      <member refid="classjac_1_1RouterInputPacketCommunicator_1a90ff5585ece28c8d235ce2d29a1bd7d8" prot="private" virt="non-virtual"><scope>jac::RouterInputPacketCommunicator</scope><name>_mutex</name></member>
+      <member refid="classjac_1_1RouterInputPacketCommunicator_1a5e414262236ccccab3accce9738e7ad8" prot="public" virt="virtual"><scope>jac::RouterInputPacketCommunicator</scope><name>available</name></member>
+      <member refid="classjac_1_1RouterInputPacketCommunicator_1a3a5201736bfb07c75af9aef4a0afb33b" prot="private" virt="non-virtual"><scope>jac::RouterInputPacketCommunicator</scope><name>availableNoLock</name></member>
+      <member refid="classjac_1_1RouterInputPacketCommunicator_1a10722148b1b455ee8c800cfdfda3ffc7" prot="private" virt="non-virtual"><scope>jac::RouterInputPacketCommunicator</scope><name>cancel</name></member>
+      <member refid="classjac_1_1RouterInputPacketCommunicator_1a913c1160dbbdf1a1ff21a23e8511322d" prot="public" virt="virtual"><scope>jac::RouterInputPacketCommunicator</scope><name>cancelRead</name></member>
+      <member refid="classjac_1_1RouterInputPacketCommunicator_1a0872d792cf8773cb62c6dd82f0874cee" prot="public" virt="virtual"><scope>jac::RouterInputPacketCommunicator</scope><name>clear</name></member>
+      <member refid="classjac_1_1Consumer_1a9711ad4bf845f62fece000ea96d35382" prot="public" virt="non-virtual"><scope>jac::RouterInputPacketCommunicator</scope><name>Consumer</name></member>
+      <member refid="classjac_1_1Consumer_1a7ef168e4309bdb18af11ad78da57fc9d" prot="public" virt="non-virtual"><scope>jac::RouterInputPacketCommunicator</scope><name>Consumer</name></member>
+      <member refid="classjac_1_1Consumer_1a0a3616a3fceaa3265fe5ee6a39ac80da" prot="public" virt="non-virtual"><scope>jac::RouterInputPacketCommunicator</scope><name>Consumer</name></member>
+      <member refid="classjac_1_1RouterInputPacketCommunicator_1ad9119d4c306b8f8dfc3685d669f7be4d" prot="public" virt="virtual"><scope>jac::RouterInputPacketCommunicator</scope><name>get</name></member>
+      <member refid="classjac_1_1InputPacketCommunicator_1a46a38da37fb62b53e2bbde24182aff51" prot="public" virt="non-virtual"><scope>jac::RouterInputPacketCommunicator</scope><name>InputPacketCommunicator</name></member>
+      <member refid="classjac_1_1InputPacketCommunicator_1a94cc7e5bbac7151d074d93ffd4ae2873" prot="public" virt="non-virtual"><scope>jac::RouterInputPacketCommunicator</scope><name>InputPacketCommunicator</name></member>
+      <member refid="classjac_1_1InputPacketCommunicator_1a7ef5605306992906b9cfd0acdec655f2" prot="public" virt="non-virtual" ambiguityscope="jac::"><scope>jac::RouterInputPacketCommunicator</scope><name>operator=</name></member>
+      <member refid="classjac_1_1Consumer_1a66bdca09f9dfa96f2def09be7b2db1fb" prot="public" virt="non-virtual" ambiguityscope="jac::Consumer::"><scope>jac::RouterInputPacketCommunicator</scope><name>operator=</name></member>
+      <member refid="classjac_1_1Consumer_1a092688a0b1870f78dea809d1605fd259" prot="public" virt="non-virtual" ambiguityscope="jac::Consumer::"><scope>jac::RouterInputPacketCommunicator</scope><name>operator=</name></member>
+      <member refid="classjac_1_1RouterInputPacketCommunicator_1a1ca116d3b5069a28ec31e6daeff36510" prot="public" virt="virtual"><scope>jac::RouterInputPacketCommunicator</scope><name>processPacket</name></member>
+      <member refid="classjac_1_1RouterInputPacketCommunicator_1a9dee2c9d130b1ab52fb7610806eeca47" prot="public" virt="non-virtual"><scope>jac::RouterInputPacketCommunicator</scope><name>RouterInputPacketCommunicator</name></member>
+      <member refid="classjac_1_1Consumer_1a098efd185655669da5d3f956fe4b6bd8" prot="public" virt="virtual"><scope>jac::RouterInputPacketCommunicator</scope><name>~Consumer</name></member>
+      <member refid="classjac_1_1InputPacketCommunicator_1a02a098de87cf0c821da27cfd77ca7b82" prot="public" virt="virtual"><scope>jac::RouterInputPacketCommunicator</scope><name>~InputPacketCommunicator</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

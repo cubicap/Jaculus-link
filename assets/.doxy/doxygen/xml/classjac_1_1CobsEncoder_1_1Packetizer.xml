@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1CobsEncoder_1_1Packetizer" kind="class" language="C++" prot="public">
+    <compoundname>jac::CobsEncoder::Packetizer</compoundname>
+    <basecompoundref prot="private" virt="non-virtual">jac::CobsEncoder::PacketStructure</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classjac_1_1CobsEncoder_1_1Packetizer_1a7d9f70653919764fc689b104b74e9a61" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t jac::CobsEncoder::Packetizer::length</definition>
+        <argsstring></argsstring>
+        <name>length</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="102" column="16" bodyfile="src/jac/link/encoders/cobs.h" bodystart="102" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classjac_1_1CobsEncoder_1_1Packetizer_1aada5b85d07d740e30ad06f31bdde92c0" prot="private" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t jac::CobsEncoder::Packetizer::expectedLength</definition>
+        <argsstring>() const</argsstring>
+        <name>expectedLength</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="104" column="16" bodyfile="src/jac/link/encoders/cobs.h" bodystart="104" bodyend="109"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1CobsEncoder_1_1Packetizer_1a7fa7f7b2ff341b890cf2e3a347f6c8c3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void jac::CobsEncoder::Packetizer::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="111" column="14" bodyfile="src/jac/link/encoders/cobs.h" bodystart="111" bodyend="113"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1CobsEncoder_1_1Packetizer_1a658c6f968a0853cfeabdf7e82454942e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int jac::CobsEncoder::Packetizer::put</definition>
+        <argsstring>(uint8_t c)</argsstring>
+        <name>put</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="115" column="13" bodyfile="src/jac/link/encoders/cobs.h" bodystart="115" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1CobsEncoder_1_1Packetizer_1a7a45cac62f43f2e9bf760bda4c400797" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="structjac_1_1DecodeResult" kindref="compound">DecodeResult</ref></type>
+        <definition>DecodeResult jac::CobsEncoder::Packetizer::decode</definition>
+        <argsstring>()</argsstring>
+        <name>decode</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="137" column="22" bodyfile="src/jac/link/encoders/cobs.h" bodystart="137" bodyend="173"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>jac::CobsEncoder::PacketStructure</label>
+      </node>
+      <node id="1">
+        <label>jac::CobsEncoder::Packetizer</label>
+        <link refid="classjac_1_1CobsEncoder_1_1Packetizer"/>
+        <childnode refid="2" relation="private-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>jac::CobsEncoder::PacketStructure</label>
+      </node>
+      <node id="1">
+        <label>jac::CobsEncoder::Packetizer</label>
+        <link refid="classjac_1_1CobsEncoder_1_1Packetizer"/>
+        <childnode refid="2" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/jac/link/encoders/cobs.h" line="100" column="5" bodyfile="src/jac/link/encoders/cobs.h" bodystart="100" bodyend="174"/>
+    <listofallmembers>
+      <member refid="classjac_1_1CobsEncoder_1_1Packetizer_1a7a45cac62f43f2e9bf760bda4c400797" prot="public" virt="non-virtual"><scope>jac::CobsEncoder::Packetizer</scope><name>decode</name></member>
+      <member refid="classjac_1_1CobsEncoder_1_1Packetizer_1aada5b85d07d740e30ad06f31bdde92c0" prot="private" virt="non-virtual"><scope>jac::CobsEncoder::Packetizer</scope><name>expectedLength</name></member>
+      <member refid="classjac_1_1CobsEncoder_1_1Packetizer_1a7d9f70653919764fc689b104b74e9a61" prot="private" virt="non-virtual"><scope>jac::CobsEncoder::Packetizer</scope><name>length</name></member>
+      <member refid="classjac_1_1CobsEncoder_1_1Packetizer_1a658c6f968a0853cfeabdf7e82454942e" prot="public" virt="non-virtual"><scope>jac::CobsEncoder::Packetizer</scope><name>put</name></member>
+      <member refid="classjac_1_1CobsEncoder_1_1Packetizer_1a7fa7f7b2ff341b890cf2e3a347f6c8c3" prot="public" virt="non-virtual"><scope>jac::CobsEncoder::Packetizer</scope><name>reset</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

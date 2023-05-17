@@ -1,0 +1,289 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1Duplexify" kind="class" language="C++" prot="public">
+    <compoundname>jac::Duplexify</compoundname>
+    <basecompoundref refid="classjac_1_1Duplex" prot="public" virt="non-virtual">jac::Duplex</basecompoundref>
+    <includes refid="stream_8h" local="no">stream.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classjac_1_1Duplexify_1ae49207b072aba26d8984866747342d50" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classjac_1_1InputStream" kindref="compound">InputStream</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;InputStream&gt; jac::Duplexify::_in</definition>
+        <argsstring></argsstring>
+        <name>_in</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/stream.h" line="85" column="21" bodyfile="src/jac/link/stream.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Duplexify_1a66bfcf664a5ae31076568525aab7fc08" prot="private" static="no" mutable="no">
+        <type>std::unique_ptr&lt; <ref refid="classjac_1_1OutputStream" kindref="compound">OutputStream</ref> &gt;</type>
+        <definition>std::unique_ptr&lt;OutputStream&gt; jac::Duplexify::_out</definition>
+        <argsstring></argsstring>
+        <name>_out</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/stream.h" line="86" column="21" bodyfile="src/jac/link/stream.h" bodystart="86" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1Duplexify_1a86396474ce76d491a5b77586470ea6a9" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::Duplexify::Duplexify</definition>
+        <argsstring>(std::unique_ptr&lt; InputStream &gt; in, std::unique_ptr&lt; OutputStream &gt; out)</argsstring>
+        <name>Duplexify</name>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classjac_1_1InputStream" kindref="compound">InputStream</ref> &gt;</type>
+          <declname>in</declname>
+        </param>
+        <param>
+          <type>std::unique_ptr&lt; <ref refid="classjac_1_1OutputStream" kindref="compound">OutputStream</ref> &gt;</type>
+          <declname>out</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/stream.h" line="88" column="5" bodyfile="src/jac/link/stream.h" bodystart="88" bodyend="91"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Duplexify_1a549ce5abaf4b1c6542162801e5cbf4ab" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>int</type>
+        <definition>int jac::Duplexify::get</definition>
+        <argsstring>() override</argsstring>
+        <name>get</name>
+        <reimplements refid="classjac_1_1InputStream_1a07e2380a04b62a667afa0a21698986fa">get</reimplements>
+        <briefdescription>
+<para>Get a single byte from the stream. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This method should not block.</para>
+</simplesect>
+<simplesect kind="return"><para>The byte or -1 if no data is available </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/stream.h" line="93" column="9" bodyfile="src/jac/link/stream.h" bodystart="93" bodyend="95"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Duplexify_1adf8abf9d51f1373e05bf298878865558" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>size_t</type>
+        <definition>size_t jac::Duplexify::read</definition>
+        <argsstring>(std::span&lt; uint8_t &gt; data) override</argsstring>
+        <name>read</name>
+        <reimplements refid="classjac_1_1InputStream_1a768b432b1e788e6ae6ffe271baaf032a">read</reimplements>
+        <param>
+          <type>std::span&lt; uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Read data from the stream. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This method should not block.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the buffer to read into </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes read </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/stream.h" line="97" column="12" bodyfile="src/jac/link/stream.h" bodystart="97" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Duplexify_1a34db88da88a12f3c55134dad5363fd16" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool jac::Duplexify::put</definition>
+        <argsstring>(uint8_t c) override</argsstring>
+        <name>put</name>
+        <reimplements refid="classjac_1_1OutputStream_1a2d287dd1b99377e139b733b6e262222e">put</reimplements>
+        <param>
+          <type>uint8_t</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+<para>Write a single byte to the stream. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This method should not block.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>c</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the byte </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>true if the byte was written, false otherwise </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/stream.h" line="101" column="10" bodyfile="src/jac/link/stream.h" bodystart="101" bodyend="103"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Duplexify_1a86bd512d14d51587e985fdac71830689" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void jac::Duplexify::onData</definition>
+        <argsstring>(std::function&lt; void(void)&gt; callback) override</argsstring>
+        <name>onData</name>
+        <reimplements refid="classjac_1_1InputStream_1ae8772f2f4a81c1ea9d49b083755efdea">onData</reimplements>
+        <param>
+          <type>std::function&lt; void(void)&gt;</type>
+        </param>
+        <briefdescription>
+<para>Register a callback to be called when data is available. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The callback will not be called in parallel.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>onData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the callback </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/stream.h" line="105" column="10" bodyfile="src/jac/link/stream.h" bodystart="105" bodyend="107"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Duplexify_1ace21696ec769356a92ef0dcbd0e23844" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>size_t</type>
+        <definition>size_t jac::Duplexify::write</definition>
+        <argsstring>(std::span&lt; const uint8_t &gt; data) override</argsstring>
+        <name>write</name>
+        <reimplements refid="classjac_1_1OutputStream_1af657d42bb042094ee3d8dfbe2b7a4986">write</reimplements>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Write a buffer to the stream. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This method should not block.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the buffer to write </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes written </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/stream.h" line="109" column="12" bodyfile="src/jac/link/stream.h" bodystart="109" bodyend="111"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Duplexify_1a8dc96ed65bbc9bbba80efc901eb3c691" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>bool</type>
+        <definition>bool jac::Duplexify::flush</definition>
+        <argsstring>() override</argsstring>
+        <name>flush</name>
+        <reimplements refid="classjac_1_1OutputStream_1a0f92c299e35e9dd93b5b63970c404669">flush</reimplements>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/stream.h" line="113" column="10" bodyfile="src/jac/link/stream.h" bodystart="113" bodyend="115"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A duplex stream that wraps an input and output stream. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>jac::Duplex</label>
+        <link refid="classjac_1_1Duplex"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>jac::OutputStream</label>
+        <link refid="classjac_1_1OutputStream"/>
+      </node>
+      <node id="1">
+        <label>jac::Duplexify</label>
+        <link refid="classjac_1_1Duplexify"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>jac::InputStream</label>
+        <link refid="classjac_1_1InputStream"/>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>jac::Duplex</label>
+        <link refid="classjac_1_1Duplex"/>
+        <childnode refid="3" relation="public-inheritance">
+        </childnode>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>jac::OutputStream</label>
+        <link refid="classjac_1_1OutputStream"/>
+      </node>
+      <node id="1">
+        <label>jac::Duplexify</label>
+        <link refid="classjac_1_1Duplexify"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>jac::InputStream</label>
+        <link refid="classjac_1_1InputStream"/>
+      </node>
+    </collaborationgraph>
+    <location file="src/jac/link/stream.h" line="83" column="1" bodyfile="src/jac/link/stream.h" bodystart="83" bodyend="116"/>
+    <listofallmembers>
+      <member refid="classjac_1_1Duplexify_1ae49207b072aba26d8984866747342d50" prot="private" virt="non-virtual"><scope>jac::Duplexify</scope><name>_in</name></member>
+      <member refid="classjac_1_1Duplexify_1a66bfcf664a5ae31076568525aab7fc08" prot="private" virt="non-virtual"><scope>jac::Duplexify</scope><name>_out</name></member>
+      <member refid="classjac_1_1Duplexify_1a86396474ce76d491a5b77586470ea6a9" prot="public" virt="non-virtual"><scope>jac::Duplexify</scope><name>Duplexify</name></member>
+      <member refid="classjac_1_1Duplexify_1a8dc96ed65bbc9bbba80efc901eb3c691" prot="public" virt="virtual"><scope>jac::Duplexify</scope><name>flush</name></member>
+      <member refid="classjac_1_1Duplexify_1a549ce5abaf4b1c6542162801e5cbf4ab" prot="public" virt="virtual"><scope>jac::Duplexify</scope><name>get</name></member>
+      <member refid="classjac_1_1Duplexify_1a86bd512d14d51587e985fdac71830689" prot="public" virt="virtual"><scope>jac::Duplexify</scope><name>onData</name></member>
+      <member refid="classjac_1_1Duplexify_1a34db88da88a12f3c55134dad5363fd16" prot="public" virt="virtual"><scope>jac::Duplexify</scope><name>put</name></member>
+      <member refid="classjac_1_1Duplexify_1adf8abf9d51f1373e05bf298878865558" prot="public" virt="virtual"><scope>jac::Duplexify</scope><name>read</name></member>
+      <member refid="classjac_1_1Duplexify_1ace21696ec769356a92ef0dcbd0e23844" prot="public" virt="virtual"><scope>jac::Duplexify</scope><name>write</name></member>
+      <member refid="classjac_1_1InputStream_1a70ab93ac8dcf00eb73799c28f2e7a9a7" prot="public" virt="virtual"><scope>jac::Duplexify</scope><name>~InputStream</name></member>
+      <member refid="classjac_1_1OutputStream_1a809391d8351043eaea9e48886a753313" prot="public" virt="virtual"><scope>jac::Duplexify</scope><name>~OutputStream</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

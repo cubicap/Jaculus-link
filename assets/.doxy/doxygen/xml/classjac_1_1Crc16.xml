@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1Crc16" kind="class" language="C++" prot="public">
+    <compoundname>jac::Crc16</compoundname>
+      <sectiondef kind="private-static-attrib">
+      <memberdef kind="variable" id="classjac_1_1Crc16_1a77346b05266334c7a8f49edf7b1e6ef2" prot="private" static="yes" constexpr="yes" mutable="no">
+        <type>constexpr uint16_t</type>
+        <definition>constexpr uint16_t jac::Crc16::POLYNOMIAL</definition>
+        <argsstring></argsstring>
+        <name>POLYNOMIAL</name>
+        <initializer>= 0xA001</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/util/crc.h" line="12" column="31" bodyfile="src/jac/link/util/crc.h" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classjac_1_1Crc16_1aef84087126e6bef07e863846236d53d2" prot="private" static="no" mutable="no">
+        <type>uint16_t</type>
+        <definition>uint16_t jac::Crc16::_crc</definition>
+        <argsstring></argsstring>
+        <name>_crc</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/util/crc.h" line="13" column="14" bodyfile="src/jac/link/util/crc.h" bodystart="13" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1Crc16_1a96b3af5e17f633b200b7a03d70776490" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::Crc16::Crc16</definition>
+        <argsstring>()</argsstring>
+        <name>Crc16</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/util/crc.h" line="15" column="5" bodyfile="src/jac/link/util/crc.h" bodystart="15" bodyend="15"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Crc16_1acd89c7b5a22265ffdd7a491c8cd8f992" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void jac::Crc16::reset</definition>
+        <argsstring>()</argsstring>
+        <name>reset</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/util/crc.h" line="17" column="10" bodyfile="src/jac/link/util/crc.h" bodystart="17" bodyend="19"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Crc16_1ac6d64ea66890e3115534c3a62e2cb74e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void jac::Crc16::update</definition>
+        <argsstring>(uint8_t c)</argsstring>
+        <name>update</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/util/crc.h" line="21" column="10" bodyfile="src/jac/link/util/crc.h" bodystart="21" bodyend="31"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Crc16_1a353881247518db41421b5601029bee6f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void jac::Crc16::update</definition>
+        <argsstring>(std::span&lt; const uint8_t &gt; data)</argsstring>
+        <name>update</name>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/util/crc.h" line="33" column="10" bodyfile="src/jac/link/util/crc.h" bodystart="33" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Crc16_1a886b2b84449b6820252857401849a35e" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>uint16_t</type>
+        <definition>uint16_t jac::Crc16::value</definition>
+        <argsstring>() const</argsstring>
+        <name>value</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/util/crc.h" line="39" column="14" bodyfile="src/jac/link/util/crc.h" bodystart="39" bodyend="41"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/jac/link/util/crc.h" line="10" column="1" bodyfile="src/jac/link/util/crc.h" bodystart="10" bodyend="42"/>
+    <listofallmembers>
+      <member refid="classjac_1_1Crc16_1aef84087126e6bef07e863846236d53d2" prot="private" virt="non-virtual"><scope>jac::Crc16</scope><name>_crc</name></member>
+      <member refid="classjac_1_1Crc16_1a96b3af5e17f633b200b7a03d70776490" prot="public" virt="non-virtual"><scope>jac::Crc16</scope><name>Crc16</name></member>
+      <member refid="classjac_1_1Crc16_1a77346b05266334c7a8f49edf7b1e6ef2" prot="private" virt="non-virtual"><scope>jac::Crc16</scope><name>POLYNOMIAL</name></member>
+      <member refid="classjac_1_1Crc16_1acd89c7b5a22265ffdd7a491c8cd8f992" prot="public" virt="non-virtual"><scope>jac::Crc16</scope><name>reset</name></member>
+      <member refid="classjac_1_1Crc16_1ac6d64ea66890e3115534c3a62e2cb74e" prot="public" virt="non-virtual"><scope>jac::Crc16</scope><name>update</name></member>
+      <member refid="classjac_1_1Crc16_1a353881247518db41421b5601029bee6f" prot="public" virt="non-virtual"><scope>jac::Crc16</scope><name>update</name></member>
+      <member refid="classjac_1_1Crc16_1a886b2b84449b6820252857401849a35e" prot="public" virt="non-virtual"><scope>jac::Crc16</scope><name>value</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

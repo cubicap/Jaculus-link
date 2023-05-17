@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="namespacejac" kind="namespace" language="C++">
+    <compoundname>jac</compoundname>
+    <innerclass refid="classjac_1_1OutputStreamCommunicator" prot="public">jac::OutputStreamCommunicator</innerclass>
+    <innerclass refid="classjac_1_1InputStreamCommunicator" prot="public">jac::InputStreamCommunicator</innerclass>
+    <innerclass refid="classjac_1_1OutputPacketCommunicator" prot="public">jac::OutputPacketCommunicator</innerclass>
+    <innerclass refid="classjac_1_1InputPacketCommunicator" prot="public">jac::InputPacketCommunicator</innerclass>
+    <innerclass refid="structjac_1_1CobsEncoder" prot="public">jac::CobsEncoder</innerclass>
+    <innerclass refid="structjac_1_1DecodeResult" prot="public">jac::DecodeResult</innerclass>
+    <innerclass refid="classjac_1_1Consumer" prot="public">jac::Consumer</innerclass>
+    <innerclass refid="classjac_1_1Packet" prot="public">jac::Packet</innerclass>
+    <innerclass refid="classjac_1_1DataLinkTx" prot="public">jac::DataLinkTx</innerclass>
+    <innerclass refid="classjac_1_1DataLinkRx" prot="public">jac::DataLinkRx</innerclass>
+    <innerclass refid="classjac_1_1Mux" prot="public">jac::Mux</innerclass>
+    <innerclass refid="classjac_1_1Router" prot="public">jac::Router</innerclass>
+    <innerclass refid="classjac_1_1RouterOutputStreamCommunicator" prot="public">jac::RouterOutputStreamCommunicator</innerclass>
+    <innerclass refid="classjac_1_1RouterInputStreamCommunicator" prot="public">jac::RouterInputStreamCommunicator</innerclass>
+    <innerclass refid="classjac_1_1RouterOutputPacketCommunicator" prot="public">jac::RouterOutputPacketCommunicator</innerclass>
+    <innerclass refid="classjac_1_1RouterInputPacketCommunicator" prot="public">jac::RouterInputPacketCommunicator</innerclass>
+    <innerclass refid="classjac_1_1InputStream" prot="public">jac::InputStream</innerclass>
+    <innerclass refid="classjac_1_1OutputStream" prot="public">jac::OutputStream</innerclass>
+    <innerclass refid="classjac_1_1Duplex" prot="public">jac::Duplex</innerclass>
+    <innerclass refid="classjac_1_1Duplexify" prot="public">jac::Duplexify</innerclass>
+    <innerclass refid="classjac_1_1Crc16" prot="public">jac::Crc16</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="mux_8h_1a60864d56f607ff4b7c5ad5addfcb96c1" prot="public" static="no" strong="yes">
+        <type>int</type>
+        <name>MuxError</name>
+        <enumvalue id="mux_8h_1a60864d56f607ff4b7c5ad5addfcb96c1adc3e4a624402a84e63dbe2e70ad6f20f" prot="public">
+          <name>INVALID_RECEIVE</name>
+          <initializer>= 1</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="mux_8h_1a60864d56f607ff4b7c5ad5addfcb96c1a162c5dd7c43643b12ccea31fc922d4c2" prot="public">
+          <name>PACKETIZER</name>
+          <initializer>= 2</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="mux_8h_1a60864d56f607ff4b7c5ad5addfcb96c1ae133e9a63fd4950f19c2180be4047ecc" prot="public">
+          <name>PROCESSING</name>
+          <initializer>= 3</initializer>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/mux.h" line="22" column="1" bodyfile="src/jac/link/mux.h" bodystart="22" bodyend="26"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="src/jac/link/communicator.h" line="13" column="1"/>
+  </compounddef>
+</doxygen>

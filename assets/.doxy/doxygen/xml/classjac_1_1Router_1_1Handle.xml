@@ -1,0 +1,247 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1Router_1_1Handle" kind="class" language="C++" prot="public">
+    <compoundname>jac::Router::Handle</compoundname>
+    <basecompoundref refid="classjac_1_1DataLinkRx" prot="public" virt="non-virtual">jac::DataLinkRx</basecompoundref>
+    <includes refid="router_8h" local="no">router.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classjac_1_1Router_1_1Handle_1aedda19ae465cd6298d4ead1306df0e97" prot="private" static="no" mutable="no">
+        <type><ref refid="classjac_1_1Router" kindref="compound">Router</ref> *</type>
+        <definition>Router* jac::Router::Handle::_router</definition>
+        <argsstring></argsstring>
+        <name>_router</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="84" column="16" bodyfile="src/jac/link/router.h" bodystart="84" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Router_1_1Handle_1a2dcf66fec36a86a0b23c6fcb3de5543d" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int jac::Router::Handle::_linkId</definition>
+        <argsstring></argsstring>
+        <name>_linkId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="85" column="13" bodyfile="src/jac/link/router.h" bodystart="85" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="friend">
+      <memberdef kind="friend" id="classjac_1_1Router_1_1Handle_1ad1fd3424328f664cd049fe429e0e3dc6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>class</type>
+        <definition>friend class Router</definition>
+        <argsstring></argsstring>
+        <name>Router</name>
+        <param>
+          <type><ref refid="classjac_1_1Router" kindref="compound">Router</ref></type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="116" column="9" bodyfile="src/jac/link/router.h" bodystart="116" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="classjac_1_1Router_1_1Handle_1a8a8f9ce78d533953563edc2c6f2af779" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::Router::Handle::Handle</definition>
+        <argsstring>(Router &amp;router, int linkId)</argsstring>
+        <name>Handle</name>
+        <param>
+          <type><ref refid="classjac_1_1Router" kindref="compound">Router</ref> &amp;</type>
+          <declname>router</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>linkId</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="86" column="9" bodyfile="src/jac/link/router.h" bodystart="86" bodyend="86"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1Router_1_1Handle_1ac1168972e93d0f02c31652df399769fd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::Router::Handle::Handle</definition>
+        <argsstring>(const Handle &amp;)=delete</argsstring>
+        <name>Handle</name>
+        <param>
+          <type>const <ref refid="classjac_1_1Router_1_1Handle" kindref="compound">Handle</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="88" column="9"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Router_1_1Handle_1aa2837a2a97be16396c6bcd078a55202f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1Router_1_1Handle" kindref="compound">Handle</ref> &amp;</type>
+        <definition>Handle&amp; jac::Router::Handle::operator=</definition>
+        <argsstring>(const Handle &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classjac_1_1Router_1_1Handle" kindref="compound">Handle</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="89" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Router_1_1Handle_1acb21dc96f02e2a209e07117907baf78c" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type><ref refid="classjac_1_1Router_1_1Handle" kindref="compound">Handle</ref> &amp;</type>
+        <definition>Handle&amp; jac::Router::Handle::operator=</definition>
+        <argsstring>(Handle &amp;&amp;other)</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classjac_1_1Router_1_1Handle" kindref="compound">Handle</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="91" column="16" bodyfile="src/jac/link/router.h" bodystart="91" bodyend="96"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Router_1_1Handle_1a8e47ba13e853b323225b570b7188980f" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::Router::Handle::Handle</definition>
+        <argsstring>(Handle &amp;&amp;other)</argsstring>
+        <name>Handle</name>
+        <param>
+          <type><ref refid="classjac_1_1Router_1_1Handle" kindref="compound">Handle</ref> &amp;&amp;</type>
+          <declname>other</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="97" column="9" bodyfile="src/jac/link/router.h" bodystart="97" bodyend="99"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Router_1_1Handle_1aed5707920c827b3c565e1e040b57b6a3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::Router::Handle::~Handle</definition>
+        <argsstring>()</argsstring>
+        <name>~Handle</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="100" column="9" bodyfile="src/jac/link/router.h" bodystart="100" bodyend="104"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Router_1_1Handle_1a2ffb0c5d16e9c90ed74263374870d225" prot="public" static="no" const="no" explicit="no" inline="yes" virt="virtual">
+        <type>void</type>
+        <definition>void jac::Router::Handle::processPacket</definition>
+        <argsstring>(uint8_t channel, std::span&lt; const uint8_t &gt; data) override</argsstring>
+        <name>processPacket</name>
+        <reimplements refid="classjac_1_1DataLinkRx_1a108df0a6d52a7b528fffd11066a32d98">processPacket</reimplements>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Process a received packet on the given channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the channel </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>data of the packet </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/router.h" line="106" column="14" bodyfile="src/jac/link/router.h" bodystart="106" bodyend="114"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A handle for receiving packets from a data link. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>jac::DataLinkRx</label>
+        <link refid="classjac_1_1DataLinkRx"/>
+      </node>
+      <node id="1">
+        <label>jac::Router::Handle</label>
+        <link refid="classjac_1_1Router_1_1Handle"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>jac::DataLinkRx</label>
+        <link refid="classjac_1_1DataLinkRx"/>
+      </node>
+      <node id="1">
+        <label>jac::Router::Handle</label>
+        <link refid="classjac_1_1Router_1_1Handle"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/jac/link/router.h" line="82" column="5" bodyfile="src/jac/link/router.h" bodystart="82" bodyend="117"/>
+    <listofallmembers>
+      <member refid="classjac_1_1Router_1_1Handle_1a2dcf66fec36a86a0b23c6fcb3de5543d" prot="private" virt="non-virtual"><scope>jac::Router::Handle</scope><name>_linkId</name></member>
+      <member refid="classjac_1_1Router_1_1Handle_1aedda19ae465cd6298d4ead1306df0e97" prot="private" virt="non-virtual"><scope>jac::Router::Handle</scope><name>_router</name></member>
+      <member refid="classjac_1_1DataLinkRx_1a9c3676f768fedf614bd97af06df0ad47" prot="public" virt="non-virtual"><scope>jac::Router::Handle</scope><name>DataLinkRx</name></member>
+      <member refid="classjac_1_1DataLinkRx_1a89d8abe52fc06607e3977088d5eb24ad" prot="public" virt="non-virtual"><scope>jac::Router::Handle</scope><name>DataLinkRx</name></member>
+      <member refid="classjac_1_1DataLinkRx_1a10c24aa84e63a33fc8b625328bbf482d" prot="public" virt="non-virtual"><scope>jac::Router::Handle</scope><name>DataLinkRx</name></member>
+      <member refid="classjac_1_1Router_1_1Handle_1a8a8f9ce78d533953563edc2c6f2af779" prot="private" virt="non-virtual"><scope>jac::Router::Handle</scope><name>Handle</name></member>
+      <member refid="classjac_1_1Router_1_1Handle_1ac1168972e93d0f02c31652df399769fd" prot="public" virt="non-virtual"><scope>jac::Router::Handle</scope><name>Handle</name></member>
+      <member refid="classjac_1_1Router_1_1Handle_1a8e47ba13e853b323225b570b7188980f" prot="public" virt="non-virtual"><scope>jac::Router::Handle</scope><name>Handle</name></member>
+      <member refid="classjac_1_1Router_1_1Handle_1aa2837a2a97be16396c6bcd078a55202f" prot="public" virt="non-virtual"><scope>jac::Router::Handle</scope><name>operator=</name></member>
+      <member refid="classjac_1_1Router_1_1Handle_1acb21dc96f02e2a209e07117907baf78c" prot="public" virt="non-virtual"><scope>jac::Router::Handle</scope><name>operator=</name></member>
+      <member refid="classjac_1_1DataLinkRx_1afe88291032661823469fd608bd1d674a" prot="public" virt="non-virtual" ambiguityscope="jac::DataLinkRx::"><scope>jac::Router::Handle</scope><name>operator=</name></member>
+      <member refid="classjac_1_1DataLinkRx_1a69cddbe3a220cf9820b20a44866a43d0" prot="public" virt="non-virtual" ambiguityscope="jac::DataLinkRx::"><scope>jac::Router::Handle</scope><name>operator=</name></member>
+      <member refid="classjac_1_1Router_1_1Handle_1a2ffb0c5d16e9c90ed74263374870d225" prot="public" virt="virtual"><scope>jac::Router::Handle</scope><name>processPacket</name></member>
+      <member refid="classjac_1_1Router_1_1Handle_1ad1fd3424328f664cd049fe429e0e3dc6" prot="public" virt="non-virtual"><scope>jac::Router::Handle</scope><name>Router</name></member>
+      <member refid="classjac_1_1DataLinkRx_1a6029f843752ca371f01070b9c5cb6c1e" prot="public" virt="virtual"><scope>jac::Router::Handle</scope><name>~DataLinkRx</name></member>
+      <member refid="classjac_1_1Router_1_1Handle_1aed5707920c827b3c565e1e040b57b6a3" prot="public" virt="non-virtual"><scope>jac::Router::Handle</scope><name>~Handle</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

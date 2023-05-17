@@ -1,0 +1,172 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1DataLinkTx" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>jac::DataLinkTx</compoundname>
+    <derivedcompoundref refid="classjac_1_1Mux" prot="public" virt="non-virtual">jac::Mux&lt; Encoder &gt;</derivedcompoundref>
+    <includes refid="linkTypes_8h" local="no">linkTypes.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1DataLinkTx_1a60b1ab070fbc0fb84d2b39194d091869" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::DataLinkTx::DataLinkTx</definition>
+        <argsstring>()=default</argsstring>
+        <name>DataLinkTx</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="50" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1DataLinkTx_1a4a72e04cb6f3375fdb5804357566f3e2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::DataLinkTx::DataLinkTx</definition>
+        <argsstring>(const DataLinkTx &amp;)=delete</argsstring>
+        <name>DataLinkTx</name>
+        <param>
+          <type>const <ref refid="classjac_1_1DataLinkTx" kindref="compound">DataLinkTx</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="51" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1DataLinkTx_1a70819f19303f22735e071ad1de681294" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1DataLinkTx" kindref="compound">DataLinkTx</ref> &amp;</type>
+        <definition>DataLinkTx&amp; jac::DataLinkTx::operator=</definition>
+        <argsstring>(const DataLinkTx &amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="classjac_1_1DataLinkTx" kindref="compound">DataLinkTx</ref> &amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="52" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1DataLinkTx_1ab5c1e163d91a1745d6a5b57ab37b3a0f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>jac::DataLinkTx::DataLinkTx</definition>
+        <argsstring>(DataLinkTx &amp;&amp;)=delete</argsstring>
+        <name>DataLinkTx</name>
+        <param>
+          <type><ref refid="classjac_1_1DataLinkTx" kindref="compound">DataLinkTx</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="53" column="5"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1DataLinkTx_1a9a9b2128effbae54dda8e5b2322a432e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classjac_1_1DataLinkTx" kindref="compound">DataLinkTx</ref> &amp;</type>
+        <definition>DataLinkTx&amp; jac::DataLinkTx::operator=</definition>
+        <argsstring>(DataLinkTx &amp;&amp;)=delete</argsstring>
+        <name>operator=</name>
+        <param>
+          <type><ref refid="classjac_1_1DataLinkTx" kindref="compound">DataLinkTx</ref> &amp;&amp;</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="54" column="16"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1DataLinkTx_1aa51aa046ce93c2800e69c23f1d7b90d2" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>std::unique_ptr&lt; <ref refid="classjac_1_1Packet" kindref="compound">Packet</ref> &gt;</type>
+        <definition>virtual std::unique_ptr&lt;Packet&gt; jac::DataLinkTx::buildPacket</definition>
+        <argsstring>(uint8_t channel)=0</argsstring>
+        <name>buildPacket</name>
+        <reimplementedby refid="classjac_1_1Mux_1a0b68c7cfcfb8c7a601f0741a851ebd55">buildPacket</reimplementedby>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+<para>Build a packet for the given channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the channel </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The packet </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="62" column="29"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1DataLinkTx_1ab7417e876c84d5d9ac14b5c145942655" prot="public" static="no" const="yes" explicit="no" inline="no" virt="pure-virtual">
+        <type>size_t</type>
+        <definition>virtual size_t jac::DataLinkTx::maxPacketSize</definition>
+        <argsstring>() const =0</argsstring>
+        <name>maxPacketSize</name>
+        <reimplementedby refid="classjac_1_1Mux_1a6955be75e1789fcc01dc1a3a774d89a7">maxPacketSize</reimplementedby>
+        <briefdescription>
+<para>Get the maximum packet size for the given channel. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>channel</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the channel </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The maximum packet size </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/linkTypes.h" line="70" column="20"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface that allows for creation and sending of packets to a data link. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="1">
+        <label>jac::DataLinkTx</label>
+        <link refid="classjac_1_1DataLinkTx"/>
+      </node>
+      <node id="2">
+        <label>jac::Mux&lt; Encoder &gt;</label>
+        <link refid="classjac_1_1Mux"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="src/jac/link/linkTypes.h" line="48" column="1" bodyfile="src/jac/link/linkTypes.h" bodystart="48" bodyend="71"/>
+    <listofallmembers>
+      <member refid="classjac_1_1DataLinkTx_1aa51aa046ce93c2800e69c23f1d7b90d2" prot="public" virt="pure-virtual"><scope>jac::DataLinkTx</scope><name>buildPacket</name></member>
+      <member refid="classjac_1_1DataLinkTx_1a60b1ab070fbc0fb84d2b39194d091869" prot="public" virt="non-virtual"><scope>jac::DataLinkTx</scope><name>DataLinkTx</name></member>
+      <member refid="classjac_1_1DataLinkTx_1a4a72e04cb6f3375fdb5804357566f3e2" prot="public" virt="non-virtual"><scope>jac::DataLinkTx</scope><name>DataLinkTx</name></member>
+      <member refid="classjac_1_1DataLinkTx_1ab5c1e163d91a1745d6a5b57ab37b3a0f" prot="public" virt="non-virtual"><scope>jac::DataLinkTx</scope><name>DataLinkTx</name></member>
+      <member refid="classjac_1_1DataLinkTx_1ab7417e876c84d5d9ac14b5c145942655" prot="public" virt="pure-virtual"><scope>jac::DataLinkTx</scope><name>maxPacketSize</name></member>
+      <member refid="classjac_1_1DataLinkTx_1a70819f19303f22735e071ad1de681294" prot="public" virt="non-virtual"><scope>jac::DataLinkTx</scope><name>operator=</name></member>
+      <member refid="classjac_1_1DataLinkTx_1a9a9b2128effbae54dda8e5b2322a432e" prot="public" virt="non-virtual"><scope>jac::DataLinkTx</scope><name>operator=</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

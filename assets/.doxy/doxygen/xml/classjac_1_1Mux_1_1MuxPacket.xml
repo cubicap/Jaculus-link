@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1Mux_1_1MuxPacket" kind="class" language="C++" prot="private">
+    <compoundname>jac::Mux::MuxPacket</compoundname>
+    <basecompoundref refid="classjac_1_1Packet" prot="public" virt="non-virtual">jac::Packet</basecompoundref>
+      <sectiondef kind="private-type">
+      <memberdef kind="typedef" id="classjac_1_1Mux_1_1MuxPacket_1a9ec02df8db4c4ceb9f26f7dc77003119" prot="private" static="no">
+        <type>decltype(Serializer::buildDataFrame())</type>
+        <definition>using jac::Mux&lt; Encoder &gt;::MuxPacket::DataFrame =  decltype(Serializer::buildDataFrame())</definition>
+        <argsstring></argsstring>
+        <name>DataFrame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/mux.h" line="50" column="9" bodyfile="src/jac/link/mux.h" bodystart="50" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classjac_1_1Mux_1_1MuxPacket_1adf75678d85b99f21ba2fc8f357e73309" prot="private" static="no" mutable="no">
+        <type>std::reference_wrapper&lt; <ref refid="classjac_1_1Mux" kindref="compound">Mux</ref> &gt;</type>
+        <definition>std::reference_wrapper&lt;Mux&gt; jac::Mux&lt; Encoder &gt;::MuxPacket::_mux</definition>
+        <argsstring></argsstring>
+        <name>_mux</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/mux.h" line="52" column="32" bodyfile="src/jac/link/mux.h" bodystart="52" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Mux_1_1MuxPacket_1a67fb3e8ab7181d1efd921c93e5283fe0" prot="private" static="no" mutable="no">
+        <type>uint8_t</type>
+        <definition>uint8_t jac::Mux&lt; Encoder &gt;::MuxPacket::_channel</definition>
+        <argsstring></argsstring>
+        <name>_channel</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/mux.h" line="53" column="17" bodyfile="src/jac/link/mux.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Mux_1_1MuxPacket_1aabcb81dceebd525400e2c8d0582785ab" prot="private" static="no" mutable="no">
+        <type>DataFrame</type>
+        <definition>DataFrame jac::Mux&lt; Encoder &gt;::MuxPacket::_frame</definition>
+        <argsstring></argsstring>
+        <name>_frame</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/mux.h" line="54" column="19" bodyfile="src/jac/link/mux.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="classjac_1_1Mux_1_1MuxPacket_1a7b85c140f442be65a8652c07409ab10b" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool jac::Mux&lt; Encoder &gt;::MuxPacket::sent</definition>
+        <argsstring></argsstring>
+        <name>sent</name>
+        <initializer>= false</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/mux.h" line="55" column="14" bodyfile="src/jac/link/mux.h" bodystart="55" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1Mux_1_1MuxPacket_1a574a76ec5033268d1a0d6d013a6ed1a0" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>jac::Mux&lt; Encoder &gt;::MuxPacket::MuxPacket</definition>
+        <argsstring>(Mux &amp;mux, uint8_t channel)</argsstring>
+        <name>MuxPacket</name>
+        <param>
+          <type><ref refid="classjac_1_1Mux" kindref="compound">Mux</ref> &amp;</type>
+          <declname>mux</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/mux.h" line="57" column="9" bodyfile="src/jac/link/mux.h" bodystart="57" bodyend="57"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Mux_1_1MuxPacket_1a53e693bb071e3f78ae323533f4f48055" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool jac::Mux&lt; Encoder &gt;::MuxPacket::put</definition>
+        <argsstring>(uint8_t c) override</argsstring>
+        <name>put</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/mux.h" line="59" column="14" bodyfile="src/jac/link/mux.h" bodystart="59" bodyend="65"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Mux_1_1MuxPacket_1ad99036d03ed93198b7fca1f895b5b877" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t jac::Mux&lt; Encoder &gt;::MuxPacket::put</definition>
+        <argsstring>(std::span&lt; const uint8_t &gt; data) override</argsstring>
+        <name>put</name>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/mux.h" line="67" column="16" bodyfile="src/jac/link/mux.h" bodystart="67" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Mux_1_1MuxPacket_1a8e34e41963d62aa02343d4e45d2e5bb2" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t jac::Mux&lt; Encoder &gt;::MuxPacket::space</definition>
+        <argsstring>() const override</argsstring>
+        <name>space</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/mux.h" line="75" column="16" bodyfile="src/jac/link/mux.h" bodystart="75" bodyend="77"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1Mux_1_1MuxPacket_1ae3f48f53200f9432204a0d3ce07592c4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool jac::Mux&lt; Encoder &gt;::MuxPacket::send</definition>
+        <argsstring>() override</argsstring>
+        <name>send</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/mux.h" line="79" column="14" bodyfile="src/jac/link/mux.h" bodystart="79" bodyend="87"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>jac::Packet</label>
+        <link refid="classjac_1_1Packet"/>
+      </node>
+      <node id="1">
+        <label>jac::Mux&lt; Encoder &gt;::MuxPacket</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>jac::Packet</label>
+        <link refid="classjac_1_1Packet"/>
+      </node>
+      <node id="1">
+        <label>jac::Mux&lt; Encoder &gt;::MuxPacket</label>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/jac/link/mux.h" line="49" column="5" bodyfile="src/jac/link/mux.h" bodystart="49" bodyend="88"/>
+    <listofallmembers>
+      <member refid="classjac_1_1Mux_1_1MuxPacket_1a67fb3e8ab7181d1efd921c93e5283fe0" prot="private" virt="non-virtual"><scope>jac::Mux::MuxPacket</scope><name>_channel</name></member>
+      <member refid="classjac_1_1Mux_1_1MuxPacket_1aabcb81dceebd525400e2c8d0582785ab" prot="private" virt="non-virtual"><scope>jac::Mux::MuxPacket</scope><name>_frame</name></member>
+      <member refid="classjac_1_1Mux_1_1MuxPacket_1adf75678d85b99f21ba2fc8f357e73309" prot="private" virt="non-virtual"><scope>jac::Mux::MuxPacket</scope><name>_mux</name></member>
+      <member refid="classjac_1_1Mux_1_1MuxPacket_1a9ec02df8db4c4ceb9f26f7dc77003119" prot="private" virt="non-virtual"><scope>jac::Mux::MuxPacket</scope><name>DataFrame</name></member>
+      <member refid="classjac_1_1Mux_1_1MuxPacket_1a574a76ec5033268d1a0d6d013a6ed1a0" prot="public" virt="non-virtual"><scope>jac::Mux::MuxPacket</scope><name>MuxPacket</name></member>
+      <member refid="classjac_1_1Packet_1ac5ac2f3043893d313139e4fedbce21f0" prot="public" virt="non-virtual"><scope>jac::Mux::MuxPacket</scope><name>operator=</name></member>
+      <member refid="classjac_1_1Packet_1afa9aa04bd9f5ea11c30f8dd5763b2c71" prot="public" virt="non-virtual"><scope>jac::Mux::MuxPacket</scope><name>Packet</name></member>
+      <member refid="classjac_1_1Packet_1a9bc69f2dfab87a0349e7480b6e510d57" prot="public" virt="non-virtual"><scope>jac::Mux::MuxPacket</scope><name>Packet</name></member>
+      <member refid="classjac_1_1Mux_1_1MuxPacket_1a53e693bb071e3f78ae323533f4f48055" prot="public" virt="non-virtual"><scope>jac::Mux::MuxPacket</scope><name>put</name></member>
+      <member refid="classjac_1_1Mux_1_1MuxPacket_1ad99036d03ed93198b7fca1f895b5b877" prot="public" virt="non-virtual"><scope>jac::Mux::MuxPacket</scope><name>put</name></member>
+      <member refid="classjac_1_1Mux_1_1MuxPacket_1ae3f48f53200f9432204a0d3ce07592c4" prot="public" virt="non-virtual"><scope>jac::Mux::MuxPacket</scope><name>send</name></member>
+      <member refid="classjac_1_1Mux_1_1MuxPacket_1a7b85c140f442be65a8652c07409ab10b" prot="private" virt="non-virtual"><scope>jac::Mux::MuxPacket</scope><name>sent</name></member>
+      <member refid="classjac_1_1Mux_1_1MuxPacket_1a8e34e41963d62aa02343d4e45d2e5bb2" prot="public" virt="non-virtual"><scope>jac::Mux::MuxPacket</scope><name>space</name></member>
+      <member refid="classjac_1_1Packet_1af8edfae2c8552a3425ddcc3803f96ced" prot="public" virt="virtual"><scope>jac::Mux::MuxPacket</scope><name>~Packet</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

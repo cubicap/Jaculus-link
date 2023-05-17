@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1InputStream" kind="class" language="C++" prot="public" abstract="yes">
+    <compoundname>jac::InputStream</compoundname>
+    <derivedcompoundref refid="classjac_1_1Duplex" prot="public" virt="non-virtual">jac::Duplex</derivedcompoundref>
+    <includes refid="stream_8h" local="no">stream.h</includes>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1InputStream_1a07e2380a04b62a667afa0a21698986fa" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>int</type>
+        <definition>virtual int jac::InputStream::get</definition>
+        <argsstring>()=0</argsstring>
+        <name>get</name>
+        <reimplementedby refid="classjac_1_1Duplexify_1a549ce5abaf4b1c6542162801e5cbf4ab">get</reimplementedby>
+        <briefdescription>
+<para>Get a single byte from the stream. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This method should not block.</para>
+</simplesect>
+<simplesect kind="return"><para>The byte or -1 if no data is available </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/stream.h" line="24" column="17"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1InputStream_1a768b432b1e788e6ae6ffe271baaf032a" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>size_t</type>
+        <definition>virtual size_t jac::InputStream::read</definition>
+        <argsstring>(std::span&lt; uint8_t &gt; data)=0</argsstring>
+        <name>read</name>
+        <reimplementedby refid="classjac_1_1Duplexify_1adf8abf9d51f1373e05bf298878865558">read</reimplementedby>
+        <param>
+          <type>std::span&lt; uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+<para>Read data from the stream. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>This method should not block.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>data</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the buffer to read into </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of bytes read </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/stream.h" line="33" column="20"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1InputStream_1ae8772f2f4a81c1ea9d49b083755efdea" prot="public" static="no" const="no" explicit="no" inline="no" virt="pure-virtual">
+        <type>void</type>
+        <definition>virtual void jac::InputStream::onData</definition>
+        <argsstring>(std::function&lt; void(void)&gt;)=0</argsstring>
+        <name>onData</name>
+        <reimplementedby refid="classjac_1_1Duplexify_1a86bd512d14d51587e985fdac71830689">onData</reimplementedby>
+        <param>
+          <type>std::function&lt; void(void)&gt;</type>
+        </param>
+        <briefdescription>
+<para>Register a callback to be called when data is available. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="note"><para>The callback will not be called in parallel.</para>
+</simplesect>
+<parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>onData</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>the callback </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/stream.h" line="41" column="18"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1InputStream_1a70ab93ac8dcf00eb73799c28f2e7a9a7" prot="public" static="no" const="no" explicit="no" inline="no" virt="virtual">
+        <type></type>
+        <definition>virtual jac::InputStream::~InputStream</definition>
+        <argsstring>()=default</argsstring>
+        <name>~InputStream</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/stream.h" line="43" column="13"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Interface for a binary input stream. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>jac::Duplex</label>
+        <link refid="classjac_1_1Duplex"/>
+        <childnode refid="1" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="3">
+        <label>jac::Duplexify</label>
+        <link refid="classjac_1_1Duplexify"/>
+        <childnode refid="2" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="1">
+        <label>jac::InputStream</label>
+        <link refid="classjac_1_1InputStream"/>
+      </node>
+    </inheritancegraph>
+    <location file="src/jac/link/stream.h" line="16" column="1" bodyfile="src/jac/link/stream.h" bodystart="16" bodyend="44"/>
+    <listofallmembers>
+      <member refid="classjac_1_1InputStream_1a07e2380a04b62a667afa0a21698986fa" prot="public" virt="pure-virtual"><scope>jac::InputStream</scope><name>get</name></member>
+      <member refid="classjac_1_1InputStream_1ae8772f2f4a81c1ea9d49b083755efdea" prot="public" virt="pure-virtual"><scope>jac::InputStream</scope><name>onData</name></member>
+      <member refid="classjac_1_1InputStream_1a768b432b1e788e6ae6ffe271baaf032a" prot="public" virt="pure-virtual"><scope>jac::InputStream</scope><name>read</name></member>
+      <member refid="classjac_1_1InputStream_1a70ab93ac8dcf00eb73799c28f2e7a9a7" prot="public" virt="virtual"><scope>jac::InputStream</scope><name>~InputStream</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

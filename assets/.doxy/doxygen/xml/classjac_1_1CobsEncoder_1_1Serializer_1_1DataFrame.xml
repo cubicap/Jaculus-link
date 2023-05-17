@@ -1,0 +1,121 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.9.1" xml:lang="en-US">
+  <compounddef id="classjac_1_1CobsEncoder_1_1Serializer_1_1DataFrame" kind="class" language="C++" prot="private">
+    <compoundname>jac::CobsEncoder::Serializer::DataFrame</compoundname>
+    <basecompoundref prot="private" virt="non-virtual">jac::CobsEncoder::PacketStructure</basecompoundref>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="classjac_1_1CobsEncoder_1_1Serializer_1_1DataFrame_1ab9427275398a4491927b63cb2d67ee11" prot="private" static="no" mutable="no">
+        <type>size_t</type>
+        <definition>size_t jac::CobsEncoder::Serializer::DataFrame::_dataSize</definition>
+        <argsstring></argsstring>
+        <name>_dataSize</name>
+        <initializer>= 0</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="35" column="20" bodyfile="src/jac/link/encoders/cobs.h" bodystart="35" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="classjac_1_1CobsEncoder_1_1Serializer_1_1DataFrame_1a70731f69ff23998395d22e096d4c4666" prot="public" static="no" const="yes" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t jac::CobsEncoder::Serializer::DataFrame::size</definition>
+        <argsstring>() const</argsstring>
+        <name>size</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="37" column="20" bodyfile="src/jac/link/encoders/cobs.h" bodystart="37" bodyend="39"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1CobsEncoder_1_1Serializer_1_1DataFrame_1a38083fd4fdd38e27c5e44cb968a9a832" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool jac::CobsEncoder::Serializer::DataFrame::put</definition>
+        <argsstring>(uint8_t c)</argsstring>
+        <name>put</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="41" column="18" bodyfile="src/jac/link/encoders/cobs.h" bodystart="41" bodyend="47"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1CobsEncoder_1_1Serializer_1_1DataFrame_1a90d1bab70f41e46f4a8e53f27a64dc60" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>size_t</type>
+        <definition>size_t jac::CobsEncoder::Serializer::DataFrame::put</definition>
+        <argsstring>(std::span&lt; const uint8_t &gt; data)</argsstring>
+        <name>put</name>
+        <param>
+          <type>std::span&lt; const uint8_t &gt;</type>
+          <declname>data</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="49" column="20" bodyfile="src/jac/link/encoders/cobs.h" bodystart="49" bodyend="54"/>
+      </memberdef>
+      <memberdef kind="function" id="classjac_1_1CobsEncoder_1_1Serializer_1_1DataFrame_1ac7b9b743108787d95e86d85096c35592" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>std::span&lt; const uint8_t &gt;</type>
+        <definition>std::span&lt;const uint8_t&gt; jac::CobsEncoder::Serializer::DataFrame::finalize</definition>
+        <argsstring>(uint8_t channel)</argsstring>
+        <name>finalize</name>
+        <param>
+          <type>uint8_t</type>
+          <declname>channel</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="src/jac/link/encoders/cobs.h" line="56" column="23" bodyfile="src/jac/link/encoders/cobs.h" bodystart="56" bodyend="87"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="2">
+        <label>jac::CobsEncoder::PacketStructure</label>
+      </node>
+      <node id="1">
+        <label>jac::CobsEncoder::Serializer::DataFrame</label>
+        <childnode refid="2" relation="private-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="2">
+        <label>jac::CobsEncoder::PacketStructure</label>
+      </node>
+      <node id="1">
+        <label>jac::CobsEncoder::Serializer::DataFrame</label>
+        <childnode refid="2" relation="private-inheritance">
+        </childnode>
+      </node>
+    </collaborationgraph>
+    <location file="src/jac/link/encoders/cobs.h" line="34" column="9" bodyfile="src/jac/link/encoders/cobs.h" bodystart="34" bodyend="88"/>
+    <listofallmembers>
+      <member refid="classjac_1_1CobsEncoder_1_1Serializer_1_1DataFrame_1ab9427275398a4491927b63cb2d67ee11" prot="private" virt="non-virtual"><scope>jac::CobsEncoder::Serializer::DataFrame</scope><name>_dataSize</name></member>
+      <member refid="classjac_1_1CobsEncoder_1_1Serializer_1_1DataFrame_1ac7b9b743108787d95e86d85096c35592" prot="public" virt="non-virtual"><scope>jac::CobsEncoder::Serializer::DataFrame</scope><name>finalize</name></member>
+      <member refid="classjac_1_1CobsEncoder_1_1Serializer_1_1DataFrame_1a38083fd4fdd38e27c5e44cb968a9a832" prot="public" virt="non-virtual"><scope>jac::CobsEncoder::Serializer::DataFrame</scope><name>put</name></member>
+      <member refid="classjac_1_1CobsEncoder_1_1Serializer_1_1DataFrame_1a90d1bab70f41e46f4a8e53f27a64dc60" prot="public" virt="non-virtual"><scope>jac::CobsEncoder::Serializer::DataFrame</scope><name>put</name></member>
+      <member refid="classjac_1_1CobsEncoder_1_1Serializer_1_1DataFrame_1a70731f69ff23998395d22e096d4c4666" prot="public" virt="non-virtual"><scope>jac::CobsEncoder::Serializer::DataFrame</scope><name>size</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
