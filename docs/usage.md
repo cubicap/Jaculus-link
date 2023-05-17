@@ -19,7 +19,7 @@ The following code shows how to configure the whole communication stack and send
 
 using namespace jac;
 
-// Define a stream connection - read operations are non-blocking
+// Define a stream connection - read operations must be non-blocking
 class MyStream : public Duplex {
 public:
     int get() override { ... }
